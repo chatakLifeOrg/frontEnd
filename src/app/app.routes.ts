@@ -5,15 +5,15 @@ import { ProductPageComponent } from './components/product-page/product-page.com
 export const routes: Routes = [{
   path: '',
   pathMatch: 'prefix',
-  redirectTo: 'homePage/product'
+  redirectTo: 'homePage'
 }, {
   path: 'homePage',
   component: HomePageComponent,
   title: 'HomePage',
-  data: { breadcrumb: 'Home' },
 },
 {
   path: 'homePage',
+  data: { breadcrumb: 'Home' },
   children: [
     {
       path: 'product',
