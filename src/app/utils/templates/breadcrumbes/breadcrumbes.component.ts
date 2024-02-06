@@ -33,7 +33,6 @@ export class BreadcrumbesComponent {
     let label = route.routeConfig && route.routeConfig.data ? route.routeConfig.data['breadcrumb'] : '';
     let path = route.routeConfig && route.routeConfig.data ? route.routeConfig.path : '';
     const lastRoutePart = path!.split('/').pop();
-    console.log(lastRoutePart);
     const isDynamicRoute = lastRoutePart!.startsWith(':');
     if (isDynamicRoute && !!route.snapshot) {
       const paramName = lastRoutePart!.split(':')[1];

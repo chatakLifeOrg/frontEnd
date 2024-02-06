@@ -1,0 +1,87 @@
+.container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  height: max-content;
+  margin-top: 1%;
+  gap: 10px;
+}
+app-breadcrumbes {
+  display: flex;
+  width: 27%;
+  justify-content: center;
+}
+
+.product {
+  min-height: 77svh;
+  border: 3px solid;
+  background: #ffa0a0;
+  border-radius: 8px;
+  display: flex;
+  position: relative;
+  width: 55svh;
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  span {
+    position: absolute;
+    width: 4vh;
+    height: 4vh;
+    right: 13px;
+    background: white;
+    top: 10px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    svg {
+      width: auto;
+      cursor: pointer;
+    }
+  }
+}
+
+.productPreview {
+  display: flex;
+  gap: 5%;
+  margin-left: 19.7vh;
+  justify-content: flex-start;
+}
+
+.influencerAvatar {
+  height: 6svh;
+  border-radius: 50%;
+  width: 6svh;
+  background: #d9d9d9;
+  border: 2px solid;
+}
+
+.influencer {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  span {
+    color: #1967d2;
+    text-decoration: underline;
+  }
+}
+
+.productDetails {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.productDetails > span:not(.influencer) {
+  font-family: var(--fontProduct);
+  font-size: 24px;
+  color: #e82323;
+}
+
+.ratings {
+  display: flex;
+  gap: 10px;
+}

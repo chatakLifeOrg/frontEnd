@@ -1,42 +1,64 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+    /* If you want to implement it in very old browser-versions */
+    -webkit-user-select: none; /* Chrome/Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+ */
+  
+    /* The rule below is not implemented in browsers yet */
+    -o-user-select: none;
+  
+    /* The rule below is implemented in most browsers by now */
+    user-select: none;
+}
 
-*{
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+* {
   padding: 0;
   margin: 0;
 }
 
-
 :root {
   --white: white;
-  --fontNavbar: Montserrat;
-  --fontSize:16px;
-  --fontlowerNavbar:'Irish Grover', sans-serif;
+  --fontNavbar: "Montserrat", sans-serif;
+  --fontSize: 16px;
+  --fontProduct: "Komika Axis",sans-serif;
+  --fontlowerNavbar: "Irish Grover", sans-serif;
 }
 
 @font-face {
-  font-family: 'Irish Grover';
-  src: url('./assets/fonts/IrishGrover-Regular.ttf');
+  font-family: "Irish Grover";
+  src: url("./assets/fonts/IrishGrover-Regular.ttf");
 }
 
 @font-face {
-  font-family: 'Montserrat Italic';
-  src: url('./assets/fonts/Montserrat-Italic-VariableFont_wght.ttf');
+  font-family: "Montserrat Italic";
+  src: url("./assets/fonts/Montserrat-Italic-VariableFont_wght.ttf");
 }
 
 @font-face {
-  font-family: 'Montserrat';
-  src: url('./assets/fonts/Montserrat-VariableFont_wght.ttf');
+  font-family: "Montserrat";
+  src: url("./assets/fonts/Montserrat-VariableFont_wght.ttf");
 }
 
 @font-face {
-  font-family: 'Jaldi';
-  src: url('./assets/fonts/Jaldi-Bold.ttf') format('truetype');
+  font-family: "Jaldi";
+  src: url("./assets/fonts/Jaldi-Bold.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: 'Jaldi';
-  src: url('./assets/fonts/Jaldi-Regular.ttf') format('truetype');
+  font-family: "Jaldi";
+  src: url("./assets/fonts/Jaldi-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Komika Axis";
+  src: url("./assets/fonts/KOMIKAX_.ttf") format("truetype");
 }
