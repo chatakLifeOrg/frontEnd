@@ -1,0 +1,100 @@
+mat-grid-list mat-grid-tile:nth-child(1) {
+  border-bottom: 3px solid;
+  background: #ed4444;
+}
+
+.navBar{
+  display: flex;
+  width: 83.5%;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.navBar span {
+  font-family: var(--fontNavbar);
+  color: var(--white);
+  font-weight: 800;
+  font-size: var(--fontSize);
+}
+
+.navbarOptions{
+  display: flex;
+  gap: 25px;
+  padding-right: 50px;
+  cursor: pointer;
+}
+
+mat-grid-list mat-grid-tile:nth-child(2) {
+  border-bottom: 5px solid;
+  background: #fff0c8;
+}
+
+.lowerNavbar{
+  display: flex;
+  width: 92%;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.lowerNavbar > span{
+  font-family: var(--fontlowerNavbar);
+  font-size: 40px;
+  color: #ED4444;
+}
+
+.navbarButtons {
+  display: flex;
+  gap: 40px;
+  font-family: var(--fontNavbar);
+  font-weight: 500;
+  color: #444444;
+  cursor: pointer;
+}
+
+.navbarIcons,.cartsWrapper,.heartsWrapper {
+  position: relative;
+  display: flex;
+}
+
+.navbarIcons img {
+  cursor: pointer;
+}
+
+.cartsWrapper, .heartsWrapper {
+  text-align: center;
+  color: white;
+}
+
+.navbarIcons, .cartsWrapper, .heartsWrapper {
+  position: relative;
+  display: flex;
+}
+
+.heartsWrapper::before {
+  content: attr(hearts);
+}
+
+.cartsWrapper::before, .heartsWrapper::before {
+  position: absolute;
+  height: 17px;
+  font-family: "Jaldi", sans-serif;
+  width: 17px;
+  background: red;
+  top: -8px;
+  left: 21px;
+  border-radius: 50%;
+}
+
+.cartsWrapper::before {
+  content: attr(carts);
+}
+
+.heartsWrapper[hearts='0']::before,
+.cartsWrapper[carts='0']::before {
+  content: None;
+}
+
+.navbarIcons{
+  gap: 25px;
+  padding-right: 45px;
+}

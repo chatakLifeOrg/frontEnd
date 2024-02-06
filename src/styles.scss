@@ -1,1 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+*{
+  padding: 0;
+  margin: 0;
+}
+
+
+:root {
+  --white: white;
+  --fontNavbar: Montserrat;
+  --fontSize:16px;
+  --fontlowerNavbar:'Irish Grover', sans-serif;
+}
+
+@font-face {
+  font-family: 'Irish Grover';
+  src: url('./assets/fonts/IrishGrover-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Montserrat Italic';
+  src: url('./assets/fonts/Montserrat-Italic-VariableFont_wght.ttf');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./assets/fonts/Montserrat-VariableFont_wght.ttf');
+}
+
+@font-face {
+  font-family: 'Jaldi';
+  src: url('./assets/fonts/Jaldi-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Jaldi';
+  src: url('./assets/fonts/Jaldi-Regular.ttf') format('truetype');
+}
