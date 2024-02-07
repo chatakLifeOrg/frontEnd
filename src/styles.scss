@@ -7,13 +7,21 @@ body {
     -webkit-user-select: none; /* Chrome/Safari */
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* IE10+ */
-  
+
     /* The rule below is not implemented in browsers yet */
     -o-user-select: none;
-  
+
     /* The rule below is implemented in most browsers by now */
-    user-select: none;
+  scrollbar-width: none;  /* Firefox */
+  scrollbar-width: none;  /* Firefox */
+  user-select: none;
 }
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
 
 body {
   margin: 0;

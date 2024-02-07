@@ -85,3 +85,93 @@ app-breadcrumbes {
   display: flex;
   gap: 10px;
 }
+
+.fontMontserrat {
+  font-family: var(--fontNavbar) !important;
+  margin: 0px;
+  color: #302f2f !important;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.smallerFont {
+  font-size: 14px !important;
+}
+
+.ratings span:last-child {
+  color: green;
+}
+
+.productData div:nth-child(2) {
+  width: 40%;
+  font-size: 14px;
+  word-wrap: normal;
+  color: gray;
+}
+
+hr {
+  margin-top: 30px;
+  width: 60%;
+  margin-bottom: 25px;
+  color: gray;
+}
+
+.colorPicker {
+  display: flex;
+  gap: 25px;
+}
+
+.sizeBox,.sizeChart,
+.colors {
+  display: flex;
+  gap: 10px;
+}
+
+.chartConatiner {
+  margin-top: 20px;
+  box-shadow: 1px 2px 0px 3px black;
+  border-radius: 7px 6px 10px 10px;
+  width: 75vh;
+}
+
+.sizeChart {
+  padding-top: 17px;
+  cursor: pointer;
+}
+
+.chartBox {
+  width: fit-content;
+  .Chart {
+    background: #ed4444;
+    border-radius: 7px 5px 0px 0px;
+  }
+  .sizeAdjustment {
+    width: 100%;
+  }
+}
+
+.colors div {
+  border-radius: 50%;
+  width: 2vh;
+  height: 2vh;
+  border: 2px solid white;
+  box-shadow: 0 0 0 2px black;
+  cursor: pointer;
+}
+
+.size {
+  display: flex;
+  gap: 25px;
+  margin-top: 25px;
+  align-items: center;
+}
+
+.sizeBox div{
+  box-shadow: 1px 1px 1px 1px #070707;
+  height: 30px;
+  width: 30px;
+  border-radius: 5px;
+  line-height: 30px;
+  text-align: center;
+  cursor: pointer;
+}

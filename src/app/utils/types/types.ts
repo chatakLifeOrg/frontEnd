@@ -7,3 +7,7 @@ export interface IBreadCrumb {
   label: string;
   url: string;
 }
+
+export interface colour{
+  colour:string;
+}
