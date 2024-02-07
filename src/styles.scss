@@ -3,18 +3,17 @@
 html,
 body {
   height: 100%;
-    /* If you want to implement it in very old browser-versions */
-    -webkit-user-select: none; /* Chrome/Safari */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* IE10+ */
+    // /* If you want to implement it in very old browser-versions */
+    // -webkit-user-select: none; /* Chrome/Safari */
+    // -moz-user-select: none; /* Firefox */
+    // -ms-user-select: none; /* IE10+ */
 
-    /* The rule below is not implemented in browsers yet */
-    -o-user-select: none;
+    // /* The rule below is not implemented in browsers yet */
+    // -o-user-select: none;
 
     /* The rule below is implemented in most browsers by now */
   scrollbar-width: none;  /* Firefox */
   scrollbar-width: none;  /* Firefox */
-  user-select: none;
 }
 html::-webkit-scrollbar,
 body::-webkit-scrollbar {

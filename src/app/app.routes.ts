@@ -1,7 +1,4 @@
 import { Routes } from '@angular/router';
-import { HomePageComponent } from './components/home-page/home-page.component';
-import { ProductPageComponent } from './components/product-page/product-page.component';
-import { CategoryComponent } from './components/category/category.component';
 
 export const routes: Routes = [{
   path: '',
@@ -9,7 +6,7 @@ export const routes: Routes = [{
   redirectTo: 'homePage'
 }, {
   path: 'homePage',
-  component: HomePageComponent,
+  loadComponent: () => import('./components/home-page/home-page.component').then(mod => mod.HomePageComponent),
   title: 'HomePage',
 },
 {
@@ -19,19 +16,19 @@ export const routes: Routes = [{
   children: [
     {
       path: 'category',
-      component: CategoryComponent,
       pathMatch: 'prefix',
       title: 'Category',
-    },{
-      path:'category',
-      data: { breadcrumb:'Category' },
+      loadComponent: () => import('./components/category/category.component').then(mod => mod.CategoryComponent)
+    }, {
+      path: 'category',
+      data: { breadcrumb: 'Category' },
       children: [
         {
           path: 'product',
-          component: ProductPageComponent,
           pathMatch: 'prefix',
           title: 'Product',
           data: { breadcrumb: 'Product' },
+          loadComponent: () => import('./components/product-page/product-page.component').then(mod => mod.ProductPageComponent)
         }
       ]
     }

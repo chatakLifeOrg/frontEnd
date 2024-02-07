@@ -16,6 +16,16 @@ import { colour } from '../../utils/types/types';
   styleUrl: './product-page.component.scss'
 })
 export class ProductPageComponent implements OnInit {
+  public productDetails: any = {
+    "Material Composition": "Pure Cotton",
+    "Pattern": "Printed",
+    "Length": "Standard Length",
+    "Material Type": "Cotton Blend",
+    "Sleeve Type": "Half Sleeve",
+    "Number of items": 1,
+    "Country of Origin": "India"
+  }
+  public productkeys: Array<string> = Object.keys(this.productDetails);
   public colors: Array<colour> = [
     {
       colour: "red"
@@ -43,20 +53,16 @@ export class ProductPageComponent implements OnInit {
 
   }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 
   addRating(i: number) {
     const ratingElements = this.el.nativeElement.querySelectorAll('.ratingImg');
     const newImg = '../../../assets/goldStar.svg';
     const deselectedImg = '../../../assets/star.svg';
 
-    // Toggle the selected state of the clicked star
     const clickedImgSrc = ratingElements[i].getAttribute('src');
     const isClickedSelected = clickedImgSrc === newImg;
 
-    // Update the rating images
     for (let index = 0; index < ratingElements.length; index++) {
       if (index <= i) {
         ratingElements[index].setAttribute('src', newImg);
@@ -64,7 +70,6 @@ export class ProductPageComponent implements OnInit {
         ratingElements[index].setAttribute('src', deselectedImg);
       }
     }
-    // Update the oldIndex
   }
 
   addWishList() {
