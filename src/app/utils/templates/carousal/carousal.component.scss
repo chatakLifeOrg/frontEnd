@@ -1,8 +1,6 @@
-img {
-  width: 100%;
-  object-fit: contain;
+* {
+  user-select: none;
 }
-
 .slide {
   width: 27svh;
   background: #efeaea;
@@ -10,6 +8,10 @@ img {
   height: 16svh;
   border-radius: 15px;
   left: 0;
+  img {
+    width: 100%;
+    object-fit: contain;
+  }
 }
 
 .contianer {
@@ -28,10 +30,10 @@ img {
   transition: all 0.5s;
   position: relative;
   left: 0;
+  overflow: hidden;
 }
 
 .buttons {
-  font-size: 25px;
   height: 3vh;
   width: 3vh;
   line-height: 3vh;
@@ -44,18 +46,28 @@ img {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  img {
+    height: 15px;
+    top: 6px;
+    left: 8.5px;
+    position: absolute;
+  }
 }
 
 .lowerThan {
   left: 5px;
   display: none;
+  img {
+    transform: rotateZ(178deg);
+    left: 6px;
+    top: 5px;
+  }
 }
 
 .greaterThan {
-  right: 127px;
+  right: 145px;
 }
 
 .active-slide {
-  // background: red;
   border: 1px solid;
 }

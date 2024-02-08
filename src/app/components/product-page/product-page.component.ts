@@ -1,9 +1,16 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { NavbarComponent } from '../../utils/templates/navbar/navbar.component';
 import { BreadcrumbesComponent } from '../../utils/templates/breadcrumbes/breadcrumbes.component';
 import { colour } from '../../utils/types/types';
 import { CarousalComponent } from '../../utils/templates/carousal/carousal.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpsService } from '../../service/http/https.service';
+import { lastValueFrom } from 'rxjs';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { KeyFilterModule } from 'primeng/keyfilter';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-product-page',
@@ -12,8 +19,14 @@ import { CarousalComponent } from '../../utils/templates/carousal/carousal.compo
     MatGridListModule,
     NavbarComponent,
     BreadcrumbesComponent,
-    CarousalComponent
+    CarousalComponent,
+    HttpClientModule,
+    FormsModule,
+    KeyFilterModule,
+    InputNumberModule,
+    ReactiveFormsModule,
   ],
+  providers: [HttpsService],
   templateUrl: './product-page.component.html',
   styleUrl: './product-page.component.scss'
 })
@@ -51,11 +64,62 @@ export class ProductPageComponent implements OnInit {
     { size: '4X', range: '52-54', value1: '31', value2: '20' }
   ];
   public isChartOpen: boolean = false
-  constructor(private el: ElementRef) {
+  public pincode!: FormGroup;
+  public inputCheck:boolean = false
+  constructor(
+    private el: ElementRef,
+    private httpService: HttpsService,
+    private fb: FormBuilder,
+    private _snackBar: MatSnackBar,
+    private renderer:Renderer2
+  ) {
 
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.pincode = this.fb.group({
+      pincode: ['', [Validators.required]]
+    });
+  }
+
+  async getPincodeData() {
+    const inputValue = this.pincode.controls['pincode'].value;
+    const regex = new RegExp('^[0-9]*$');
+    const match = regex.test(inputValue);
+    const inputElement = this.el.nativeElement.querySelector('.input')
+    if (inputValue.length === 6 && match) {
+      const data = await lastValueFrom(this.httpService.checkPinCode(inputValue));
+      if (data[0].Status === 'Error') {
+        this._snackBar.open(data[0].Message, 'Close', {
+          duration: 2000,
+          politeness: 'polite',
+          horizontalPosition: 'right',
+          verticalPosition: 'top'
+        });
+        return
+      }
+      this.inputCheck = true
+      const text = data[0].PostOffice[0].Circle + " - " + inputValue  
+      inputElement.style.width = '130px'
+      this.pincode.patchValue({
+        pincode: text
+      });
+      return
+    } else if (inputValue.length > 0 && !match) {
+      inputElement.style.width = '115px'
+      this.pincode.patchValue({
+        pincode: ''
+      });
+      this._snackBar.open('Invalid Input', 'Close', {
+        duration: 2000,
+        politeness: 'polite',
+        horizontalPosition: 'right',
+        verticalPosition: 'top'
+      });
+    }
+  }
+
+
 
   addRating(i: number) {
     const ratingElements = this.el.nativeElement.querySelectorAll('.ratingImg');
