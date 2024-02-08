@@ -21,7 +21,7 @@ img {
 .slider-container {
   display: flex;
   gap: 15px;
-  height: 15svw;
+  height: fit-content;
   width: 36.5svw;
   padding-top: 2vh;
   scroll-snap-type: x mandatory;
@@ -42,7 +42,7 @@ img {
   box-shadow: 0px 1px 1px 1px black;
   cursor: pointer;
   position: absolute;
-  top: 34%;
+  top: 50%;
   transform: translateY(-50%);
 }
 

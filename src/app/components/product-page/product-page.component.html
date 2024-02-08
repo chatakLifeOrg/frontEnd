@@ -15,9 +15,18 @@
         <img src="../../../assets/shirt.svg" alt="" />
       </div>
       <div class="extraProducts">
-        <app-carousal></app-carousal>
+        @defer {
+          <app-carousal></app-carousal>
+        }
       </div>
-      <div class="buttons"></div>
+      <div class="buttons">
+        <div class="addTocart fontMontserrat buttonSize">
+          <span>Add To Cart</span>
+        </div>
+        <div class="buyNow fontMontserrat buttonSize">
+          <span>Buy Now</span>
+        </div>
+      </div>
     </div>
     <div class="productDetails">
       <div class="influencer">
@@ -120,6 +129,13 @@
         </div>
       </div>
       <hr />
+      <div class="policy">
+        <div class="policyType">
+
+        </div>
+        <div class="policyType"></div>
+        <div class="policyType"></div>
+      </div>
     </div>
   </div>
 </div>

@@ -247,3 +247,29 @@ hr {
   overflow-x: hidden;
   width: 28.3svw;
 }
+
+.buttons {
+  display: flex;
+  padding-top: 25px;
+  gap: 15px;
+}
+
+.addTocart {
+  background: #1967d2;
+}
+
+.buyNow{
+  background: #ED4444;
+}
+
+.buttonSize {
+  width: 13.6svw;
+  height: 2.5svw;
+  border-radius: 9px;
+  color: white !important;
+  font-size: 22px !important;
+  box-shadow: 1px 1px 0px 2px black;
+  line-height: 2.5svw;
+  text-align: center;
+  text-shadow: 3px 0px black;
+}

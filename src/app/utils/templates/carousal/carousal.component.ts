@@ -21,7 +21,7 @@ export class CarousalComponent implements AfterViewInit {
 
   next() {
     const slides = this.el.nativeElement.querySelectorAll('.slide')
-    if (this.count < slides.length - 1) {
+    if (this.count < slides.length) {
       this.count++;
       this.slide(this.count);
     }
@@ -40,11 +40,10 @@ export class CarousalComponent implements AfterViewInit {
         element.classList.remove('active-slide');
       }
     });
-    console.log(slides);
-    if (i === slides.length - 1) {
-      next.style.display = "none";
-    } else {
-      next.style.display = "flex";
+    if (i === slides.length) {
+      prev.style.display = "none";
+      this.slide(this.count = 0);
+      return
     }
     if (i === 0) {
       prev.style.display = "none";
