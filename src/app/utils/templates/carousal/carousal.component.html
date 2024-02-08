@@ -1,0 +1,15 @@
+<div class="contianer">
+  <div class="slider-container">
+    @for (item of [1,2,3,4,5]; track $index) {
+    <div class="slide">
+      <img [src]="path" alt="">
+    </div>
+    }
+  </div>
+  <div (click)="prevSlide()" class="buttons lowerThan">
+    <p>&lt;</p>
+  </div>
+  <div (click)="next()" class="buttons greaterThan">
+    <p>&gt;</p>
+  </div>
+</div>

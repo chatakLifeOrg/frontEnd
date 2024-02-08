@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { CarousalComponent } from '../../utils/templates/carousal/carousal.component';
 
 @Component({
   selector: 'app-home-page',

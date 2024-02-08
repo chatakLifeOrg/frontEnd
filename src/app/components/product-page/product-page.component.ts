@@ -3,6 +3,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { NavbarComponent } from '../../utils/templates/navbar/navbar.component';
 import { BreadcrumbesComponent } from '../../utils/templates/breadcrumbes/breadcrumbes.component';
 import { colour } from '../../utils/types/types';
+import { CarousalComponent } from '../../utils/templates/carousal/carousal.component';
 
 @Component({
   selector: 'app-product-page',
@@ -11,6 +12,7 @@ import { colour } from '../../utils/types/types';
     MatGridListModule,
     NavbarComponent,
     BreadcrumbesComponent,
+    CarousalComponent
   ],
   templateUrl: './product-page.component.html',
   styleUrl: './product-page.component.scss'
