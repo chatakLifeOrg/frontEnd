@@ -2,7 +2,6 @@
 @import "primeng/resources/themes/lara-light-blue/theme.css";
 @import "primeng/resources/primeng.css";
 
-
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -10,28 +9,35 @@ input::-webkit-inner-spin-button {
 }
 
 /* Firefox */
-input[type=number] {
+input[type="number"] {
   -moz-appearance: textfield;
 }
 
 html,
 body {
   height: 100%;
-    // /* If you want to implement it in very old browser-versions */
-    // -webkit-user-select: none; /* Chrome/Safari */
-    // -moz-user-select: none; /* Firefox */
-    // -ms-user-select: none; /* IE10+ */
+  // /* If you want to implement it in very old browser-versions */
+  // -webkit-user-select: none; /* Chrome/Safari */
+  // -moz-user-select: none; /* Firefox */
+  // -ms-user-select: none; /* IE10+ */
 
-    // /* The rule below is not implemented in browsers yet */
-    // -o-user-select: none;
+  // /* The rule below is not implemented in browsers yet */
+  // -o-user-select: none;
 
-    /* The rule below is implemented in most browsers by now */
-  scrollbar-width: none;  /* Firefox */
-  scrollbar-width: none;  /* Firefox */
+  /* The rule below is implemented in most browsers by now */
+  scrollbar-width: none; /* Firefox */
+  scrollbar-width: none; /* Firefox */
 }
 html::-webkit-scrollbar,
 body::-webkit-scrollbar {
   display: none;
+}
+
+.modalPopup {
+  box-shadow: 3px 3px 0px 3px black;
+  border-top: 2px solid;
+  border-radius: 7px;
+  border-left: 2px solid;
 }
 
 /* Hide scrollbar for IE, Edge and Firefox */
@@ -48,9 +54,10 @@ body {
 
 :root {
   --white: white;
-  --fontNavbar: "Montserrat", sans-serif;
+  --black: black;
+  --fontNavbar: "Montserrat";
   --fontSize: 16px;
-  --fontProduct: "Komika Axis",sans-serif;
+  --fontProduct: "Komika Axis", sans-serif;
   --fontlowerNavbar: "Irish Grover", sans-serif;
 }
 

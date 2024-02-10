@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, } from '@angular/core';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { NavbarComponent } from '../../utils/templates/navbar/navbar.component';
 import { BreadcrumbesComponent } from '../../utils/templates/breadcrumbes/breadcrumbes.component';
@@ -11,7 +11,14 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { KeyFilterModule } from 'primeng/keyfilter';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { MatSnackBar } from '@angular/material/snack-bar';
-
+import { DialogComponent } from '../../utils/dialog/reviewDialog/dialog.component';
+import {
+  MatDialog,
+  MatDialogActions,
+  MatDialogClose,
+  MatDialogTitle,
+  MatDialogContent,
+} from '@angular/material/dialog';
 @Component({
   selector: 'app-product-page',
   standalone: true,
@@ -25,12 +32,13 @@ import { MatSnackBar } from '@angular/material/snack-bar';
     KeyFilterModule,
     InputNumberModule,
     ReactiveFormsModule,
+    MatDialogActions, MatDialogClose, MatDialogTitle, MatDialogContent
   ],
   providers: [HttpsService],
   templateUrl: './product-page.component.html',
   styleUrl: './product-page.component.scss'
 })
-export class ProductPageComponent implements OnInit {
+export class ProductPageComponent implements AfterViewInit {
   public productDetails: any = {
     "Material Composition": "Pure Cotton",
     "Pattern": "Printed",
@@ -54,6 +62,7 @@ export class ProductPageComponent implements OnInit {
       colour: "purple"
     },
   ]
+  public productOptions = ['#FF8B8B', '#F7FF6D', '#5BFF89', '#A8B1FF', '#F7FF6D']
   public sizes = [
     { size: 'S', range: '32-34', value1: '27', value2: '16.5' },
     { size: 'M', range: '36-38', value1: '27', value2: '17.0' },
@@ -63,23 +72,45 @@ export class ProductPageComponent implements OnInit {
     { size: 'S', range: '52-54', value1: '30', value2: '19.5' },
     { size: '4X', range: '52-54', value1: '31', value2: '20' }
   ];
+
+  public ratingBarData: Array<any> = [
+    {
+      percentage: '50%',
+      stars: '5 Star'
+    }, {
+      percentage: '20%',
+      stars: '4 Star'
+    }, {
+      percentage: '10%',
+      stars: '3 Star'
+    }, {
+      percentage: '14%',
+      stars: '2 Star'
+    }, {
+      percentage: '6%',
+      stars: '1 Star'
+    },]
+
   public isChartOpen: boolean = false
   public pincode!: FormGroup;
-  public inputCheck:boolean = false
+  public inputCheck: boolean = false
+  public imageArray: Array<any> = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
   constructor(
     private el: ElementRef,
     private httpService: HttpsService,
     private fb: FormBuilder,
     private _snackBar: MatSnackBar,
-    private renderer:Renderer2
+    private dialogService: MatDialog
   ) {
 
   }
-
-  ngOnInit() {
+  ngAfterViewInit(): void {
     this.pincode = this.fb.group({
       pincode: ['', [Validators.required]]
     });
+    const imageBox = this.el.nativeElement.querySelector('.reviewImageBox #after')
+    imageBox.setAttribute('itemLeft',`+${this.imageArray.length - 4}`)
+    console.log(imageBox);
   }
 
   async getPincodeData() {
@@ -99,7 +130,7 @@ export class ProductPageComponent implements OnInit {
         return
       }
       this.inputCheck = true
-      const text = data[0].PostOffice[0].Circle + " - " + inputValue  
+      const text = data[0].PostOffice[0].Circle + " - " + inputValue
       inputElement.style.width = '130px'
       this.pincode.patchValue({
         pincode: text
@@ -119,16 +150,26 @@ export class ProductPageComponent implements OnInit {
     }
   }
 
+  openDialogbox() {
+    this.dialogService.open(DialogComponent, {
+      height: '28vw',
+      width: '43vw',
+      closeOnNavigation: true,
+      hasBackdrop: true,
+      panelClass: 'modalPopup',
+      enterAnimationDuration: '150ms'
+    })
+
+  }
 
 
-  addRating(i: number) {
-    const ratingElements = this.el.nativeElement.querySelectorAll('.ratingImg');
+
+  addRating(i: number, className: string) {
+    const ratingElements = this.el.nativeElement.querySelectorAll(`.${className}`);
     const newImg = '../../../assets/goldStar.svg';
     const deselectedImg = '../../../assets/star.svg';
-
     const clickedImgSrc = ratingElements[i].getAttribute('src');
     const isClickedSelected = clickedImgSrc === newImg;
-
     for (let index = 0; index < ratingElements.length; index++) {
       if (index <= i) {
         ratingElements[index].setAttribute('src', newImg);
@@ -138,11 +179,12 @@ export class ProductPageComponent implements OnInit {
     }
   }
 
-  addWishList() {
-    const element = this.el.nativeElement.querySelector('.wishlist')
-    const isRed = element.getAttribute('fill') === 'red'
-    if (!isRed) element.setAttribute('fill', 'red')
-    else element.setAttribute('fill', 'none')
+  addWishList(index?:number) {
+    const element = index?this.el.nativeElement.querySelectorAll('.wishlistcard'):this.el.nativeElement.querySelector('.wishlist')
+    console.log(index,element);
+    const isRed = index?element[index - 1].getAttribute('fill') === 'red':element.getAttribute('fill') === 'red'
+    if (!isRed) index?element[index - 1].setAttribute('fill', 'red'):element.setAttribute('fill', 'red') 
+    else index?element[index - 1].setAttribute('fill', 'none'):element.setAttribute('fill', 'none')
   }
 
 }

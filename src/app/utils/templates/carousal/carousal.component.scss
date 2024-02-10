@@ -24,7 +24,7 @@
   display: flex;
   gap: 15px;
   height: fit-content;
-  width: 36.5svw;
+  width: 34.5svw;
   padding-top: 2vh;
   scroll-snap-type: x mandatory;
   transition: all 0.5s;
@@ -34,38 +34,37 @@
 }
 
 .buttons {
-  height: 3vh;
-  width: 3vh;
-  line-height: 3vh;
+  height: 3.5vh;
+  width: 3.5vh;
   display: flex;
-  background: #b7b0b0a6;
+  background: rgba(183, 176, 176, 0.6509803922);
   border-radius: 50%;
   justify-content: center;
   box-shadow: 0px 1px 1px 1px black;
   cursor: pointer;
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 55%;
+  transform: translate(-50%,-50%);
+  align-items: center;
   img {
     height: 15px;
-    top: 6px;
-    left: 8.5px;
-    position: absolute;
+    margin-left: 2px;
   }
 }
 
 .lowerThan {
-  left: 5px;
+  left: 17px;
   display: none;
   img {
     transform: rotateZ(178deg);
     left: 6px;
     top: 5px;
+    margin-left: 0px;
   }
 }
 
 .greaterThan {
-  right: 145px;
+  left: 75%;
 }
 
 .active-slide {
