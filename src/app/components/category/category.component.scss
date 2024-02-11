@@ -1,0 +1,215 @@
+.container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  height: max-content;
+  margin-top: 1%;
+  gap: 10px;
+}
+
+app-breadcrumbes {
+  display: flex;
+  width: 27%;
+  justify-content: center;
+}
+
+.category {
+  min-height: 50svh;
+  background: yellow;
+  display: flex;
+  margin-top: -7px;
+  position: relative;
+  width: 100%;
+}
+
+.categoryPreview {
+  background: transparent;
+  display: flex;
+  position: relative;
+  width: 100%;
+}
+
+.categoryPreviewLeft {
+  position: relative;
+  width: 21%;
+  margin-left: 19.7vh;
+  justify-content: flex-start;
+  .categoryHeading {
+    font-size: 20px !important;
+    color:#1C1C1B;
+    font-weight: 500;
+    text-shadow: 2px 3px 2px rgba(0, 0, 0, 0.5);
+  }
+  div:nth-child(2) {
+    font-size: 20px !important;
+    color: #1C1C1B;
+    font-weight: 700;
+    font-family: var(--fontNavbar) !important;
+  }
+  hr {
+    height: .5px;
+    background-color: gray;
+  }
+  
+.checkBoxsAndNames .input-label-pair {
+  display: flex;
+  margin-bottom: 13px!important;
+  
+}
+
+.checkBoxsAndNames input[type="checkbox"] {
+ height: 20px;
+ width: 20px;
+  margin-right: 10px; 
+}
+
+.checkBoxsAndNames label {
+  font-size: 17px !important;
+  color: black;
+  font-weight: 400;
+  font-family: var(--fontNavbar) !important;
+}
+  .categoryProducts {
+    background-color: red;
+    height: 30px;
+    padding-left: 3px;
+    padding-right: 3px;
+    color: white;
+    font-family: var(--fontNavbar);
+    margin-top: 10px;
+    border: 1px solid black;
+    border-radius: 4px;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    margin-top: 15px;
+  }
+  .checkBoxsAndRating .input-label-pair {
+    display: flex;
+    
+  }
+  
+  .checkBoxsAndRating input[type="checkbox"] {
+   height: 25px;
+   width: 25px;
+    margin-right: 10px; 
+    margin-top: 3px;
+  }
+}
+
+.categoryPreviewRight {
+  display: flex;
+  position: relative;
+  width: 79%;
+  margin-left: 13px;
+  margin-right: 19.7vh;
+ margin-top:14.7vh;
+  justify-content: flex-start;
+  .catSelector{
+    justify-self: end;
+    position: absolute;
+    right: 10px;
+    margin-top: -55px;
+  }
+  select{
+    width: 32.5svh;
+    font-size: 15px;
+    font-weight: 400;
+    font-family: var(--fontNavbar) !important;
+    border: 1px solid gray;
+    padding: 8px;
+    border-radius: 4px;
+    border-radius: 5px;
+    height: 35px;
+    margin-bottom: 15px;
+  }
+}
+
+.card {
+  min-height: 30svh;
+  // background: red;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.categoryItem {
+  margin: 10px;
+  width: 30.2svh;
+  .categoryItemInner {
+    min-height: 10svh;
+    background: #ffa0a0;
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 2px 2px 2px 2px black;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  span {
+    position: absolute;
+    width: 5vh;
+    height: 5vh;
+    right: 13px;
+    background: white;
+    top: 10px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    svg {
+      width: auto;
+      cursor: pointer;
+    }
+  }
+}
+
+.categoryItemText {
+  .ItemText1 {
+    font-family: var(--fontProduct);
+    font-size: 13px;
+    color: #333;
+    margin-top: 10px;
+  }
+
+  .ItemText2 {
+    display: flex;
+    align-items: center;
+    color: #1967d2;
+    text-decoration: underline;
+  }
+
+  .ItemText3 {
+    display: flex;
+    align-items: center;
+    color: red;
+  }
+
+  s {
+    color: gray
+  }
+
+  b {
+    color: green;
+  }
+}
+
+.ratings {
+  display: flex;
+  gap: 1px;
+height: 30px;
+width: 20px;
+  p {
+    font-size: 10px;
+  }
+}

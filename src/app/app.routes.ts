@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { ProductPageComponent } from './components/product-page/product-page.component';
-import { CategoryComponent } from './components/category/category.component';
+import { CategoryPageComponent } from './components/category/category.component';
 
 export const routes: Routes = [{
   path: '',
@@ -19,7 +19,7 @@ export const routes: Routes = [{
   children: [
     {
       path: 'category',
-      component: CategoryComponent,
+      component: CategoryPageComponent,
       pathMatch: 'prefix',
       title: 'Category',
     },{
