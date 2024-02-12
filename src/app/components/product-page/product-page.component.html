@@ -43,7 +43,7 @@
           @for (item of [1, 2, 3, 4, 5]; track $index;) {
           <img class="ratingImg" (click)="addRating($index,'ratingImg')" src="../../../assets/star.svg" alt="" />
           }
-          <span class="fontMontserrat smallerFont" style="color: gray !important">(150 Review)
+          <span class="fontMontserrat smallerFont" style="color: gray ">(150 Review)
           </span>
           <span>|</span>
           <span class="fontMontserrat smallerFont">In Stock</span>
@@ -68,7 +68,7 @@
         </div>
         <div class="chartBox">
           <div (click)="isChartOpen = !isChartOpen" class="sizeChart">
-            <span class="fontMontserrat sizeChartButton" style="color: green !important;font-size: 18px;">Size
+            <span class="fontMontserrat sizeChartButton" style="color: green ;font-size: 18px;">Size
               Chart</span>
             <img src="../../../assets/arrowDown.svg" alt="" />
           </div>
@@ -109,7 +109,7 @@
         </div>
         <hr />
         <div class="pricePannel">
-          <div class="offerButton fontMontserrat" style="color: white !important">
+          <div class="offerButton fontMontserrat" style="color: white ">
             <span>Special Price</span>
           </div>
           <div class="price fontMontserrat">
@@ -150,13 +150,13 @@
             </div>
             @if (inputCheck) {
             <div class="savedAddress">
-              <span class="fontMontserrat" style="font-size: 12px;color: #B0AAAA !important;">Select from saved
+              <span class="fontMontserrat" style="font-size: 12px;color: #B0AAAA ;">Select from saved
                 addresses:</span>
               @for (item of [1,2]; track $index) {
               <div class="address fontMontserrat">
-                <span style="font-size: 10px;color: black !important;">Customer Name,</span>
-                <span style="font-size: 10px;color: #B0AAAA !important;"> abc xxxx xxx xxxx xx.....</span>
-                <span style="font-size: 10px;color: #747070 !important;">HOME</span>
+                <span style="font-size: 10px;color: black ;">Customer Name,</span>
+                <span style="font-size: 10px;color: #B0AAAA ;"> abc xxxx xxx xxxx xx.....</span>
+                <span style="font-size: 10px;color: #747070 ;">HOME</span>
               </div>
               }
             </div>
@@ -170,7 +170,7 @@
                 <img src="../../../assets/arrowDown.svg" alt="" />
               </form>
             </div>
-            <span class="fontMontserrat" style="margin-left: 30px;font-size: 10px;color: black !important;">Delivery in
+            <span class="fontMontserrat" style="margin-left: 30px;font-size: 10px;color: black ;">Delivery in
               2
               Days, Friday |<span style="font-size: 10px;color: #ED4444;"> ₹60</span></span>
             }
@@ -225,7 +225,7 @@
                   src="../../../assets/star.svg" alt="" />
                 }
                 <span class="fontMontserrat"
-                  style="font-size: 12px !important; color: #A9A9A9 !important; font-weight: 600;">(150)</span>
+                  style="font-size: 12px ; color: #A9A9A9; font-weight: 600;">(150)</span>
               </div>
             </div>
           </div>
@@ -243,7 +243,7 @@
             <span>4 out of 5</span>
             <span (click)="openDialogbox()" class="writeReviewButton">Write a Review</span>
           </div>
-          <span class="fontMontserrat" style="font-size: 18px;color: #7f7f7f !important;font-weight: normal;">1,150
+          <span class="fontMontserrat" style="font-size: 18px;color: #7f7f7f;font-weight: normal;">1,150
             Reviews global
             ratings</span>
           <div class="ratingBars">
@@ -279,32 +279,32 @@
           </div>
           <div class="reviewStars">
             @for (item of [1, 2, 3, 4, 5]; track $index;) {
-            <img class="reviewStar" style="height: 20px !important;" (click)="addRating($index,'reviewStar')"
+            <img class="reviewStar" style="height: 20px;" (click)="addRating($index,'reviewStar')"
               src="../../../assets/star.svg" alt="" />
             }
             <span class="fontMontserrat" style="color: #302F2F;font-size: 22px;margin-left: 15px;">Product is Ok</span>
           </div>
           <div class="text">
-            <span class="fontMontserrat" style="color: #46A01C !important;font-size: 22px;">Reviewed in India on 26
+            <span class="fontMontserrat" style="color: #46A01C ;font-size: 22px;">Reviewed in India on 26
               January
               2024</span>
-            <p class="fontMontserrat" style="color: #444444 !important;font-size: 22px;font-weight: 400;">Colour:
+            <p class="fontMontserrat" style="color: #444444;font-size: 22px;font-weight: 400;">Colour:
               BLUE MELANGE NAVY BLUE WHITE |
               Size: XL</p>
             <p class="fontMontserrat"
-              style="color: #444444 !important;font-size: 22px;width: 64%;font-weight: 400;line-height: 28px;">
+              style="color: #444444 ;font-size: 22px;width: 64%;font-weight: 400;line-height: 28px;">
               Its looks good on wearing but the cloth is
               very thin & quality is
               mediocre so is good only for hot temperature</p>
           </div>
           <div class="supportButton">
-            <div class="fontMontserrat" style="color: #444444 !important;font-size: 16px;">Helpful
+            <div class="fontMontserrat" style="color: #444444 ;font-size: 16px;">Helpful
             </div>
-            <div class="fontMontserrat" style="color: #444444 !important;font-size: 16px;font-weight: 400;">Report
+            <div class="fontMontserrat" style="color: #444444 ;font-size: 16px;font-weight: 400;">Report
             </div>
           </div>
           <hr style="width: 60%;">
-          <span class="fontMontserrat" style="color: #46A01C !important;font-size: 22px;">See More Reviews</span>
+          <span class="fontMontserrat" style="color: #46A01C ;font-size: 22px;">See More Reviews</span>
         </div>
     </div>
     </section>

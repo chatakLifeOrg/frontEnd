@@ -84,11 +84,11 @@ app-breadcrumbes {
 
 // @container details (min-width: 900px){
 //   .smallerFont{
-//     font-size: 22px !important;
+//     font-size: 22px ;
 //   }
 
 //   hr{
-//     width: 75% !important;
+//     width: 75% ;
 //   }
 // }
 
@@ -109,10 +109,10 @@ app-breadcrumbes {
   flex-direction: column;
   container-name: details;
   align-items: flex-start;
-} 
+}
 
 @mixin fontKomika {
-  font-family: var(--fontProduct) !important;
+  font-family: var(--fontProduct) ;
 }
 
 .productDetails > span:not(.influencer) {
@@ -127,9 +127,9 @@ app-breadcrumbes {
 }
 
 .fontMontserrat {
-  font-family: var(--fontNavbar) !important;
+  font-family: var(--fontNavbar) ;
   margin: 0px;
-  color: #302f2f !important;
+  color: #302f2f;
   font-size: 32px;
   font-weight: 600;
 }
@@ -139,7 +139,7 @@ app-breadcrumbes {
 }
 
 .ratings span:last-child {
-  color: #46a01c !important;
+  color: #46a01c ;
 }
 
 .productData div:nth-child(2) {
@@ -216,7 +216,7 @@ hr {
   border-radius: 5px;
   line-height: 30px;
   text-align: center;
-  font-size: 17px !important;
+  font-size: 17px ;
   cursor: pointer;
 }
 
@@ -224,7 +224,7 @@ hr {
   box-shadow: 1px 1px 1px 1px black;
   height: 3svh;
   width: 16svh;
-  font-size: 18px !important;
+  font-size: 18px ;
   line-height: 3svh;
   border-radius: 5px;
   text-align: center;
@@ -254,10 +254,10 @@ hr {
 }
 
 .dataGrid {
-  width: 60% !important;
+  width: 60% ;
   text-align: start;
   ::ng-deep .mat-grid-tile-content {
-    display: block !important;
+    display: block ;
   }
 }
 
@@ -287,8 +287,8 @@ hr {
   width: 13.6svw;
   height: 2.5svw;
   border-radius: 9px;
-  color: white !important;
-  font-size: 22px !important;
+  color: white ;
+  font-size: 22px ;
   box-shadow: 1px 1px 0px 2px black;
   line-height: 2.5svw;
   text-align: center;
@@ -302,7 +302,7 @@ hr {
   -webkit-user-select: none;
   user-select: none;
   .justDeliver {
-    color: #595959 !important;
+    color: #595959 ;
     padding-top: 5px;
   }
   input {
@@ -350,7 +350,7 @@ address span:nth-child(6) {
 }
 .policy span {
   color: #43a829;
-  font-size: 16px !important;
+  font-size: 16px ;
 }
 
 .policy {
@@ -379,7 +379,7 @@ address span:nth-child(6) {
 .lowerSection .header {
   margin-left: 9.5svw;
   @include fontKomika();
-  font-size: 44px !important;
+  font-size: 44px ;
   margin-bottom: 25px;
   color: #e82323;
 }
@@ -425,7 +425,7 @@ span.rates span:nth-child(2) {
 }
 
 .lowerRating img {
-  height: 15px !important;
+  height: 15px ;
 }
 
 .productCards {
@@ -506,7 +506,7 @@ span.rates span:nth-child(2) {
   background: #1967d2;
   border-radius: 4px;
   text-align: center;
-  color: white !important;
+  color: white ;
   text-shadow: 2px 1px black;
   font-family: var(--fontNavbar);
   cursor: pointer;
@@ -518,7 +518,7 @@ span.rates span:nth-child(2) {
   display: flex;
   gap: 20px;
   align-items: center;
-  color: #1967d2 !important;
+  color: #1967d2 ;
 }
 
 .bar {
