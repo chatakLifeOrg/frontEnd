@@ -1,4 +1,7 @@
 import { Routes } from '@angular/router';
+import { HomePageComponent } from './components/home-page/home-page.component';
+import { ProductPageComponent } from './components/product-page/product-page.component';
+import { CategoryPageComponent } from './components/category/category.component';
 
 export const routes: Routes = [{
   path: '',
@@ -18,7 +21,7 @@ export const routes: Routes = [{
       path: 'category',
       pathMatch: 'prefix',
       title: 'Category',
-      loadComponent: () => import('./components/category/category.component').then(mod => mod.CategoryComponent)
+      loadComponent: () => import('./components/category/category.component').then(mod => mod.CategoryPageComponent)
     }, {
       path: 'category',
       data: { breadcrumb: 'Category' },
