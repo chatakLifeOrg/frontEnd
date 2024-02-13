@@ -1,10 +1,9 @@
 import { Component, ElementRef, AfterViewInit } from '@angular/core';
-import { CarouselModule } from 'primeng/carousel';
 
 @Component({
   selector: 'app-carousal',
   standalone: true,
-  imports: [CarouselModule,],
+  imports: [],
   templateUrl: './carousal.component.html',
   styleUrl: './carousal.component.scss'
 })

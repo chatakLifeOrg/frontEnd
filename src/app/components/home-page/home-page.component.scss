@@ -1,0 +1,84 @@
+.conatiner {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  app-homepage-carousal {
+    margin-top: 15px;
+  }
+}
+
+.featuredCategory {
+  height: 60vh;
+  width: 100%;
+  background: #f5da38;
+  position: relative;
+  border-top: 8px solid;
+}
+
+.featuredCategory::after,
+.featuredCategory::before,
+.bestSellingProducts::after,
+.bestSellingProducts::before {
+  content: "";
+}
+
+.featuredCategory::after {
+  position: absolute;
+  height: 65px;
+  bottom: 0px;
+  width: 100%;
+  background: linear-gradient(
+    to bottom right,
+    transparent 49.5%,
+    white 50%,
+    white 50%
+  );
+}
+
+.featuredCategory::before {
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  border-top: 8px solid black;
+  transform: skewy(-2.4deg);
+}
+
+.bestSellingProducts {
+  height: 60vh;
+  width: 100%;
+  background: #4d0a86;
+  position: relative;
+  border-bottom: 8px solid;
+}
+
+.bestSellingProducts::after {
+  background: linear-gradient(
+    to bottom right,
+    transparent 49.5%,
+    #4d0a85 50%,
+    #4d0a85 50%
+  );
+  width: 100%;
+  position: absolute;
+  height: 99px;
+  transform: skewY(1.2deg);
+  top: -73px;
+}
+.bestSellingProducts::before {
+  border-top: 8px solid;
+  position: absolute;
+  top: -31px;
+  width: 100%;
+  transform: skewY(-2.4deg);
+}
+
+
+.topInfluencers{
+ position: relative;
+ img{
+  width: 100%;
+  position: absolute;
+ }
+}
