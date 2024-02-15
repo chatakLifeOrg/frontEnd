@@ -1,6 +1,11 @@
 <app-navbar></app-navbar>
 <div class="container">
   <div class="category"></div>
+    <div class="mobileViewContent">
+      <div>Sort</div> 
+      <div>Filters</div>
+      <hr/>
+    </div> 
   <app-breadcrumbes></app-breadcrumbes>
   <div class="categoryPreview">
     <div class="categoryPreviewLeft">
@@ -19,9 +24,8 @@
       <hr/>
       <div><button class="categoryProducts">Price</button></div>
     <hr/>
-      <!-- <p-slider [(ngModel)]="rangeValues" [range]="true"></p-slider> -->
-
-      <div><button class="products">Min</button> to
+      <p-slider class="ab" [(ngModel)]="rangeValues" [range]="true"></p-slider>
+      <div><button class="products">Min</button>to
         <button class="products">Max</button>&nbsp;&nbsp;
         <button class="products">Go</button>
       </div>
@@ -55,8 +59,8 @@
       </div>
       <div class="card-container">
         @for (item of CategoryItem; track $index;) {
-        <ng-container *ngFor="let item of CategoryItem let i = index;">
-          <div class="categoryItem">
+        <ng-container  *ngFor="let item of CategoryItem let i = index;">
+          <div (click)="goToCategoryPage()" class="categoryItem">
             <div class="categoryItemInner" [ngStyle]="{'background-color': getBackgroundColor(i)}">
               <span>
                 <svg (click)="addWishList()" width="22" height="20" viewBox="0 0 22 `20" fill="none"
@@ -87,4 +91,7 @@
         }
       </div>
 
+    </div>
+
+    </div>
     </div>

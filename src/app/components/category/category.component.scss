@@ -3,7 +3,7 @@
   width: 100%;
   flex-direction: column;
   height: max-content;
-  margin-top: 1%;
+  margin-top: 1.24%;
   gap: 10px;
 }
 
@@ -16,19 +16,17 @@ app-breadcrumbes {
 .category {
   min-height: 50svh;
   background: yellow;
-  display: flex;
-  margin-top: -7px;
   position: relative;
-  width: 100%;
 }
-
+.mobileViewContent {
+  display: none;
+}
 .categoryPreview {
   background: transparent;
   display: flex;
   position: relative;
   width: 100%;
 }
-
 .categoryPreviewLeft {
   position: relative;
   width: 21%;
@@ -36,9 +34,9 @@ app-breadcrumbes {
   justify-content: flex-start;
   .categoryHeading {
     font-size: 20px !important;
-    color:#1C1C1B;
+    color: #1C1C1B;
     font-weight: 500;
-    text-shadow: 2px 3px 2px rgba(0, 0, 0, 0.5);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
   }
   div:nth-child(2) {
     font-size: 20px !important;
@@ -50,25 +48,25 @@ app-breadcrumbes {
     height: .5px;
     background-color: gray;
   }
-  
-.checkBoxsAndNames .input-label-pair {
-  display: flex;
-  margin-bottom: 13px!important;
-  
-}
+  .checkBoxsAndNames .input-label-pair {
+    display: flex;
+    margin-bottom: 13px !important;
 
-.checkBoxsAndNames input[type="checkbox"] {
- height: 20px;
- width: 20px;
-  margin-right: 10px; 
-}
+  }
 
-.checkBoxsAndNames label {
-  font-size: 17px !important;
-  color: black;
-  font-weight: 400;
-  font-family: var(--fontNavbar) !important;
-}
+  .checkBoxsAndNames input[type="checkbox"] {
+    height: 20px;
+    width: 20px;
+    margin-right: 10px;
+  }
+
+  .checkBoxsAndNames label {
+    font-size: 17px !important;
+    color: black;
+    font-weight: 400;
+    font-family: var(--fontNavbar) !important;
+  }
+
   .categoryProducts {
     background-color: red;
     height: 30px;
@@ -84,15 +82,16 @@ app-breadcrumbes {
     margin-bottom: 15px;
     margin-top: 15px;
   }
+
   .checkBoxsAndRating .input-label-pair {
     display: flex;
-    
+
   }
-  
+
   .checkBoxsAndRating input[type="checkbox"] {
-   height: 25px;
-   width: 25px;
-    margin-right: 10px; 
+    height: 25px;
+    width: 25px;
+    margin-right: 10px;
     margin-top: 3px;
   }
 }
@@ -103,15 +102,17 @@ app-breadcrumbes {
   width: 79%;
   margin-left: 13px;
   margin-right: 19.7vh;
- margin-top:14.7vh;
+  margin-top: 14.7vh;
   justify-content: flex-start;
-  .catSelector{
+
+  .catSelector {
     justify-self: end;
     position: absolute;
     right: 10px;
     margin-top: -55px;
   }
-  select{
+
+  select {
     width: 32.5svh;
     font-size: 15px;
     font-weight: 400;
@@ -124,23 +125,28 @@ app-breadcrumbes {
     margin-bottom: 15px;
   }
 }
-
+.ab{
+  height: 200px;    
+  background-color: #ffa0a0;
+}
 .card {
   min-height: 30svh;
-  // background: red;
   border: 1px solid #ccc;
   border-radius: 8px;
   padding: 10px;
   width: 100%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
 .card-container {
   display: flex;
   flex-wrap: wrap;
 }
+
 .categoryItem {
   margin: 10px;
-  width: 30.2svh;
+  width: calc(25% - 20px);
+
   .categoryItemInner {
     min-height: 10svh;
     background: #ffa0a0;
@@ -181,20 +187,18 @@ app-breadcrumbes {
     color: #333;
     margin-top: 10px;
   }
-
   .ItemText2 {
     display: flex;
     align-items: center;
     color: #1967d2;
     text-decoration: underline;
   }
-
   .ItemText3 {
     display: flex;
     align-items: center;
     color: red;
   }
-
+ 
   s {
     color: gray
   }
@@ -207,9 +211,122 @@ app-breadcrumbes {
 .ratings {
   display: flex;
   gap: 1px;
-height: 30px;
-width: 20px;
+  height: 30px;
+  width: 20px;
+
   p {
     font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .mobileViewContent {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    div:nth-child(1) {
+      width: 50%;
+      padding: 10px;
+      box-sizing: border-box;
+      text-align: center; 
+    }
+    div:nth-child(2) {
+      width: 50%;
+      padding: 10px;
+      box-sizing: border-box;
+      border-left: 1px solid #000;
+      text-align: center; 
+    }
+    hr {
+      width: 90%;
+      margin: 4px 20px;
+    }
+  }
+
+  .categoryPreview {
+    width: 93%;
+    display: inline;
+    margin-left: 12px;
+    margin-right: 13px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  .categoryPreviewLeft {
+    width: 100%;
+    margin-left: 12px;
+    margin-right: 13px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    height: 50px;
+    .categoryProducts,
+    .checkBoxsAndNames,
+    p-slider,
+    .checkBoxsAndRating,
+    .products
+     {
+      display: none;
+    }
+    hr{
+      width:20%
+    }
+    hr:nth-child(4){
+      display: none;
+    }
+    div:nth-child(2) {
+      display: none;
+    }
+  }
+
+  .categoryHeading {
+    font-size: 20px !important;
+    color: #1C1C1B;
+    font-weight: 500;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  }
+
+  .categoryPreviewRight {
+    width: 100%;
+    margin: 0px;
+
+    .catSelector {
+      display: none;
+    }
+
+    .categoryItem {
+      width: calc(50% - 20px);
+
+      .categoryItemText {
+        .ItemText1 {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+@media screen and (min-width: 577px) and (max-width:912px) {
+  .mobileViewContent{
+    display: none;
+  } app-breadcrumbes {
+    justify-content: start;
+    margin-left: 30px;
+  }.categoryPreview{
+   width: 100%;
+   display: flex;
+    .categoryPreviewLeft{
+      width: 25%;
+      margin-left: 30px;
+    }
+    .categoryPreviewRight{
+     margin-right: 30px;
+     width: 75%;
+     margin-top:10.7vh;
+     .catSelector {
+      justify-self: end;
+      position: absolute;
+      right: 10px;
+      overflow: hidden;
+    }
+    }
   }
 }

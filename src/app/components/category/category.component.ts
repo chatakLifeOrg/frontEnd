@@ -3,27 +3,38 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { NavbarComponent } from '../../utils/templates/navbar/navbar.component';
 import { BreadcrumbesComponent } from '../../utils/templates/breadcrumbes/breadcrumbes.component';
 import { CommonModule } from '@angular/common';
-import { SliderModule } from 'primeng/slider'; 
+import { SliderModule } from 'primeng/slider';
+import { Router } from '@angular/router';
+import { SelectButtonModule } from 'primeng/selectbutton';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-category-page',
   standalone: true,
-  imports: [MatGridListModule, NavbarComponent, BreadcrumbesComponent,CommonModule,SliderModule],
+  imports: [
+    MatGridListModule,
+    NavbarComponent,
+    BreadcrumbesComponent,
+    CommonModule,
+    SliderModule,
+    SelectButtonModule,
+    FormsModule
+  ],
   templateUrl: './category.component.html',
   styleUrl: './category.component.scss'
 })
 
 export class CategoryPageComponent implements OnInit {
-  public CategoryItem= [
-    { imageUrl: '../../../assets/shirt.svg',title: 'Half Cut Sleeve T-shirt', Influncer: 'by Influncer name',price:' ₹700', originalPrrize:'₹1400', off:'50% Off'  },
-    { imageUrl: '../../../assets/shirt.svg',title: 'Half Cut Sleeve T-shirt', Influncer: 'by Influncer name',price:' ₹700', originalPrrize:'₹1400', off:'50% Off'  },
-    { imageUrl: '../../../assets/shirt.svg',title: 'Half Cut Sleeve T-shirt', Influncer: 'by Influncer name',price:' ₹700', originalPrrize:'₹1400', off:'50% Off'  },
-    { imageUrl: '../../../assets/shirt.svg',title: 'Half Cut Sleeve T-shirt', Influncer: 'by Influncer name',price:' ₹700', originalPrrize:'₹1400', off:'50% Off'  },
+  public CategoryItem = [
+    { imageUrl: '../../../assets/shirt.svg', title: 'Half Cut Sleeve T-shirt', Influncer: 'by Influncer name', price: ' ₹700', originalPrrize: '₹1400', off: '50% Off' },
+    { imageUrl: '../../../assets/shirt.svg', title: 'Half Cut Sleeve T-shirt', Influncer: 'by Influncer name', price: ' ₹700', originalPrrize: '₹1400', off: '50% Off' },
+    { imageUrl: '../../../assets/shirt.svg', title: 'Half Cut Sleeve T-shirt', Influncer: 'by Influncer name', price: ' ₹700', originalPrrize: '₹1400', off: '50% Off' },
+    { imageUrl: '../../../assets/shirt.svg', title: 'Half Cut Sleeve T-shirt', Influncer: 'by Influncer name', price: ' ₹700', originalPrrize: '₹1400', off: '50% Off' },
   ];
-  
-  // rangeValues: number[] = [20, 80];
 
-  
+  rangeValues: number[] = [20, 80];
+
+
   getBackgroundColor(index: number): string {
     const colors = ['#ffa0a0', '#F7FF6D', '#5BFF89', '#A8B1FF'];
     return colors[index % colors.length];
@@ -41,7 +52,10 @@ export class CategoryPageComponent implements OnInit {
     'Business'
   ];
 
-  constructor(private el: ElementRef) {
+  constructor(
+    private el: ElementRef,
+    private route: Router
+  ) {
 
   }
 
@@ -63,12 +77,16 @@ export class CategoryPageComponent implements OnInit {
       }
     }
   }
-  
+
   addWishList() {
     const element = this.el.nativeElement.querySelector('.wishlist')
     const isRed = element.getAttribute('fill') === 'red'
     if (!isRed) element.setAttribute('fill', 'red')
     else element.setAttribute('fill', 'none')
+  }
+
+  goToCategoryPage() {
+    this.route.navigate(['category/product'])
   }
 
 }
