@@ -59,11 +59,17 @@ body {
   --fontSize: 16px;
   --fontProduct: "Komika Axis", sans-serif;
   --fontlowerNavbar: "Irish Grover", sans-serif;
+  --fontGraffiti: "Don Graffiti", sans-serif;
 }
 
 @font-face {
   font-family: "Irish Grover";
   src: url("./assets/fonts/IrishGrover-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Don Graffiti";
+  src: url("./assets/fonts/don-graffiti.ttf");
 }
 
 @font-face {

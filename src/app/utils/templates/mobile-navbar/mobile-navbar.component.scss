@@ -1,0 +1,10 @@
+mat-grid-list mat-grid-tile:nth-child(1) {
+  background: #e1b111;
+  font-size: 9px;
+  font-family: var(--fontNavbar);
+  font-weight: 800;
+  div {
+    display: flex;
+    gap: 30px;
+  }
+}

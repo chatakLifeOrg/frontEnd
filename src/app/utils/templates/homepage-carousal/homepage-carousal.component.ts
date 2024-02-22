@@ -1,4 +1,4 @@
-import { Component, ElementRef } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-homepage-carousal',
@@ -10,14 +10,15 @@ import { Component, ElementRef } from '@angular/core';
 export class HomepageCarousalComponent {
   public imgArr: Array<string> = ['../../../../assets/UI_banner_2 1.jpg', '../../../../assets/UI_banner_2 1.jpg',]
   private interval!: any;
-  constructor(private el: ElementRef) {
+  constructor(private el: ElementRef,private changeDetection:ChangeDetectorRef) {
 
   }
   ngAfterViewInit(): void {
     let count = 0
     this.interval = setInterval(() => {
-      this.imgArr = this.imgArr.concat(this.imgArr[count])
+      this.imgArr = this.imgArr.concat(this.imgArr[count].trim())
       this.imgArr.slice(1)
+      this.changeDetection.detectChanges()
       count++;
       this.slide(count)
     }, 5000)
