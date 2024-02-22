@@ -1,0 +1,248 @@
+.container {
+  container-type: inline-size;
+  container-name: bigBox;
+}
+
+@mixin boxShadow{
+  position: relative;
+  background: white;
+  border-top: 2px solid black;
+  border-left: 2px solid black;
+  box-shadow: 2px 2px 0px 2px black;
+  z-index: 1;
+}
+
+@mixin iconBox {
+  width: 8svw;
+  box-shadow: 3px 3px 0px 3px black;
+  margin-bottom: 20px;
+  height: 15svh;
+  display: flex;
+  align-items: center;
+  background: #FFC914;
+  border-radius: 5px;
+  justify-content: center;
+}
+
+.influncerProductData::after {
+  content: "";
+  background: linear-gradient(65deg, white, white);
+  display: block;
+  z-index: -1;
+  height: 82svh;
+  border-radius: 0px 10px 10px 0px;
+  position: absolute;
+  top: -9px;
+  left: -55px;
+  width: 39svw;
+  transform: skewX(349deg);
+}
+
+.influncerProductData {
+  position: relative;
+  width: 100%;
+  background: #e82323;
+  margin-top: 100px;
+  z-index: 1;
+  height: 80svh;
+  svg {
+    position: absolute;
+    right: 0;
+    top: 280px;
+  }
+
+  > img:nth-child(4) {
+    position: absolute;
+    right: 0;
+    height: 200px;
+  }
+  .influencerData h3 {
+    font-size: 45px;
+  }
+}
+
+.influencerData {
+  z-index: 1;
+  position: absolute;
+  right: 10svw;
+  top: 15svh;
+  width: 45svw;
+  font-family: var(--fontNavbar);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.join {
+  background: #ffff00;
+  width: 8svw;
+  line-height: 5svh;
+  height: 5svh;
+  text-align: center;
+  color: black;
+  font-weight: 600;
+  border-radius: 5px;
+  border-top: 2px solid;
+  box-shadow: 2px 2px 0px 1.4px black;
+  border-left: 2px solid;
+  cursor: pointer;
+}
+
+.cardTwo,
+.cardOne {
+  height: 50svh;
+  width: fit-content;
+  background: #2b7ff3;
+  position: absolute;
+  border-radius: 8px;
+  img {
+    height: 100%;
+  }
+}
+
+.cardTwo {
+  left: 22svw;
+  top: 16.5svh;
+}
+
+.cardOne {
+  background: #ffff00 !important;
+  top: 16.5svh;
+  left: 5svh;
+}
+
+.chooseUs {
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  width: 100%;
+  margin-top: 32svh;
+  height: 125svh;
+  z-index: 1;
+  background: linear-gradient(180deg, #ffff00, #ff6828);
+  position: relative;
+  > img:nth-child(1) {
+    position: absolute;
+    top: -30svh;
+    left: 25svw;
+  }
+  > span:nth-child(2) {
+    position: absolute;
+    top: -14svh;
+    font-size: 60px;
+    left: 38svw;
+    color: white;
+    text-align: center;
+    line-height: 8svh;
+    word-wrap: break-word;
+    font-family: var(--fontProduct);
+    width: 25svw;
+  }
+  >img:nth-child(4){
+    position: absolute;
+    height: 100%;
+    z-index: -1;
+    top: 15px;
+    object-fit: scale-down;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1.1fr;
+  grid-auto-columns: 1fr;
+  gap: 20px 25px;
+  grid-auto-flow: row;
+  grid-template-areas: "A1 A1 A1 A2"
+  "A3 A4 A5 A6";
+  margin-top: 185px;
+  padding: 30px;
+}
+
+.A1 {
+  grid-area: A1;
+  height: 45svh;
+  border-radius: 7px;
+  width: 72svw;
+  font-style: italic;
+  @include boxShadow();
+  >img:nth-child(1){
+    position: absolute;
+    height: 350px;
+    top: -25px;
+    left: 60px;
+  }
+  div{
+    width: 70%;
+    text-wrap: balance;
+    font-family: var(--fontNavbar);
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 7svh;
+    height: 35svh;
+    text-align: start;
+    position: absolute;
+    right: 40px;
+    top: 40px;
+    border: 5px solid;
+    display: flex;
+    background: #FFFF00;
+    z-index: -1;
+    border-radius: 8px;
+    justify-content: center;
+    align-items: center;
+    transform: skewX(-10deg);
+    padding-left: 75px;
+  }
+}
+
+.A2{
+  grid-area: A2;
+}
+
+.A2,.A3,.A4,.A5,.A6 {
+  width: 100%;
+  height: 45svh;
+  border-radius: 7px;
+  @include boxShadow();
+  display: flex;
+  flex-direction: column;
+  padding-left: 15px;
+  padding-top: 15px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  >div:nth-child(1){
+    @include iconBox();
+  }
+  >span:nth-child(2){
+    width: 90%;
+    line-height: 6svh;
+    font-weight: 600;
+    font-size: 40px;
+    font-family: var(--fontNavbar);
+  }
+  >div:nth-child(3){
+    background: black;
+    height: 10px;
+    width: 125px;
+    margin-top: 15px;
+    margin-left: 3px;
+  }
+}
+
+.A3 {
+  grid-area: A3;
+}
+
+.A4 {
+  grid-area: A4;
+}
+
+.A5 {
+  grid-area: A5;
+}
+
+.A6 {
+  grid-area: A6;
+}

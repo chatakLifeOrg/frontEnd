@@ -117,12 +117,6 @@ app-homepage-carousal,
   }
 }
 
-@container bigBox ( max-width: 430px ){
-  app-navbar{
-    display: none;
-  }
-}
-
 .signupContainer > div:nth-child(1) {
   position: relative;
 }

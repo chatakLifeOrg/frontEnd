@@ -34,4 +34,10 @@ export const routes: Routes = [{
     }
   ],
 },
+{
+  path: 'influencer',
+  data: { breadcrumb: 'influencer' },
+  title: 'Influencer',
+  loadComponent: () => import('./components/influencer-page/influencer-page.component').then(mod => mod.InfluencerPageComponent),
+}
 ];

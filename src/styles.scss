@@ -52,6 +52,13 @@ body {
   margin: 0;
 }
 
+@container bigBox ( max-width: 430px ){
+  app-navbar{
+    display: none;
+  }
+}
+
+
 :root {
   --white: white;
   --black: black;
