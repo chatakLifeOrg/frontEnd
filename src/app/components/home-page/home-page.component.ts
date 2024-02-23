@@ -1,5 +1,5 @@
 import { NavbarComponent } from './../../utils/templates/navbar/navbar.component';
-import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, HostListener } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { DataService } from '../../service/dataSharingComponentService/data.service';
 import { HomepageCarousalComponent } from '../../utils/templates/homepage-carousal/homepage-carousal.component';
@@ -57,6 +57,7 @@ export class HomePageComponent implements AfterViewInit {
       name: 'Gaming'
     },
   ]
+  private width:number = 13.6;
   private count: number = 0;
   public carousalCard: Array<any> = [
     {
@@ -76,6 +77,14 @@ export class HomePageComponent implements AfterViewInit {
 
   }
   ngAfterViewInit(): void {
+    switch (true) {
+      case window.innerWidth <= 425:
+        this.width = 28;
+        break;
+      default:
+        this.width = 13.6;
+        break;
+    }
     const prevButton = this.el.nativeElement.querySelector('.prev');
     prevButton.style.display = 'none'
     const carousalCard = this.el.nativeElement.querySelectorAll('.card')
@@ -91,6 +100,19 @@ export class HomePageComponent implements AfterViewInit {
   prevCard() {
     this.slideCard('prev');
   }
+
+  @HostListener('window:resize', ['$event'])
+onResize(event: Event) {
+  switch (true) {
+    case window.innerWidth <= 425:
+      this.width = 28;
+      break;
+    default:
+      this.width = 13.6;
+      break;
+  }
+  console.log(this.width);
+}
 
   slideCard(check: string) {
     const cards = this.el.nativeElement.querySelectorAll('.card');
@@ -128,7 +150,7 @@ export class HomePageComponent implements AfterViewInit {
 
   slide(i: number) {
     const container = this.el.nativeElement.querySelector('.featuredCategoryCarousal')
-    container.style.left = `-${i * 13.6}svw`
+    container.style.left = `-${i * this.width}svw`
   }
 
   prev() {

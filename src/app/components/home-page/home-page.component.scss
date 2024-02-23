@@ -8,6 +8,90 @@
   }
 }
 
+@container bigBox ( max-width: 430px ) {
+  app-navbar {
+    display: none;
+  }
+  app-mobile-navbar {
+    display: block !important;
+  }
+  app-homepage-carousal,
+  .featuredCategory,
+  .bestSellingProducts {
+    margin-top: 13px !important;
+  }
+
+  .featuredCategory {
+    height: 40vh !important;
+    border-top: 8px solid !important;
+  }
+
+  .featuredCategory::before {
+    bottom: 30.2px !important;
+    border-top: 8px solid black !important;
+    transform: skewy(-8deg) !important;
+  }
+
+  .wrapper {
+    font-size: 14px !important;
+    width: 80.2% !important;
+    margin-top: 5svw !important;
+    gap: 20px !important;
+  }
+
+  .featuredCategoryCarousal .circle {
+    border: 2px solid !important;
+    width: 22svw !important;
+    height: 22svw !important;
+    font-size: 12px !important;
+    gap: 5px !important;
+  }
+
+  .featuredCategory img:nth-child(3) {
+    right: 5px !important;
+    top: 23svw !important;
+    height: 35px;
+  }
+  .featuredCategory img:nth-child(2) {
+    position: absolute;
+    top: 23svw !important;
+    height: 35px;
+    left: 5px !important;
+  }
+  .featuredCategoryCarousal .circle img {
+    width: 20svw !important;
+    height: 11svw !important;
+  }
+
+  .featuredCategory::after {
+    background: linear-gradient(
+      to bottom right,
+      transparent 47.5%,
+      white 45%,
+      white 69%,
+      #4d0a85 70%
+    ) !important;
+  }
+
+  .bestSellingProducts::before {
+    border-top: 8px solid !important;
+    transform: skewY(-7.6deg) !important;
+    top: -45px !important;
+  }
+
+  .bestSellingProducts::after {
+    background: linear-gradient(
+      to bottom right,
+      transparent 44.5%,
+      #4d0a85 46%,
+      #4d0a85 50%
+    ) !important;
+    height: 15svh !important;
+    transform: skewY(6.2deg) !important;
+    top: -81px !important;
+  }
+}
+
 @mixin shadowBox {
   box-shadow: 3px 3px 0px 3px black;
   border-top: 3px solid black;
@@ -104,6 +188,10 @@ app-homepage-carousal,
   justify-content: flex-start;
 }
 
+app-mobile-navbar {
+  display: none;
+}
+
 @container bigBox ( max-width: 1550px ) {
   .topInfluencers {
     height: 85svw;
@@ -124,7 +212,7 @@ app-homepage-carousal,
 .testimonial {
   position: relative;
   width: 100%;
-  height: 100svh;
+  height: 95svh;
   gap: 150px;
   display: flex;
   justify-content: flex-start;

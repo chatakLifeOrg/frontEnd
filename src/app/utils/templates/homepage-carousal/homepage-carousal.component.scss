@@ -3,6 +3,12 @@
   height: 32svw;
 }
 
+@media screen and (max-width: 425px) {
+  .container{
+    height: 70svw;
+  }
+}
+
 
 .slide {
   position: relative;
