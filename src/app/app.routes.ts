@@ -36,7 +36,7 @@ export const routes: Routes = [{
       ]
     },  {
       path: 'cart',
-      component: CartPageComponent,
+      loadComponent: () => import('./components/cart-page/cart-page.component').then(mod => mod.CartPageComponent),
       pathMatch: 'prefix',
       title: 'Cart',
       data: { breadcrumb: 'Cart' },
