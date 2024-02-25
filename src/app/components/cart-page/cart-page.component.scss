@@ -52,21 +52,16 @@ hr {
 .inner-container {
     display: flex;
     position: relative;
-
+    gap: 25px;
+    margin-top: 20px;
 }
 
 .leftInner,
 .rightInner {
     flex: 1;
-    padding: 20px;
-
 }
 
 .leftInner {
-    position: absolute;
-    left: -3svh;
-    width: 45%;
-
     .card {
         width: 100%;
 
@@ -147,10 +142,6 @@ hr {
 }
 
 .rightInner {
-    position: absolute;
-    right: 10svh;
-    width: 44%;
-
     .card {
         width: 100%;
         min-height: 50px;
@@ -251,7 +242,6 @@ hr {
 
 .card-container {
     display: flex;
-    flex-wrap: wrap;
     min-height: 150px;
     position: relative;
     width: 84%;

@@ -7,7 +7,7 @@
     <div class="wrapper">
       <span class="featuredCategoryHeader">Featured Categories</span>
       <div class="featuredCategoryCarousal">
-        @for (item of featuredCategories; track featuredCategories) {
+        @for (item of featuredCategories; track featuredCategories;let last = $last) {
         <div class="circle">
           <img [src]="item.img" alt="">
           <span>{{item.name}}</span>

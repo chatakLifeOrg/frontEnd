@@ -12,15 +12,26 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
 
   constructor(
-    private route:Router
+    private route: Router
   ) { }
 
   async ngOnInit() {
 
   }
 
-  click(){
-    this.route.navigate(['category/product'])
+  click(check: string) {
+    switch (check) {
+      case 'ct':
+        this.route.navigate(['category'])
+        break;
+      case 'pd':
+        this.route.navigate(['category/product'])
+        break;
+      default:
+        throw new Error("erro");
+        break;
+    }
+
   }
 
 }

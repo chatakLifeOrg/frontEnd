@@ -19,6 +19,7 @@ import {
   MatDialogTitle,
   MatDialogContent,
 } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-product-page',
   standalone: true,
@@ -100,7 +101,8 @@ export class ProductPageComponent implements AfterViewInit {
     private httpService: HttpsService,
     private fb: FormBuilder,
     private _snackBar: MatSnackBar,
-    private dialogService: MatDialog
+    private dialogService: MatDialog,
+    private route: Router
   ) {
 
   }
@@ -159,7 +161,10 @@ export class ProductPageComponent implements AfterViewInit {
       panelClass: 'modalPopup',
       enterAnimationDuration: '150ms'
     })
+  }
 
+  goToCartPage(){
+    this.route.navigate(['cart'])
   }
 
 
