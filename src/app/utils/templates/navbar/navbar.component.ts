@@ -20,15 +20,6 @@ export class NavbarComponent implements OnInit {
   ) { }
 
   async ngOnInit() {
-    await Promise.all([
-      this.setCounterAttribute('.heartsWrapper', this.notifications.hearts),
-      this.setCounterAttribute('.cartsWrapper', this.notifications.carts)
-    ])
-  }
-
-  private async setCounterAttribute(selector: string, value: string): Promise<void> {
-    const elements = this.el.nativeElement.querySelector(selector);
-    const attribute = Object.keys(this.notifications).find((key) => this.notifications[key as keyof notifications] === value);
-    elements.setAttribute(attribute as string, value)
+   
   }
 }

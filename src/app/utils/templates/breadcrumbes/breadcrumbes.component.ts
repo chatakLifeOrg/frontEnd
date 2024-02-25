@@ -26,6 +26,7 @@ export class BreadcrumbesComponent {
       distinctUntilChanged(),
     ).subscribe(() => {
       this.breadcrumbs = this.buildBreadCrumb(this.activatedRoute.root);
+      console.log(this.breadcrumbs);
     })
   }
 
