@@ -1,68 +1,54 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
-import { MatGridListModule } from '@angular/material/grid-list';
-import { NavbarComponent } from '../../utils/templates/navbar/navbar.component';
-import { BreadcrumbesComponent } from '../../utils/templates/breadcrumbes/breadcrumbes.component';
+import { Component, OnInit,ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SliderModule } from 'primeng/slider';
-import { Router } from '@angular/router';
-import { SelectButtonModule } from 'primeng/selectbutton';
-import { FormsModule } from '@angular/forms';
-
+import { NavbarComponent } from '../../utils/templates/navbar/navbar.component';
+import { MatGridListModule } from '@angular/material/grid-list';
 @Component({
-  selector: 'app-category-page',
+  selector: 'app-cart-page',
   standalone: true,
   imports: [
     MatGridListModule,
-    NavbarComponent,
-    BreadcrumbesComponent,
     CommonModule,
-    SliderModule,
-    SelectButtonModule,
-    FormsModule
+    NavbarComponent
   ],
-  templateUrl: './category.component.html',
-  styleUrl: './category.component.scss'
+  templateUrl: './cart-page.component.html',
+  styleUrls: ['./cart-page.component.scss']
 })
-
-export class CategoryPageComponent implements OnInit {
+export class CartPageComponent implements OnInit {
+  public cartItems = [
+    { imageUrl: '../../../assets/shirt.svg', title: 'Half Cut Sleeve T-shirt', price: ' ₹700', originalPrrize: '₹1400' },
+    { imageUrl: '../../../assets/shirt.svg', title: 'Half Cut Sleeve T-shirt', price: ' ₹700', originalPrrize: '₹1400' },
+    { imageUrl: '../../../assets/shirt.svg', title: 'Half Cut Sleeve T-shirt', price: ' ₹700', originalPrrize: '₹1400' },
+    { imageUrl: '../../../assets/shirt.svg', title: 'Half Cut Sleeve T-shirt', price: ' ₹700', originalPrrize: '₹1400' },
+  ];
+  public items = [
+    { type: 'My Cart', },
+    { type: 'Address', },
+    { type: 'Payment', },
+    { type: 'Confirmation', },
+  ];
+  public CartBill = [
+    { type: 'Subtotal:', price:'₹700',describe:'GST:', addGst:'₹50', getShipping:'Shipping:',ShippingCharge:'₹50',total: 'Total:', totalPrice:'₹800' },
+  ];
   public CategoryItem = [
     { imageUrl: '../../../assets/shirt.svg', title: 'Half Cut Sleeve T-shirt', Influncer: 'by Influncer name', price: ' ₹700', originalPrrize: '₹1400', off: '50% Off' },
     { imageUrl: '../../../assets/shirt.svg', title: 'Half Cut Sleeve T-shirt', Influncer: 'by Influncer name', price: ' ₹700', originalPrrize: '₹1400', off: '50% Off' },
     { imageUrl: '../../../assets/shirt.svg', title: 'Half Cut Sleeve T-shirt', Influncer: 'by Influncer name', price: ' ₹700', originalPrrize: '₹1400', off: '50% Off' },
     { imageUrl: '../../../assets/shirt.svg', title: 'Half Cut Sleeve T-shirt', Influncer: 'by Influncer name', price: ' ₹700', originalPrrize: '₹1400', off: '50% Off' },
+    { imageUrl: '../../../assets/shirt.svg', title: 'Half Cut Sleeve T-shirt', Influncer: 'by Influncer name', price: ' ₹700', originalPrrize: '₹1400', off: '50% Off' },
   ];
-
-  rangeValues: number[] = [20, 80];
-
-
   getBackgroundColor(index: number): string {
     const colors = ['#ffa0a0', '#F7FF6D', '#5BFF89', '#A8B1FF'];
     return colors[index % colors.length];
   }
-  public categories = [
-    'Fashion',
-    'Beauty',
-    'Travel',
-    'Fitness',
-    'Gaming',
-    'Comedy',
-    'Music',
-    'Lifestyle',
-    'Education',
-    'Business'
-  ];
-
   constructor(
     private el: ElementRef,
-    private route: Router
+ 
   ) {
 
   }
-
   ngOnInit() {
 
   }
-
   addRating(i: number) {
     const ratingElements = this.el.nativeElement.querySelectorAll('.ratingImg');
     const newImg = '../../../assets/goldStar.svg';
@@ -84,9 +70,4 @@ export class CategoryPageComponent implements OnInit {
     if (!isRed) element.setAttribute('fill', 'red')
     else element.setAttribute('fill', 'none')
   }
-
-  goToCategoryPage() {
-    this.route.navigate(['category/product'])
-  }
-
 }
