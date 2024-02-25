@@ -2,7 +2,7 @@ import { Routes } from '@angular/router';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { ProductPageComponent } from './components/product-page/product-page.component';
 import { CategoryPageComponent } from './components/category/category.component';
-
+import { CartPageComponent } from './components/cart-page/cart-page.component';
 export const routes: Routes = [{
   path: '',
   pathMatch: 'prefix',
@@ -34,6 +34,12 @@ export const routes: Routes = [{
           loadComponent: () => import('./components/product-page/product-page.component').then(mod => mod.ProductPageComponent)
         }
       ]
+    },  {
+      path: 'cart',
+      component: CartPageComponent,
+      pathMatch: 'prefix',
+      title: 'Cart',
+      data: { breadcrumb: 'Cart' },
     }
   ],
 },
