@@ -152,7 +152,9 @@ app-breadcrumbes {
     background: #ffa0a0;
     border-radius: 8px;
     position: relative;
-    box-shadow: 2px 2px 2px 2px black;
+    box-shadow: 5px 5px 0px 0px black;;
+    border-top: 2px solid black;
+    border-left: 2px solid black;
   }
 
   img {
