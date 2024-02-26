@@ -57,7 +57,7 @@ export class HomePageComponent implements AfterViewInit {
       name: 'Gaming'
     },
   ]
-  private width:number = 13.6;
+  private width: number = 13.6;
   private count: number = 0;
   public carousalCard: Array<any> = [
     {
@@ -102,17 +102,17 @@ export class HomePageComponent implements AfterViewInit {
   }
 
   @HostListener('window:resize', ['$event'])
-onResize(event: Event) {
-  switch (true) {
-    case window.innerWidth <= 425:
-      this.width = 28;
-      break;
-    default:
-      this.width = 13.6;
-      break;
+  onResize(event: Event) {
+    switch (true) {
+      case window.innerWidth <= 425:
+        this.width = 28;
+        break;
+      default:
+        this.width = 13.6;
+        break;
+    }
+    console.log(this.width);
   }
-  console.log(this.width);
-}
 
   slideCard(check: string) {
     const cards = this.el.nativeElement.querySelectorAll('.card');

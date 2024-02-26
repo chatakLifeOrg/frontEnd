@@ -10,7 +10,7 @@ import { ChangeDetectorRef, Component, ElementRef } from '@angular/core';
 export class HomepageCarousalComponent {
   public imgArr: Array<string> = ['../../../../assets/UI_banner_2 1.jpg', '../../../../assets/UI_banner_2 1.jpg',]
   private interval!: any;
-  constructor(private el: ElementRef,private changeDetection:ChangeDetectorRef) {
+  constructor(private el: ElementRef, private changeDetection: ChangeDetectorRef) {
 
   }
   ngAfterViewInit(): void {

@@ -1,9 +1,19 @@
 .container {
   container-type: inline-size;
   container-name: bigBox;
+  > div:nth-child(2) {
+    width: 100%;
+    height: 1000svh;
+    margin-top: 20px;
+  }
+
+  app-navbar {
+    z-index: 10;
+    position: relative;
+  }
 }
 
-@mixin boxShadow{
+@mixin boxShadow {
   position: relative;
   background: white;
   border-top: 2px solid black;
@@ -19,42 +29,41 @@
   height: 15svh;
   display: flex;
   align-items: center;
-  background: #FFC914;
+  background: #ffc914;
   border-radius: 5px;
   justify-content: center;
 }
-
-.influncerProductData::after {
-  content: "";
-  background: linear-gradient(65deg, white, white);
-  display: block;
-  z-index: -1;
-  height: 82svh;
-  border-radius: 0px 10px 10px 0px;
+.rect {
   position: absolute;
-  top: -9px;
-  left: -55px;
-  width: 39svw;
-  transform: skewX(349deg);
+  height: 100%;
+  transform: scale3d(2.2, 1.5, 1.5);
+  width: 100%;
+  z-index: -1;
+  top: -50px;
 }
 
 .influncerProductData {
-  position: relative;
+  position: fixed;
   width: 100%;
-  background: #e82323;
-  margin-top: 100px;
   z-index: 1;
   height: 80svh;
+  top: 25svh;
+  transition: transform 1s linear;
   svg {
     position: absolute;
     right: 0;
-    top: 280px;
+    z-index: 2;
+    top: 245px;
+    background: #e82323;
   }
 
   > img:nth-child(4) {
     position: absolute;
     right: 0;
+    top: -25px;
+    z-index: 2;
     height: 200px;
+    background: #e82323;
   }
   .influencerData h3 {
     font-size: 45px;
@@ -104,23 +113,25 @@
 .cardTwo {
   left: 22svw;
   top: 16.5svh;
+  z-index: 2;
 }
 
 .cardOne {
   background: #ffff00 !important;
   top: 16.5svh;
-  left: 5svh;
+  left: 2.5svh;
 }
 
 .chooseUs {
   border-top: 2px solid black;
   border-bottom: 2px solid black;
   width: 100%;
-  margin-top: 32svh;
+  top: 130svh;
   height: 125svh;
   z-index: 1;
   background: linear-gradient(180deg, #ffff00, #ff6828);
-  position: relative;
+  position: fixed;
+  transition: transform 1s linear;
   > img:nth-child(1) {
     position: absolute;
     top: -30svh;
@@ -138,7 +149,7 @@
     font-family: var(--fontProduct);
     width: 25svw;
   }
-  >img:nth-child(4){
+  > img:nth-child(4) {
     position: absolute;
     height: 100%;
     z-index: -1;
@@ -154,8 +165,9 @@
   grid-auto-columns: 1fr;
   gap: 20px 25px;
   grid-auto-flow: row;
-  grid-template-areas: "A1 A1 A1 A2"
-  "A3 A4 A5 A6";
+  grid-template-areas:
+    "A1 A1 A1 A2"
+    "A3 A4 A5 A6";
   margin-top: 185px;
   padding: 30px;
 }
@@ -167,13 +179,13 @@
   width: 72svw;
   font-style: italic;
   @include boxShadow();
-  >img:nth-child(1){
+  > img:nth-child(1) {
     position: absolute;
     height: 350px;
     top: -25px;
     left: 60px;
   }
-  div{
+  div {
     width: 70%;
     text-wrap: balance;
     font-family: var(--fontNavbar);
@@ -187,7 +199,7 @@
     top: 40px;
     border: 5px solid;
     display: flex;
-    background: #FFFF00;
+    background: #ffff00;
     z-index: -1;
     border-radius: 8px;
     justify-content: center;
@@ -197,11 +209,15 @@
   }
 }
 
-.A2{
+.A2 {
   grid-area: A2;
 }
 
-.A2,.A3,.A4,.A5,.A6 {
+.A2,
+.A3,
+.A4,
+.A5,
+.A6 {
   width: 100%;
   height: 45svh;
   border-radius: 7px;
@@ -212,17 +228,17 @@
   padding-top: 15px;
   align-items: flex-start;
   justify-content: flex-start;
-  >div:nth-child(1){
+  > div:nth-child(1) {
     @include iconBox();
   }
-  >span:nth-child(2){
+  > span:nth-child(2) {
     width: 90%;
     line-height: 6svh;
     font-weight: 600;
     font-size: 40px;
     font-family: var(--fontNavbar);
   }
-  >div:nth-child(3){
+  > div:nth-child(3) {
     background: black;
     height: 10px;
     width: 125px;
@@ -245,4 +261,36 @@
 
 .A6 {
   grid-area: A6;
+}
+
+.parallaxSectionBackground {
+  border-top: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 85svh;
+  width: 100%;
+  justify-content: center;
+  position: relative;
+  border-bottom: 2px solid black;
+  > span:nth-child(1) {
+    width: 1000svw;
+    height: 100%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    background-image: url("../../../assets/Article → Section.svg");
+    background-repeat: repeat;
+    transition: all 1s;
+  }
+}
+
+
+section.parallaxsection {
+  width: 100%;
+  top: 265svh;
+  z-index: 1;
+  position: fixed;
+  transition: transform 1s linear;
 }
