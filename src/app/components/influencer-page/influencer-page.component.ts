@@ -21,16 +21,20 @@ export class InfluencerPageComponent implements AfterViewInit {
   @HostListener('window:scroll', ['$event'])
   scroll(event: Event) {
     const parallaxElement = this.el.nativeElement.querySelector('.parallaxsection')
-    const choseUsElement = this.el.nativeElement.querySelector('.chooseUs')
-    const influncerProductDataElement = this.el.nativeElement.querySelector('.influncerProductData')
+    const parallaxViewCheck = this.isInViewport(parallaxElement)
     const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const choseUsElement = this.el.nativeElement.querySelector('.chooseUs')
+    const choseUseViewCheck = this.isInViewport(choseUsElement)
     const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     const scrolled = (winScroll / height) * 0.1;
-    influncerProductDataElement.style.transform = `translateY(${scrolled} svh)`
     console.log(scrolled);
 
-
+    if (parallaxViewCheck) {
+      parallaxElement.style.position = `sticky`;
+      parallaxElement.style.top = '45px';
+    }
   }
+
 
   isInViewport(element: HTMLElement) {
     const rect = element.getBoundingClientRect();
