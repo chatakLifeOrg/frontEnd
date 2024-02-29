@@ -1,17 +1,16 @@
 .container {
   container-type: inline-size;
   container-name: bigBox;
-  > div:nth-child(2) {
-    width: 100%;
-    height: 1000svh;
-    margin-top: 20px;
-  }
-
+  overflow-x: hidden;
+  overflow-y: scroll;
+  scrollbar-width: none;
   app-navbar {
     z-index: 10;
     position: relative;
   }
 }
+
+
 
 @mixin boxShadow {
   position: relative;
@@ -36,19 +35,17 @@
 .rect {
   position: absolute;
   height: 100%;
-  transform: scale3d(2.2, 1.5, 1.5);
+  transform: scale3d(2.4, 1.6, 1.5);
   width: 100%;
   z-index: -1;
   top: -50px;
 }
 
 .influncerProductData {
-  position: fixed;
   width: 100%;
-  z-index: 1;
   height: 80svh;
-  top: 25svh;
-  transition: transform 1s linear;
+  position: relative;
+  margin-top: 100px;
   svg {
     position: absolute;
     right: 0;
@@ -126,12 +123,11 @@
   border-top: 2px solid black;
   border-bottom: 2px solid black;
   width: 100%;
-  top: 130svh;
-  height: 125svh;
+  margin-top: 150px;
+  position: relative;
   z-index: 1;
+  height: 125svh;
   background: linear-gradient(180deg, #ffff00, #ff6828);
-  position: fixed;
-  transition: transform 1s linear;
   > img:nth-child(1) {
     position: absolute;
     top: -30svh;
@@ -153,8 +149,9 @@
     position: absolute;
     height: 100%;
     z-index: -1;
+    width: 100%;
     top: 15px;
-    object-fit: scale-down;
+    object-fit: contain;
   }
 }
 
@@ -264,33 +261,63 @@
 }
 
 .parallaxSectionBackground {
-  border-top: 2px solid black;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 85svh;
+  height: inherit;
   width: 100%;
-  justify-content: center;
-  position: relative;
-  border-bottom: 2px solid black;
+  position: fixed;
+  left: 0;
+  z-index: -1;
+  transition: all 1s;
+  // animation: sideways 50s ease;
+  // animation-timeline: scroll();
   > span:nth-child(1) {
-    width: 1000svw;
-    height: 100%;
+      width: 1000svw;
+    height: inherit;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
     position: absolute;
+    left: 50%;
     transform: translate(-50%, -50%);
     top: 50%;
-    left: 50%;
+    z-index: -1;
     background-image: url("../../../assets/Article → Section.svg");
     background-repeat: repeat;
-    transition: all 1s;
+   
+  }
+  > div {
+    z-index: 1;
   }
 }
 
+@keyframes sideways{
+  to {
+    left: -100svw;
+  }
+}
 
 section.parallaxsection {
   width: 100%;
-  top: 265svh;
+  scrollbar-width: none;
+  height: 80svh;
+  position: relative;
+  margin-top: 10svh;
+  transition: transform 250ms linear;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.parallaxContent {
+  display: flex;
+  height: 1000svh;
+  width: 100%;
+  gap: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.positioner {
+  position: sticky;
   z-index: 1;
-  position: fixed;
-  transition: transform 1s linear;
+  top: 50%;
+  transform: translate(50%, 50%);
 }

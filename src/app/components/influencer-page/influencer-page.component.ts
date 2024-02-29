@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, HostListener } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, OnDestroy } from '@angular/core';
 import { NavbarComponent } from '../../utils/templates/navbar/navbar.component';
 
 @Component({
@@ -8,31 +8,45 @@ import { NavbarComponent } from '../../utils/templates/navbar/navbar.component';
   templateUrl: './influencer-page.component.html',
   styleUrl: './influencer-page.component.scss'
 })
-export class InfluencerPageComponent implements AfterViewInit {
-
+export class InfluencerPageComponent implements AfterViewInit, OnDestroy {
+  private observer!: IntersectionObserver;
+  private scrolled: number = 0;
   constructor(private el: ElementRef) {
 
   }
-
-  ngAfterViewInit(): void {
+  ngOnDestroy(): void {
+    this.observer.disconnect()
   }
 
+  ngAfterViewInit(): void {
+    const parallaxElement = this.el.nativeElement.querySelector('.parallaxsection');
+    const threshold = 1
+    this.observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // parallaxSectionBackground.style.left = `${this.scrolled}svh`
+          }
+        });
+      },
+      { threshold }
+    );
+    this.observer.observe(parallaxElement)
+  }
 
-  @HostListener('window:scroll', ['$event'])
-  scroll(event: Event) {
-    const parallaxElement = this.el.nativeElement.querySelector('.parallaxsection')
-    const parallaxViewCheck = this.isInViewport(parallaxElement)
-    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-    const choseUsElement = this.el.nativeElement.querySelector('.chooseUs')
-    const choseUseViewCheck = this.isInViewport(choseUsElement)
-    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const scrolled = (winScroll / height) * 0.1;
-    console.log(scrolled);
-
-    if (parallaxViewCheck) {
-      parallaxElement.style.position = `sticky`;
-      parallaxElement.style.top = '45px';
+  @HostListener('document:mousewheel', ['$event'])
+  scroll(event: WheelEvent) {
+    const div = this.el.nativeElement.querySelector('.parallaxsection');
+    const parallaxSectionBackground = this.el.nativeElement.querySelector('.parallaxSectionBackground')
+    const winScroll = div.scrollTop || div.scrollTop;
+    const height = div.scrollHeight - div.clientHeight;
+    this.scrolled = Math.floor((winScroll / height) * 100);
+    parallaxSectionBackground.style.left = `calc(-7 * ${this.scrolled}svh)`
+    if(this.scrolled >= 95){
+      console.log('true');
     }
+    console.log(this.scrolled);
+
   }
 
 
