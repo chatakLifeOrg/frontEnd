@@ -59,6 +59,13 @@ export class InfluencerPageComponent implements AfterViewInit, OnDestroy {
       const handpickedpen = this.el.nativeElement.querySelector('#handpickedpen')
       const handUp = this.el.nativeElement.querySelector('#handUp')
       const book = this.el.nativeElement.querySelector('#book')
+      const boydrinking = this.el.nativeElement.querySelector('#boydrinking')
+      const bulb = this.el.nativeElement.querySelector('#bulb')
+      const downtriangle = this.el.nativeElement.querySelector('#downtriangle')
+      const girldrinking = this.el.nativeElement.querySelector('#girldrinking')
+      const heartsmall = this.el.nativeElement.querySelector('#heartsmall')
+      const megaphone = this.el.nativeElement.querySelector('#megaphone')
+      const toptriangle = this.el.nativeElement.querySelector('#toptriangle')
       const headerText = this.el.nativeElement.querySelector('.headerText')
       const firstText = this.el.nativeElement.querySelector('.firstText')
       const secondText = this.el.nativeElement.querySelector('.secondText')
@@ -173,6 +180,9 @@ export class InfluencerPageComponent implements AfterViewInit, OnDestroy {
         }
         if (newScrolled > 66) {
           whiteCircleElement.style.transform = 'rotate3d(2, 1, 1, 360deg)'
+          boydrinking.style.bottom = '40svh';
+          boydrinking.style.left = '85svh'
+          boydrinking.style.opacity = 0
         }
         if (newScrolled > 67) {
           book.style.bottom = '40svh'
@@ -197,7 +207,62 @@ export class InfluencerPageComponent implements AfterViewInit, OnDestroy {
           thirdText.style.display = 'flex'
           thirdText.style.transform = 'translate(0px,-915px)'
           fourthText.style.transform = 'translate(0px, 0px)'
-        } if (newScrolled > 77) {
+          boydrinking.style.left = '146svh'
+          boydrinking.style.bottom = '30svh';
+          boydrinking.style.height = '30svh'
+          boydrinking.style.opacity = 1
+        } 
+         if(newScrolled > 69){
+          bulb.style.opacity = 1
+          bulb.style.left = '133svh'
+          bulb.style.bottom = '85svh';
+         }
+         if(newScrolled > 71){
+          girldrinking.style.opacity = 1
+          girldrinking.style.left = '40svh'
+          girldrinking.style.bottom = '60svh';
+          girldrinking.style.height = '40svh'
+         }
+         if(newScrolled >73){
+          downtriangle.style.opacity = 1
+          downtriangle.style.left = '92svh'
+          downtriangle.style.bottom = '26svh';
+          downtriangle.style.height = '3svh'
+         }
+         if(newScrolled >75){
+           toptriangle.style.opacity = 1
+           toptriangle.style.bottom = '93svh';
+           toptriangle.style.height = '5svh'
+         }
+         if(newScrolled >77){
+          heartsmall.style.opacity = 1
+          heartsmall.style.left = '146svh'
+          heartsmall.style.bottom = '70svh';
+          heartsmall.style.height = '5svh'
+         }
+         if(newScrolled > 79){
+          megaphone.style.opacity = 1
+          megaphone.style.left = '64svh'
+          megaphone.style.bottom = '26svh';
+         }
+        if (newScrolled > 82) {
+          megaphone.style.bottom = '69svh';
+          megaphone.style.left = '45svw'
+          megaphone.style.opacity = '0'
+          heartsmall.style.left = '90svh'
+          heartsmall.style.opacity = '0'
+          toptriangle.style.bottom = '41svh';
+          toptriangle.style.left = '87svh'
+          toptriangle.style.opacity = '0'
+          downtriangle.style.bottom = '47svh';
+          downtriangle.style.left = '100svh'
+          downtriangle.style.opacity = '0'
+          girldrinking.style.left = '97svh'
+          girldrinking.style.opacity = '0'
+          bulb.style.left = '97svh'
+          bulb.style.opacity = '0'
+          boydrinking.style.left = '97svh'
+          boydrinking.style.opacity = '0'
           thirdText.style.transform = 'translate(0px, -1350px)'
           fourthText.style.display = 'flex'
           fourthText.style.transform = 'translate(0px, -1180px)'
