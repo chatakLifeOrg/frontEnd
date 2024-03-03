@@ -71,45 +71,56 @@ export class InfluencerPageComponent implements AfterViewInit, OnDestroy {
       const rocket = this.el.nativeElement.querySelector('#rocket')
       const smile = this.el.nativeElement.querySelector('#smile')
       const thunder = this.el.nativeElement.querySelector('#thunder')
+      const big3rupee = this.el.nativeElement.querySelector('#big3rupee')
+      const small4rupee = this.el.nativeElement.querySelector('#small4rupee')
+      const rupee = this.el.nativeElement.querySelector('#rupee')
+      const zigzagLine = this.el.nativeElement.querySelector('#zigzagLine')
+      const growth = this.el.nativeElement.querySelector('#growth')
+      const big4rupee = this.el.nativeElement.querySelector('#big4rupee')
       const headerText = this.el.nativeElement.querySelector('.headerText')
       const firstText = this.el.nativeElement.querySelector('.firstText')
       const secondText = this.el.nativeElement.querySelector('.secondText')
       const thirdText = this.el.nativeElement.querySelector('.thirdText')
       const fourthText = this.el.nativeElement.querySelector('.fourthText')
       const fifthText = this.el.nativeElement.querySelector('.fifthText')
+      const line = this.el.nativeElement.querySelector('.line')
+      const divs = this.el.nativeElement.querySelectorAll('.positionerFixer div')
+      line.style.opacity = '1'
       headerText.style.display = 'flex'
       if (newScrolled > 40) {
         whiteCircleElement.style.transform = `rotate3d(0, 0, 1, 360deg)`;
         backdropElement.style.background = '#1C1C1B'
         cameraImage.style.opacity = '1'
-        cameraImage.style.bottom = '79svh';
+        cameraImage.style.bottom = '180svh';
         cameraImage.style.left = '28svw'
         if (newScrolled > 42) {
           peopleImage.style.opacity = '1'
-          peopleImage.style.bottom = '52svh';
+          peopleImage.style.bottom = '152svh';
           peopleImage.style.left = '50svh'
         }
         if (newScrolled > 44) {
           chatImage.style.opacity = '1'
           chatImage.style.zIndex = '0'
-          chatImage.style.bottom = '27svh';
+          chatImage.style.bottom = '123svh';
           chatImage.style.left = '72svh'
         }
         if (newScrolled > 46) {
           handImage.style.opacity = '1'
-          handImage.style.bottom = '28svh';
+          handImage.style.bottom = '125svh';
           handImage.style.left = '136svh'
         }
         if (newScrolled > 48) {
           taskImage.style.opacity = '1'
           taskImage.style.left = '140svh'
-          taskImage.style.bottom = '74svh'
+          taskImage.style.bottom = '175svh'
           whiteCircleElement.style.transform = 'rotate3d(2, 1, 1, 0deg)'
         }
         if (newScrolled > 50) {
           whiteCircleElement.style.transform = 'rotate3d(2, 1, 1, 360deg)'
           headerText.style.transform = 'translateY(0px)'
           firstText.style.transform = 'translate(0px, 0px)'
+          divs[0].style.background = '#FFFF00'
+          divs[1].style.background = '#d9d9d9'
         }
         if (newScrolled > 52) {
           headerText.style.transform = 'translateY(-400px)'
@@ -137,6 +148,9 @@ export class InfluencerPageComponent implements AfterViewInit, OnDestroy {
           pickingRightImage.style.left = '85svh'
           pickingRightImage.style.opacity = 0
         } if (newScrolled > 55) {
+          divs[0].style.background = '#d9d9d9'
+          divs[1].style.background = '#FFFF00'
+          divs[2].style.background = '#d9d9d9'
           cameraImage.style.bottom = '40svh';
           cameraImage.style.left = '85svh'
           cameraImage.style.opacity = '0'
@@ -154,32 +168,32 @@ export class InfluencerPageComponent implements AfterViewInit, OnDestroy {
           secondText.style.display = 'flex'
           secondText.style.transform = 'translate(0px, -635px)'
           thirdText.style.transform = 'translate(0px, 0px)'
-          pickingRightImage.style.bottom = '21svh';
+          pickingRightImage.style.bottom = '123svh';
           pickingRightImage.style.left = '60svh'
           pickingRightImage.style.opacity = 1
         }
         if (newScrolled > 57) {
-          papper.style.bottom = '55svh';
+          papper.style.bottom = '155svh';
           papper.style.left = '55svh'
           papper.style.opacity = 1
         }
         if (newScrolled > 59) {
-          handpickedpen.style.bottom = '85svh'
+          handpickedpen.style.bottom = '185svh'
           handpickedpen.style.left = '140svh'
           handpickedpen.style.opacity = 1
         }
         if (newScrolled > 61) {
-          handpen.style.bottom = '80svh'
+          handpen.style.bottom = '180svh'
           handpen.style.left = '60svh'
           handpen.style.opacity = 1
         }
         if (newScrolled > 63) {
-          handUp.style.bottom = '15svh'
+          handUp.style.bottom = '115svh'
           handUp.style.left = '132svh'
           handUp.style.opacity = 1
         }
         if (newScrolled > 65) {
-          book.style.bottom = '55svh'
+          book.style.bottom = '155svh'
           book.style.left = '145svh'
           book.style.opacity = 1
         }
@@ -204,6 +218,9 @@ export class InfluencerPageComponent implements AfterViewInit, OnDestroy {
           boydrinking.style.opacity = '0'
         }
         if (newScrolled > 67) {
+          divs[1].style.background = '#d9d9d9'
+          divs[2].style.background = '#FFFF00'
+          divs[3].style.background = '#d9d9d9'
           book.style.bottom = '40svh'
           book.style.left = '85svh'
           book.style.opacity = 0
@@ -227,42 +244,42 @@ export class InfluencerPageComponent implements AfterViewInit, OnDestroy {
           thirdText.style.transform = 'translate(0px,-915px)'
           fourthText.style.transform = 'translate(0px, 0px)'
           boydrinking.style.left = '146svh'
-          boydrinking.style.bottom = '30svh';
+          boydrinking.style.bottom = '130svh';
           boydrinking.style.height = '30svh'
           boydrinking.style.opacity = 1
         }
         if (newScrolled > 69) {
           bulb.style.opacity = 1
           bulb.style.left = '133svh'
-          bulb.style.bottom = '85svh';
+          bulb.style.bottom = '185svh';
         }
         if (newScrolled > 71) {
           girldrinking.style.opacity = 1
           girldrinking.style.left = '40svh'
-          girldrinking.style.bottom = '60svh';
+          girldrinking.style.bottom = '160svh';
           girldrinking.style.height = '40svh'
         }
         if (newScrolled > 73) {
           downtriangle.style.opacity = 1
           downtriangle.style.left = '92svh'
-          downtriangle.style.bottom = '26svh';
+          downtriangle.style.bottom = '124svh';
           downtriangle.style.height = '3svh'
         }
         if (newScrolled > 75) {
           toptriangle.style.opacity = 1
-          toptriangle.style.bottom = '93svh';
+          toptriangle.style.bottom = '193svh';
           toptriangle.style.height = '5svh'
         }
         if (newScrolled > 77) {
           heartsmall.style.opacity = 1
           heartsmall.style.left = '146svh'
-          heartsmall.style.bottom = '70svh';
+          heartsmall.style.bottom = '170svh';
           heartsmall.style.height = '5svh'
         }
         if (newScrolled > 79) {
           megaphone.style.opacity = 1
           megaphone.style.left = '64svh'
-          megaphone.style.bottom = '26svh';
+          megaphone.style.bottom = '126svh';
         }
         if (newScrolled > 81) {
           whiteCircleElement.style.transform = 'rotate3d(2, 1, 1, 0deg)'
@@ -278,6 +295,9 @@ export class InfluencerPageComponent implements AfterViewInit, OnDestroy {
           thunder.style.opacity = '0'
         }
         if (newScrolled > 82) {
+          divs[2].style.background = '#d9d9d9'
+          divs[3].style.background = '#FFFF00'
+          divs[4].style.background = '#d9d9d9'
           megaphone.style.bottom = '69svh';
           megaphone.style.left = '45svw'
           megaphone.style.opacity = '0'
@@ -301,23 +321,38 @@ export class InfluencerPageComponent implements AfterViewInit, OnDestroy {
           fifthText.style.transform = 'translate(0px, 0px)'
           phone.style.opacity = '1'
           phone.style.left = '65svh'
-          phone.style.bottom = '85svh';
+          phone.style.bottom = '185svh';
           postcard.style.opacity = '1'
           postcard.style.left = '67svh'
-          postcard.style.bottom = '30svh';
+          postcard.style.bottom = '130svh';
           postcard.style.height = '10svh'
           rocket.style.opacity = '1'
           rocket.style.left = '50svh'
-          rocket.style.bottom = '50svh';
+          rocket.style.bottom = '150svh';
           rocket.style.height = '25svh'
           smile.style.opacity = '1'
           smile.style.left = '138svh'
-          smile.style.bottom = '74svh';
+          smile.style.bottom = '174svh';
           smile.style.height = '25svh'
           thunder.style.opacity = '1'
+          thunder.style.bottom = '140svh';
           thunder.style.left = '145svh'
+          big3rupee.style.opacity = '0'
+          big3rupee.style.left = '97svh'
+          small4rupee.style.opacity = '0'
+          small4rupee.style.left = '97svh'
+          rupee.style.opacity = '0'
+          rupee.style.left = '97svh'
+          zigzagLine.style.opacity = '0'
+          zigzagLine.style.left = '97svh'
+          growth.style.opacity = '0'
+          growth.style.left = '97svh'
+          big4rupee.style.opacity = '0'
+          big4rupee.style.left = '97svh'
         }
-        if (newScrolled > 88) {
+        if (newScrolled > 84) {
+          divs[3].style.background = '#d9d9d9'
+          divs[4].style.background = '#FFFF00'
           phone.style.left = '97svh'
           phone.style.opacity = '0'
           postcard.style.left = '97svh'
@@ -328,11 +363,44 @@ export class InfluencerPageComponent implements AfterViewInit, OnDestroy {
           smile.style.opacity = '0'
           thunder.style.left = '97svh'
           thunder.style.opacity = '0'
+          whiteCircleElement.style.transform = 'rotate3d(2, 1, 1, 360deg)'
+          big3rupee.style.opacity = '1'
+          big3rupee.style.left = '62svh'
+          big3rupee.style.bottom = '130svh';
+          big3rupee.style.height = '17svh'
+          small4rupee.style.opacity = '1'
+          small4rupee.style.left = '128svh'
+          small4rupee.style.bottom = '186svh';
+          small4rupee.style.height = '13svh'
+          small4rupee.style.zIndex = 0
+          rupee.style.opacity = '1'
+          rupee.style.left = '67svh'
+          rupee.style.bottom = '180svh';
+          rupee.style.height = '20svh'
+          zigzagLine.style.opacity = '1'
+          zigzagLine.style.left = '40svh'
+          zigzagLine.style.bottom = '150svh';
+          growth.style.opacity = '1'
+          growth.style.left = '120svh'
+          growth.style.bottom = '144svh';
+          growth.style.height = '51svh'
+          growth.style.zIndex = 0
+          growth.style.transform = 'rotate3d(1, 2, 1, 45deg)'
+          big4rupee.style.opacity = '1'
+          big4rupee.style.left = '137svh'
+          big4rupee.style.bottom = '124svh';
+          big4rupee.style.height = '25svh'
           fourthText.style.transform = 'translate(0px,-1900px)'
           fifthText.style.display = 'flex'
           fifthText.style.transform = 'translate(0px, -1539px)'
         }
       } else if (newScrolled < 40) {
+        divs[0].style.background = '#d9d9d9'
+        divs[1].style.background = '#d9d9d9'
+        divs[2].style.background = '#d9d9d9'
+        divs[3].style.background = '#d9d9d9'
+        divs[4].style.background = '#d9d9d9'
+        line.style.opacity = '0'
         cameraImage.style.bottom = '69svh';
         cameraImage.style.left = '45svw'
         cameraImage.style.opacity = '0'
