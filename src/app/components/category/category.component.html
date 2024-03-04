@@ -1,29 +1,29 @@
 <app-navbar></app-navbar>
 <div class="container">
   <div class="category"></div>
-    <div class="mobileViewContent">
-      <div>Sort</div> 
-      <div>Filters</div>
-      <hr/>
-    </div> 
+  <div class="mobileViewContent">
+    <div><img src="../../../assets/sort.svg">  &nbsp;&nbsp;Sort</div>
+    <div><img src="../../../assets/filter.svg"> &nbsp; &nbsp; Filters</div>
+    <hr />
+  </div>
   <app-breadcrumbes></app-breadcrumbes>
   <div class="categoryPreview">
     <div class="categoryPreviewLeft">
       <div class="categoryHeading">Men T-Shirts - <span style="color: #747070;">76 items</span> </div>&nbsp;&nbsp;
       <div>FILTERS </div>&nbsp;&nbsp;
-      <hr/>
+      <hr />
       <div><button class="categoryProducts">Products</button></div>
       <div class="checkBoxsAndNames">
-        <ng-container *ngFor="let category of categories; let i = index;">
-          <div class="input-label-pair">
-            <input type="checkbox" id="checkbox{{ i }}" />
-            <label for="checkbox{{ i }}">{{ category }}</label>
-          </div>
-        </ng-container>
+        @for(category of categories; track categories;let i = $index){
+        <div class="input-label-pair">
+          <input type="checkbox" id="checkbox{{ i }}" />
+          <label for="checkbox{{ i }}">{{ category }}</label>
+        </div>
+        }
       </div><br>
-      <hr/>
+      <hr />
       <div><button class="categoryProducts">Price</button></div>
-    <hr/>
+      <hr />
       <p-slider [(ngModel)]="rangeValues" [range]="true"></p-slider>
 
       <div><button class="products">Min</button> to
@@ -32,18 +32,19 @@
       </div>
       <div><button class="categoryProducts">Ratings</button></div>
       <div class="checkBoxsAndRating">
-        <ng-container
-          *ngFor="let ratings of ['5-Star.svg', '4-Star.svg', '3-Star.svg', '2-Star.svg', '1-Star.svg']; let i = index">
-          <div class="input-label-pair">
-            <input type="checkbox" id="checkboxs{{ i }}" />
-            <label for="checkbox{{ i }}" class="ratingsAndReview">
-              <img class="ratingImgs" [src]="'../../../assets/' + ratings" alt="" />
-            </label>
-          </div>
-        </ng-container>
+
+        @for(ratings of ['5-Star.svg', '4-Star.svg', '3-Star.svg', '2-Star.svg', '1-Star.svg']; track
+        ['5-Star.svg', '4-Star.svg', '3-Star.svg', '2-Star.svg', '1-Star.svg'];let i = $index){
+        <div class="input-label-pair">
+          <input type="checkbox" id="checkboxs{{ i }}" />
+          <label for="checkbox{{ i }}" class="ratingsAndReview">
+            <img class="ratingImgs" [src]="'../../../assets/' + ratings" alt="" />
+          </label>
+        </div>
+        }
       </div>
       &nbsp;&nbsp;
-      <hr/>
+      <hr />
     </div>
 
     <div class="categoryPreviewRight">
@@ -60,7 +61,7 @@
       </div>
       <div class="card-container">
         @for (item of CategoryItem; track $index;) {
-        <ng-container  *ngFor="let item of CategoryItem let i = index;">
+        <ng-container *ngFor="let item of CategoryItem let i = index;">
           <div (click)="goToCategoryPage()" class="categoryItem">
             <div class="categoryItemInner" [ngStyle]="{'background-color': getBackgroundColor(i)}">
               <span>
@@ -94,5 +95,5 @@
 
     </div>
 
-    </div>
-    </div>
+  </div>
+</div>
