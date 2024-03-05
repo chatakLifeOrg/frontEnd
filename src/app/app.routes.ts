@@ -3,6 +3,7 @@ import { HomePageComponent } from './components/home-page/home-page.component';
 import { ProductPageComponent } from './components/product-page/product-page.component';
 import { CategoryPageComponent } from './components/category/category.component';
 import { CartPageComponent } from './components/cart-page/cart-page.component';
+import {InfluencerPageComponent} from './components/influencer-page/influencer-page.component'
 export const routes: Routes = [{
   path: '',
   pathMatch: 'prefix',

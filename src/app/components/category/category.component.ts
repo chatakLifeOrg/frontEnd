@@ -78,11 +78,12 @@ export class CategoryPageComponent implements OnInit {
     }
   }
 
-  addWishList() {
-    const element = this.el.nativeElement.querySelector('.wishlist')
-    const isRed = element.getAttribute('fill') === 'red'
-    if (!isRed) element.setAttribute('fill', 'red')
-    else element.setAttribute('fill', 'none')
+addWishList(index?:number) {
+    const element = index?this.el.nativeElement.querySelectorAll('.wishlistcard'):this.el.nativeElement.querySelector('.wishlist')
+    console.log(index,element);
+    const isRed = index?element[index - 1].getAttribute('fill') === 'red':element.getAttribute('fill') === 'red'
+    if (!isRed) index?element[index - 1].setAttribute('fill', 'red'):element.setAttribute('fill', 'red') 
+    else index?element[index - 1].setAttribute('fill', 'none'):element.setAttribute('fill', 'none')
   }
 
   goToCategoryPage() {
