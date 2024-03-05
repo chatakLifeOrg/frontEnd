@@ -115,7 +115,7 @@
     </div>
     <img src="../../../assets/bg-01 1.png" alt="">
   </section>
-  <section class="parallaxsection">
+  <!-- <section class="parallaxsection">
     <div class="parallaxSectionBackground">
       <span></span>
     </div>
@@ -225,8 +225,156 @@
     </div>
     <div class="parallaxContent">
     </div>
+  </section> -->
+  <section class="carousalSection">
+    <div class="slide">
+      @for (item of imgArr; track $index) {
+      <div class="slides">
+        <img [src]="item" alt="" srcset="">
+      </div>
+      }
+    </div>
   </section>
   <section class="lastSection">
+    <div class="formCard">
+      <form [formGroup]="multipleForms" class="multipleForms">
+        <div class="firstForm" formGroupName="personalInfo">
+          <span>Personal Information</span>
+          <div class="container">
+            <div class="b1">
+              <span>First Name*</span>
+              <input type="text" formControlName="firstName">
+            </div>
+            <div class="b2">
+              <span>Last Name*</span>
+              <input type="text" formControlName="lastName">
+            </div>
+            <div class="b3">
+              <span>Phone Number*</span>
+              <input type="tel" formControlName="phoneNumber">
+            </div>
+            <div class="b4">
+              <span>Email Address*</span>
+              <input type="email" formControlName="emailAddress">
+            </div>
+          </div>
+          <button (click)="nextForm()" class="button" [disabled]="!multipleForms.controls['personalInfo'].valid">
+            <div>next</div>
+          </button>
+        </div>
+      
+        <!-- Second Form -->
+        <div class="secondForm" formGroupName="socialLinks">
+          <div class="headers">
+            <span>Social Links</span>
+            <img (click)="goBack()" src="../../../assets/backButton.svg" alt="">
+          </div>
+          <div class="containerSecond">
+            <div class="C1">
+              <span>Instagram</span>
+              <input type="text" formControlName="instagram">
+            </div>
+            <div class="C2">
+              <span>Facebook</span>
+              <input type="text" formControlName="facebook">
+            </div>
+            <div class="C3">
+              <span>Twitter</span>
+              <input type="text" formControlName="twitter">
+            </div>
+            <div class="C4">
+              <span>Youtube</span>
+              <input type="text" formControlName="youtube">
+            </div>
+            <div class="C5">
+              <span>Linkedin</span>
+              <input type="text" formControlName="linkedin">
+            </div>
+          </div>
+          <button (click)="nextForm()" class="button" [disabled]="!multipleForms.controls['socialLinks'].valid">
+            <div>next</div>
+          </button>
+        </div>
+        
+        <!-- Third Form -->
+        <div class="thirdForm" formGroupName="aboutYou">
+          <div class="headers">
+            <span>About You</span>
+            <img (click)="goBack()" src="../../../assets/backButton.svg" alt="">
+          </div>
+          <div class="containerThird">
+            <div class="D1">
+              <span>How many followers do you have ?</span>
+              <input type="tel" formControlName="followersCount">
+            </div>
+            <div class="D2">
+              <span>What is your reach?</span>
+              <input type="text" formControlName="reach">
+            </div>
+            <div class="D3">
+              <span>What is your engagement rate?</span>
+              <input type="text" formControlName="engagementRate">
+            </div>
+            <div class="D4">
+              <span>What is your niche or content theme?</span>
+              <input type="text" formControlName="niche">
+            </div>
+          </div>
+          <button (click)="nextForm()" class="button" [disabled]="!multipleForms.controls['aboutYou'].valid">
+            <div>next</div>
+          </button>
+        </div>
+        
+        <!-- Fourth Form -->
+        <div class="fourthForm" formGroupName="vision">
+          <div class="headers">
+            <span>Your Vision</span>
+            <img (click)="goBack()" src="../../../assets/backButton.svg" alt="">
+          </div>
+          <div class="formFlex">
+            <div class="interestedMerchInput">
+              <span>What kind of merch are you interested in creating?</span>
+              <input type="text" formControlName="merchInterest">
+            </div>
+            <div class="expectationsInput">
+              <span>What are your goals and expectations for this collaboration?</span>
+              <textarea formControlName="collaborationGoals"></textarea>
+            </div>
+          </div>
+          <button (click)="nextForm()" class="button" [disabled]="!multipleForms.controls['vision'].valid">
+            <div>next</div>
+          </button>
+        </div>
+        
+        <!-- Fifth Form -->
+        <div class="fifthForm" formGroupName="feedback">
+          <div class="headers">
+            <span>Feedback</span>
+            <img (click)="goBack()" src="../../../assets/backButton.svg" alt="">
+          </div>
+          <div class="formFlex">
+            <div class="fifthFormInput">
+              <span>How did you hear about us?</span>
+              <textarea formControlName="hearAboutUs"></textarea>
+            </div>
+            <div class="fifthFormInput">
+              <span>Do you have any questions or suggestions for us?</span>
+              <textarea formControlName="suggestions"></textarea>
+            </div>
+          </div>
+          <button (click)="nextForm()" class="button" [disabled]="!multipleForms.controls['feedback'].valid">
+            <div>next</div>
+          </button>
+        </div>
+      </form>
     
+    
+      
+    </div>
+    <div class="belowCard"></div>
+    <img src="../../../assets/videoplayback-unscreen.gif" alt="">
+    <img src="../../../assets/thunderBackground.svg" alt="">
+    <img src="../../../assets/lowerBluebackground.svg" alt="">
+    <img src="../../../assets/upperBluebackground.svg" alt="">
   </section>
 </div>

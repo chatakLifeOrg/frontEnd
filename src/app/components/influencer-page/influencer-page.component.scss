@@ -459,11 +459,306 @@
   right: 470px;
 }
 
-
-.lastSection{
+.lastSection {
   margin-top: 11svh;
   border-bottom: 2px solid;
   height: 100svh;
+  z-index: 1;
+  position: relative;
   border-top: 2px solid;
   background: #1a9ae2;
+}
+
+.lastSection > img:nth-child(4){
+  position: absolute;
+  right: 440px;
+  z-index: -1;
+}
+
+.lastSection > img:nth-child(3){
+  position: absolute;
+  bottom: 0;
+  height: 65svh;
+}
+
+.lastSection > img:nth-child(5){
+  position: absolute;
+  bottom: 0;
+  height: 75svh;
+  z-index: -1;
+}
+
+.lastSection > img:nth-child(6){
+  z-index: -1;
+  position: absolute;
+  right: -250px;
+  top: 0px;
+}
+
+.carousalSection {
+  background: black;
+  height: 32svw;
+}
+
+.slide {
+  position: relative;
+  height: 100%;
+  left: 0;
+  display: flex;
+  transition: all 1s;
+  img{
+    height: 100%;
+    width: 100svw;
+    object-fit: fill;
+    }
+}
+
+
+.formCard {
+  height: 70svh;
+  width: 70svh;
+  border-radius: 15px;
+  right: 20svh;
+  overflow: hidden;
+  z-index: 1;
+  border: 3px solid;
+  position: absolute;
+  background: white;
+  top: 15svh;
+}
+
+.belowCard {
+  height: 70svh;
+  width: 70svh;
+  background: white;
+  border-radius: 15px;
+  right: 19svh;
+  top: 16svh;
+  position: absolute;
+  border: 3px solid;
+}
+
+.firstForm > span:nth-child(1),
+.headers {
+  font-size: 45px;
+  color: #ed1c24;
+}
+
+.firstForm .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  width: 69svh;
+  padding: 10px;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-auto-columns: 1fr;
+  gap: 35px 10px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "b1 b1 b2 b2"
+    "b3 b3 b3 b3"
+    "b4 b4 b4 b4";
+}
+
+.b1 {
+  grid-area: b1;
+}
+
+.b2 {
+  grid-area: b2;
+}
+
+.b1,
+.b2,
+.b3,
+.b4,
+.C1,
+.C2,
+.C3,
+.C4,
+.C5,
+.D1,
+.D2,
+.D3,
+.D4,
+.D5,
+.interestedMerchInput,
+.expectationsInput,
+.fifthFormInput {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 22px;
+  font-weight: 600;
+  > input {
+    width: 100%;
+    background: #efefef;
+    height: 40px;
+    padding: 5px;
+    border: 1px solid #302f2f;
+  }
+  > input:focus-visible {
+    outline: none;
+  }
+}
+
+.fourthForm textarea {
+  height: 190px;
+  resize: none;
+  width: 100%;
+  background: #efefef;
+  padding: 5px;
+  border: 1px solid #302f2f;
+}
+
+.fifthFormInput textarea{
+  height: 15svh;
+  resize: none;
+  width: 100%;
+  background: #efefef;
+  padding: 5px;
+  border: 1px solid #302f2f;
+}
+
+.formFlex {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+}
+
+.b3 {
+  grid-area: b3;
+}
+
+.b4 {
+  grid-area: b4;
+}
+
+.firstForm {
+  display: flex;
+  width: 200%;
+  flex-direction: column;
+  font-family: var(--fontNavbar);
+  gap: 45px;
+  position: relative;
+  margin: auto;
+  margin-top: 60px;
+}
+
+.button > div  {
+  background: #ffff00;
+  width: 8svw;
+  font-family: var(--fontNavbar);
+  line-height: 5svh;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 26.62px;
+  height: 5svh;
+  box-shadow: 2px 2px 0px 1px black;
+  border-top: 1px solid;
+  border-left: 1px solid;
+}
+
+.button {
+  cursor: pointer;
+  border: none;
+  position: absolute;
+  bottom: -5svw;
+  left: 24svw;
+}
+
+
+.multipleForms {
+  transition: all 1s;
+  gap: 35svw;
+  display: flex;
+  transform: translatex(0svw);
+}
+
+.containerSecond {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-auto-columns: 1fr;
+  gap: 12px 10px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "C1 C1 C2 C2"
+    "C3 C3 C3 C3"
+    "C4 C4 C4 C4"
+    "C5 C5 C5 C5";
+}
+
+.C1 {
+  grid-area: C1;
+}
+
+.C2 {
+  grid-area: C2;
+}
+
+.C3 {
+  grid-area: C3;
+}
+
+.C4 {
+  grid-area: C4;
+}
+
+.C5 {
+  grid-area: C5;
+}
+
+.headers {
+  display: flex;
+  width: 32svw;
+  justify-content: space-between;
+}
+
+.secondForm,
+.thirdForm,
+.fourthForm,
+.fifthForm {
+  width: 32svw;
+  margin-top: 2svw;
+  display: flex;
+  gap: 30px;
+  margin-left: -15.6svw;
+  flex-direction: column;
+  position: relative;
+}
+
+.thirdForm,
+.fourthForm,
+.fifthForm {
+  margin-left: -15svw;
+}
+
+.containerThird {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-auto-columns: 1fr;
+  gap: 12px 10px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "D1 D1"
+    "D2 D2"
+    "D3 D3"
+    "D4 D4";
+}
+
+.D1 {
+  grid-area: D1;
+}
+
+.D2 {
+  grid-area: D2;
+}
+
+.D3 {
+  grid-area: D3;
+}
+
+.D4 {
+  grid-area: D4;
 }

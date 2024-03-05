@@ -1,7 +1,8 @@
 {
   "projects": {
     "default": "devevnchatak",
-    "dev": "devevnchatak"
+    "dev": "devevnchatak",
+    "influencerProd": "merchinfluencer"
   },
   "targets": {},
   "etags": {}
