@@ -52,12 +52,15 @@ body {
   margin: 0;
 }
 
-@container bigBox ( max-width: 430px ){
-  app-navbar{
+@container bigBox ( max-width: 430px ) {
+  app-navbar {
     display: none;
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
 
 :root {
   --white: white;

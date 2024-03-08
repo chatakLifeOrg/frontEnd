@@ -1,21 +1,22 @@
-import { AfterViewInit, Component, ElementRef, HostListener, OnDestroy } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, HostListener, OnDestroy, Renderer2 } from '@angular/core';
 import { NavbarComponent } from '../../utils/templates/navbar/navbar.component';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-
+import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
 @Component({
   selector: 'app-influencer-page',
   standalone: true,
-  imports: [NavbarComponent,ReactiveFormsModule,CommonModule],
+  imports: [NavbarComponent, ReactiveFormsModule, CommonModule],
   templateUrl: './influencer-page.component.html',
   styleUrl: './influencer-page.component.scss'
 })
 export class InfluencerPageComponent implements AfterViewInit, OnDestroy {
   private observer!: IntersectionObserver;
-  private nextSlide = 0;
-  public imgArr:Array<string> = ['']
+  private nextSlide: number = 0;
+  public imgArr: Array<string> = ['../../../assets/temp/Slide 1.png', '../../../assets/temp/Slide 2.png', '../../../assets/temp/Slide 3.png', '../../../assets/temp/Slide 4.png', '../../../assets/temp/Slide 5.png', '../../../assets/temp/Slide 6.png']
   public multipleForms!: FormGroup;
   public currentFormIndex: number = 0;
+  public oldText!: string
   formValidities = {
     firstForm: false,
     secondForm: false,
@@ -23,16 +24,74 @@ export class InfluencerPageComponent implements AfterViewInit, OnDestroy {
     fourthForm: false,
     fifthForm: false
   };
+  public interval!: any;
+  public width: number = 52;
 
 
-  constructor(private el: ElementRef, private fb: FormBuilder,private formBuilder: FormBuilder) {
+  constructor(
+    private el: ElementRef,
+    private fb: FormBuilder,
+    private formBuilder: FormBuilder,
+    private changeDetection: ChangeDetectorRef,
+    private renderer: Renderer2) {
 
   }
   ngOnDestroy(): void {
     this.observer.disconnect()
   }
 
-  ngOnInit(){
+  sendMail(data: string) {
+    emailjs.send('service_71m6l34', 'template_ihk2aa3', {
+      message: data,
+      reply_to: "Karan@merchraja.com"
+    }, 'Ik4omSySQTFoUSgNV').then(data => {
+      console.log(data);
+    }).catch(error => {
+      console.log(error);
+    })
+  }
+
+  mouseEnter(element: string, text: string, headerText: string) {
+    const wholeDiv = this.el.nativeElement.querySelector(element);
+    const header = this.el.nativeElement.querySelector(`${element} span`);
+    const isRotated = wholeDiv.classList.contains('rotated');
+    if (isRotated) {
+      wholeDiv.classList.remove('rotated');
+      const existingDiv = wholeDiv.querySelector('.new-content');
+      console.log(existingDiv);
+
+      this.renderer.removeChild(wholeDiv, existingDiv); // Remove the element with the class new-content
+      header.innerText = this.oldText;
+    } else {
+      this.oldText = header.innerText;
+      wholeDiv.classList.add('rotated');
+      header.innerText = headerText;
+      const existingDiv = wholeDiv.querySelector('.new-content');
+      if (!existingDiv) {
+        // Create a new <div> element
+        const newElement = this.renderer.createElement('div');
+        this.renderer.addClass(newElement, 'new-content'); // Add a class to the new div
+        const newText = this.renderer.createText(text);
+        this.renderer.appendChild(newElement, newText);
+        newElement.style.marginTop = '15px'
+        newElement.style.fontFamily = 'Montserrat'
+        this.renderer.appendChild(wholeDiv, newElement);
+      }
+    }
+  }
+
+
+  mouseLeave(element: string) {
+    const wholeDiv = this.el.nativeElement.querySelector(element);
+
+    // Remove the class to reset the rotation
+    wholeDiv.classList.remove('rotated');
+
+    const header = this.el.nativeElement.querySelector(`${element} span`);
+    header.innerText = this.oldText;
+  }
+
+  ngOnInit() {
     this.multipleForms = this.formBuilder.group({
       personalInfo: this.formBuilder.group({
         firstName: ['', [Validators.required]],
@@ -62,17 +121,39 @@ export class InfluencerPageComponent implements AfterViewInit, OnDestroy {
         suggestions: ['', [Validators.required]]
       })
     });
-    
+
   }
 
 
-  goBack(){
+  goBack() {
     const multiForm = this.el.nativeElement.querySelector('.multipleForms')
-    this.nextSlide = this.nextSlide + 52;
+    this.nextSlide = this.nextSlide + this.width;
     multiForm.style.transform = `translateX(${this.nextSlide}svw)`;
   }
-
+  slide(i: number) {
+    const container = this.el.nativeElement.querySelector('.slide')
+    container.style.left = `-${i * 100}svw`;
+  }
   ngAfterViewInit(): void {
+    switch (true) {
+      case window.innerWidth <= 580:
+        this.width = 155;
+        break;
+      case window.innerWidth <= 425:
+        this.width = 155;
+        break;
+      default:
+        this.width = 52;
+        break;
+    }
+    let count = 0
+    this.interval = setInterval(() => {
+      this.imgArr = this.imgArr.concat(this.imgArr[count].trim())
+      this.imgArr.slice(1)
+      this.changeDetection.detectChanges()
+      count++;
+      this.slide(count)
+    }, 10000)
     // const parallaxElement = this.el.nativeElement.querySelector('.parallaxsection');
     // const threshold = 1
     // this.observer = new IntersectionObserver(
@@ -485,11 +566,33 @@ export class InfluencerPageComponent implements AfterViewInit, OnDestroy {
     return Object.keys(this.multipleForms.controls)[this.currentFormIndex];
   }
 
+  @HostListener("window:resize", ['$event'])
+  changeValue(event: Event) {
+    switch (true) {
+      case window.innerWidth <= 580:
+        this.width = 155;
+        break;
+      case window.innerWidth <= 425:
+        this.width = 155;
+        break;
+      default:
+        this.width = 52;
+        break;
+    }
+    console.log(this.width);
 
-  nextForm() {
-      const multiForm = this.el.nativeElement.querySelector('.multipleForms')
-      this.nextSlide = this.nextSlide - 52;
-      multiForm.style.transform = `translateX(${this.nextSlide}svw)`;
+  }
+
+  async nextForm(next?: string) {
+    const multiForm = this.el.nativeElement.querySelector('.multipleForms')
+    if (next) {
+      this.sendMail(JSON.stringify(this.multipleForms.value))
+      setTimeout(() => {
+        multiForm.style.transform = `translateX(0svw)`;
+      }, 3000);
+    }
+    this.nextSlide = this.nextSlide - this.width;
+    multiForm.style.transform = `translateX(${this.nextSlide}svw)`;
   }
 
   isInViewport(element: HTMLElement) {

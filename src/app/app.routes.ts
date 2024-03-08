@@ -6,7 +6,7 @@ import { CartPageComponent } from './components/cart-page/cart-page.component';
 export const routes: Routes = [{
   path: '',
   pathMatch: 'prefix',
-  redirectTo: 'influencer'
+  redirectTo: 'collaborations'
 }, {
   path: 'homePage',
   loadComponent: () => import('./components/home-page/home-page.component').then(mod => mod.HomePageComponent),
@@ -44,7 +44,7 @@ export const routes: Routes = [{
   ],
 },
 {
-  path: 'influencer',
+  path: 'collaborations',
   data: { breadcrumb: 'influencer' },
   title: 'Influencer',
   loadComponent: () => import('./components/influencer-page/influencer-page.component').then(mod => mod.InfluencerPageComponent),

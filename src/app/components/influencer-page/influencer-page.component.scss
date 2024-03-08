@@ -44,6 +44,7 @@
   height: 80svh;
   position: relative;
   margin-top: 100px;
+  display: block;
   svg {
     position: absolute;
     right: 0;
@@ -118,8 +119,9 @@
 }
 
 .chooseUs {
-  border-top: 2px solid black;
-  border-bottom: 2px solid black;
+  display: block;
+  border-top: 6px solid black;
+  border-bottom: 6px solid black;
   width: 100%;
   margin-top: 150px;
   position: relative;
@@ -167,12 +169,14 @@
   padding: 30px;
 }
 
-.A1 {
+.A1,
+.E1 {
   grid-area: A1;
   height: 45svh;
   border-radius: 7px;
   width: 72svw;
   font-style: italic;
+  transition: all 1s;
   @include boxShadow();
   > img:nth-child(1) {
     position: absolute;
@@ -180,12 +184,12 @@
     top: -25px;
     left: 60px;
   }
-  div {
+  > div {
     width: 70%;
     text-wrap: balance;
     font-family: var(--fontNavbar);
     font-weight: 700;
-    font-size: 30px;
+    font-size: 52px;
     line-height: 7svh;
     height: 35svh;
     text-align: start;
@@ -198,9 +202,39 @@
     z-index: -1;
     border-radius: 8px;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     transform: skewX(-10deg);
     padding-left: 75px;
+    flex-direction: column;
+    > div:nth-child(1) {
+      transform: skewX(-10deg);
+      background: #e82323;
+      width: 32svw;
+      height: 8svh;
+      color: white;
+      text-align: center;
+      line-height: 8svh;
+      span {
+        transform: skewX(10deg);
+        display: block;
+      }
+    }
+    > div:nth-child(2) {
+      display: flex;
+      gap: 10px;
+      > div:nth-child(2) {
+        transform: skewX(-10deg);
+        width: 37svw;
+        height: 8svh;
+        color: #e82323;
+        text-align: center;
+        line-height: 8svh;
+      }
+      span {
+        transform: skewX(10deg);
+        display: block;
+      }
+    }
   }
 }
 
@@ -208,12 +242,27 @@
   grid-area: A2;
 }
 
+.new-content {
+  backface-visibility: hidden;
+  transform: rotateY(360deg);
+}
+
+.rotated {
+  transform: rotateY(360deg);
+}
+
 .A2,
 .A3,
 .A4,
 .A5,
-.A6 {
+.A6,
+.E2,
+.E3,
+.E4,
+.E5,
+.E6 {
   width: 100%;
+  cursor: pointer;
   height: 45svh;
   border-radius: 7px;
   @include boxShadow();
@@ -223,6 +272,9 @@
   padding-top: 15px;
   align-items: flex-start;
   justify-content: flex-start;
+  transition: all 1s ease;
+  perspective: 1000px;
+  perspective-origin: 50% 50%;
   > div:nth-child(1) {
     @include iconBox();
   }
@@ -460,35 +512,35 @@
 }
 
 .lastSection {
-  margin-top: 11svh;
-  border-bottom: 2px solid;
+  margin-top: 56svh;
+  border-bottom: 6px solid;
   height: 100svh;
   z-index: 1;
   position: relative;
-  border-top: 2px solid;
+  border-top: 6px solid;
   background: #1a9ae2;
 }
 
-.lastSection > img:nth-child(4){
+.lastSection > img:nth-child(4) {
   position: absolute;
   right: 440px;
   z-index: -1;
 }
 
-.lastSection > img:nth-child(3){
+.lastSection > img:nth-child(3) {
   position: absolute;
   bottom: 0;
   height: 65svh;
 }
 
-.lastSection > img:nth-child(5){
+.lastSection > img:nth-child(5) {
   position: absolute;
   bottom: 0;
   height: 75svh;
   z-index: -1;
 }
 
-.lastSection > img:nth-child(6){
+.lastSection > img:nth-child(6) {
   z-index: -1;
   position: absolute;
   right: -250px;
@@ -496,8 +548,8 @@
 }
 
 .carousalSection {
-  background: black;
-  height: 32svw;
+  height: 26svw;
+  margin-top: 45px;
 }
 
 .slide {
@@ -506,13 +558,12 @@
   left: 0;
   display: flex;
   transition: all 1s;
-  img{
-    height: 100%;
+  img {
+    height: 50svw;
     width: 100svw;
     object-fit: fill;
-    }
+  }
 }
-
 
 .formCard {
   height: 70svh;
@@ -610,7 +661,7 @@
   border: 1px solid #302f2f;
 }
 
-.fifthFormInput textarea{
+.fifthFormInput textarea {
   height: 15svh;
   resize: none;
   width: 100%;
@@ -644,7 +695,7 @@
   margin-top: 60px;
 }
 
-.button > div  {
+.button > div {
   background: #ffff00;
   width: 8svw;
   font-family: var(--fontNavbar);
@@ -665,7 +716,6 @@
   bottom: -5svw;
   left: 24svw;
 }
-
 
 .multipleForms {
   transition: all 1s;
@@ -761,4 +811,400 @@
 
 .D4 {
   grid-area: D4;
+}
+
+.influncerProductDataMobile {
+  display: none;
+}
+
+@container bigBox ( max-width: 580px ) {
+  .influncerProductData {
+    display: none;
+  }
+  .cardTwo,
+  .cardOne {
+    height: 32svh;
+  }
+
+  .cardOne {
+    background: #ffff00 !important;
+    top: -14.5svh;
+    left: 4.5svh;
+  }
+  .cardTwo {
+    left: 52svw;
+    top: -14.5svh;
+  }
+
+  .influncerProductDataMobile {
+    display: flex;
+    margin-top: 135px;
+    height: 63svh;
+    position: relative;
+    > img {
+      position: absolute;
+      left: -3px;
+      height: 455px;
+    }
+  }
+
+  .chooseUs {
+    margin-top: 100px;
+    height: 135svh;
+  }
+
+  .content {
+    font-weight: 500;
+    z-index: 1;
+    color: white;
+    padding: 10px;
+    font-size: 10px;
+    margin-top: 55px;
+    font-family: "Montserrat";
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    width: 100%;
+    h3 {
+      font-family: "Montserrat";
+      margin: 0;
+    }
+    > div > div:nth-child(1) {
+      display: flex;
+      span {
+        width: 60px;
+        color: #ffff00;
+      }
+    }
+  }
+  #mid {
+    display: flex;
+    gap: 7px;
+    span {
+      color: #ffff00;
+    }
+  }
+  p {
+    margin: 0;
+  }
+  #chakrasmall {
+    position: absolute;
+    height: 70px;
+    bottom: 26px;
+    left: 390px;
+  }
+  .join {
+    width: 20svw;
+    border-top: 1px solid;
+    border-left: 1px solid;
+    box-shadow: 1px 1px 0px 0.4px black;
+    margin-top: 45px;
+  }
+
+  .chooseUs > img:nth-child(1) {
+    top: -14svh;
+    height: 179px;
+    left: 8svw;
+  }
+  .chooseUs > span:nth-child(2) {
+    top: -6svh;
+    font-size: 21px;
+    left: 32svw;
+    line-height: 5svh;
+    width: 39svw;
+  }
+
+  .grid {
+    display: none;
+  }
+
+  .mobileGrid {
+    display: grid !important;
+    padding-right: 10px;
+    padding-left: 10px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    margin-top: 100px;
+    grid-auto-columns: 1fr;
+    gap: 12px 10px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "E1 E1"
+      "E2 E3"
+      "E4 E5"
+      "E6 E6";
+  }
+
+  .E1 {
+    grid-area: E1;
+  }
+
+  .E2 {
+    grid-area: E2;
+  }
+
+  .E3 {
+    grid-area: E3;
+  }
+
+  .E4 {
+    grid-area: E4;
+  }
+
+  .E5 {
+    grid-area: E5;
+  }
+
+  .E6 {
+    grid-area: E6;
+    height: 25svh;
+  }
+  .E1 > img:nth-child(1) {
+    position: absolute;
+    height: 125px;
+    top: 55px;
+    left: -15px;
+  }
+  .E1 {
+    height: 28svh;
+    width: 95svw;
+  }
+  .E1 > div {
+    width: 82%;
+    font-size: 19px;
+    height: 20svh;
+    right: 20px;
+    top: 26px;
+  }
+  .E1 > div > div:nth-child(1) {
+    width: 52svw;
+    line-height: 5svh;
+    height: 5svh;
+    margin-left: -35px;
+  }
+  .E1 > div > div:nth-child(2) {
+    margin-left: -35px;
+    gap: 2px;
+  }
+  .E1 > div > div:nth-child(2) > div:nth-child(2) {
+    line-height: 7svh;
+    width: 55svw;
+  }
+  .E2,
+  .E3,
+  .E4,
+  .E5 {
+    height: 24svh;
+    padding-top: 10px;
+    padding-left: 10px;
+  }
+  .E2 > div:nth-child(1),
+  .E3 > div:nth-child(1),
+  .E4 > div:nth-child(1),
+  .E5 > div:nth-child(1) {
+    height: 8svh;
+    width: 15svw;
+  }
+
+  .E2 > div:nth-child(1),
+  .E3 > div:nth-child(1),
+  .E4 > div:nth-child(1),
+  .E5 > div:nth-child(1) {
+    height: 8svh;
+    width: 15svw;
+    img {
+      height: 80%;
+    }
+  }
+  .E2 > span:nth-child(2),
+  .E3 > span:nth-child(2),
+  .E4 > span:nth-child(2),
+  .E5 > span:nth-child(2) {
+    line-height: 3svh;
+    font-size: 14px;
+  }
+
+  .E2 > div:nth-child(3),
+  .E3 > div:nth-child(3),
+  .E4 > div:nth-child(3),
+  .E5 > div:nth-child(3),
+  .E6 > div:nth-child(3) {
+    margin-left: 0px;
+    height: 5px;
+  }
+
+  .E6 > div:nth-child(1) {
+    width: 22svw;
+    height: 12svh;
+    img {
+      height: 80%;
+    }
+  }
+
+  .E6 > span:nth-child(2) {
+    line-height: 2svh;
+    font-size: 24px;
+  }
+
+  .slide img {
+    height: 70svw;
+  }
+
+  .lastSection {
+    margin-top: 32svh;
+  }
+
+  .lastSection > img:nth-child(6),
+  .lastSection > img:nth-child(5),
+  .lastSection > img:nth-child(4),
+  .lastSection > img:nth-child(3) {
+    display: none;
+  }
+
+  .formCard,
+  .belowCard {
+    height: 55svh;
+    width: 50svh;
+    right: 5svh;
+  }
+
+  .firstForm .container {
+    grid-template-areas:
+      "b1 b2"
+      "b3 b3"
+      "b4 b4";
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 10px;
+    width: 49svh;
+  }
+  .b1,
+  .b2,
+  .b3,
+  .b4,
+  .C1,
+  .C2,
+  .C3,
+  .C4,
+  .C5,
+  .D1,
+  .D2,
+  .D3,
+  .D4,
+  .D5,
+  .interestedMerchInput,
+  .expectationsInput,
+  .fifthFormInput {
+    font-size: 16px;
+  }
+
+  .button {
+    bottom: -10svw;
+    right: 12px;
+  }
+
+  .b1 > input,
+  .b2 > input,
+  .b3 > input,
+  .b4 > input,
+  .C1 > input,
+  .C2 > input,
+  .C3 > input,
+  .C4 > input,
+  .C5 > input,
+  .D1 > input,
+  .D2 > input,
+  .D3 > input,
+  .D4 > input,
+  .D5 > input,
+  .interestedMerchInput > input,
+  .expectationsInput > input,
+  .fifthFormInput > input {
+    height: 30px;
+  }
+
+  button.button {
+    display: flex;
+    background: white;
+    position: relative;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-top: 25px;
+    margin-right: 10px;
+    inset: 0;
+  }
+  .headers img {
+    height: 25px;
+  }
+
+  .multipleForms {
+    gap: 90svw;
+  }
+
+  .secondForm,
+  .thirdForm,
+  .fourthForm,
+  .fifthForm {
+    gap: 0px;
+    width: 100%;
+  }
+
+  .thirdForm,
+  .fourthForm,
+  .fifthForm,
+  .endSlide {
+    margin-left: -14svw;
+  }
+
+  .endSlide {
+    height: 100%;
+    width: 100%;
+    color: #ff0000;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    font-size: 40px;
+    margin-top: 15px;
+  }
+
+  .firstForm {
+    gap: 10px;
+    width: 100%;
+    margin: 0;
+    margin-top: 15px;
+  }
+  .firstForm > span:nth-child(1),
+  .headers {
+    font-size: 25px;
+    width: 79svw;
+  }
+
+  .button > div {
+    width: 18svw;
+  }
+  .fourthForm textarea {
+    height: 135px;
+  }
+  .fifthFormInput textarea {
+    height: 12svh;
+  }
+}
+
+@container bigBox ( max-width: 430px ){
+
+}
+.endSlide {
+  height: 100%;
+  width: 100%;
+  color: #ff0000;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  font-size: 40px;
+  margin-top: 90px;
+  margin-left: -16svw;
+}
+
+.mobileGrid {
+  display: none;
 }
