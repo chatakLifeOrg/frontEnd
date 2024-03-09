@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "deploy": "npm run build && npm run dev && firebase deploy",
-    "serve": "ng serve --host 0.0.0.0",
+    "serve": "ng serve --host=0.0.0.0 --disable-host-check",
     "prod": "firebase use prod",
     "dev": "firebase use merchDev",
     "stage": "firebase use state",

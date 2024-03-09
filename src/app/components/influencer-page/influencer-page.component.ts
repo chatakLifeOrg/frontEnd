@@ -16,8 +16,7 @@ export class InfluencerPageComponent implements AfterViewInit, OnDestroy {
   public imgArr: Array<string> = ['../../../assets/temp/Slide 1.png', '../../../assets/temp/Slide 2.png', '../../../assets/temp/Slide 3.png', '../../../assets/temp/Slide 4.png', '../../../assets/temp/Slide 5.png', '../../../assets/temp/Slide 6.png']
   public multipleForms!: FormGroup;
   public currentFormIndex: number = 0;
-  public oldText!: string
-  formValidities = {
+  public formValidities = {
     firstForm: false,
     secondForm: false,
     thirdForm: false,
@@ -26,18 +25,19 @@ export class InfluencerPageComponent implements AfterViewInit, OnDestroy {
   };
   public interval!: any;
   public width: number = 52;
-
+  public pause: boolean = false;
+  public count: number = 0
 
   constructor(
     private el: ElementRef,
-    private fb: FormBuilder,
     private formBuilder: FormBuilder,
     private changeDetection: ChangeDetectorRef,
     private renderer: Renderer2) {
 
   }
   ngOnDestroy(): void {
-    this.observer.disconnect()
+    this.observer.disconnect();
+    clearInterval(this.interval)
   }
 
   sendMail(data: string) {
@@ -51,21 +51,27 @@ export class InfluencerPageComponent implements AfterViewInit, OnDestroy {
     })
   }
 
-  mouseEnter(element: string, text: string, headerText: string) {
+  mouseEnter(element: string, text: string,) {
     const wholeDiv = this.el.nativeElement.querySelector(element);
     const header = this.el.nativeElement.querySelector(`${element} span`);
     const isRotated = wholeDiv.classList.contains('rotated');
+    // const line = this.el.nativeElement.querySelector(`${element} #line`)
+    
     if (isRotated) {
       wholeDiv.classList.remove('rotated');
+      header.classList.remove('rotated');
       const existingDiv = wholeDiv.querySelector('.new-content');
-      console.log(existingDiv);
-
+      wholeDiv.style.alignItems = 'flex-start';
+      wholeDiv.style.paddingLeft = '15px';
+      wholeDiv.style.paddingRight = '0';
+      header.style.display = 'block'
       this.renderer.removeChild(wholeDiv, existingDiv); // Remove the element with the class new-content
-      header.innerText = this.oldText;
     } else {
-      this.oldText = header.innerText;
       wholeDiv.classList.add('rotated');
-      header.innerText = headerText;
+      wholeDiv.style.alignItems = 'flex-end';
+      wholeDiv.style.paddingLeft = '0';
+      wholeDiv.style.paddingRight = '15px';
+      header.style.display = 'none'
       const existingDiv = wholeDiv.querySelector('.new-content');
       if (!existingDiv) {
         // Create a new <div> element
@@ -78,17 +84,6 @@ export class InfluencerPageComponent implements AfterViewInit, OnDestroy {
         this.renderer.appendChild(wholeDiv, newElement);
       }
     }
-  }
-
-
-  mouseLeave(element: string) {
-    const wholeDiv = this.el.nativeElement.querySelector(element);
-
-    // Remove the class to reset the rotation
-    wholeDiv.classList.remove('rotated');
-
-    const header = this.el.nativeElement.querySelector(`${element} span`);
-    header.innerText = this.oldText;
   }
 
   ngOnInit() {
@@ -123,21 +118,39 @@ export class InfluencerPageComponent implements AfterViewInit, OnDestroy {
     });
 
   }
-
-
-  goBack() {
-    const multiForm = this.el.nativeElement.querySelector('.multipleForms')
-    this.nextSlide = this.nextSlide + this.width;
-    multiForm.style.transform = `translateX(${this.nextSlide}svw)`;
+  next() {
+    console.log(this.count);
+    this.imgArr = this.imgArr.concat(this.imgArr[this.count].trim())
+    this.count++;
+    const prevButton = this.el.nativeElement.querySelector('.left');
+    prevButton.style.display = 'block'
+    setTimeout(() => {
+      this.pause = true
+    }, 30000);
+    this.pause = false
+    this.changeDetection.detectChanges()
+    this.slide(this.count)
   }
-  slide(i: number) {
-    const container = this.el.nativeElement.querySelector('.slide')
-    container.style.left = `-${i * 100}svw`;
+  prev() {
+    this.count--
+    if (this.count === 0) {
+      const prevButton = this.el.nativeElement.querySelector('.left');
+      prevButton.style.display = 'none'
+    }
+    this.slide(this.count);
+    this.imgArr.pop()
+    this.pause = false
+    setTimeout(() => {
+      this.pause = true
+    }, 30000);
   }
+
   ngAfterViewInit(): void {
+    const prevButton = this.el.nativeElement.querySelector('.left');
+    prevButton.style.display = 'none'
     switch (true) {
-      case window.innerWidth <= 580:
-        this.width = 155;
+      case window.innerWidth <= 376:
+        this.width = 158;
         break;
       case window.innerWidth <= 425:
         this.width = 155;
@@ -146,14 +159,18 @@ export class InfluencerPageComponent implements AfterViewInit, OnDestroy {
         this.width = 52;
         break;
     }
-    let count = 0
     this.interval = setInterval(() => {
-      this.imgArr = this.imgArr.concat(this.imgArr[count].trim())
-      this.imgArr.slice(1)
-      this.changeDetection.detectChanges()
-      count++;
-      this.slide(count)
-    }, 10000)
+      if (this.count !== 0) {
+        prevButton.style.display = 'block'
+      }
+      if (this.pause) {
+        this.imgArr = this.imgArr.concat(this.imgArr[this.count].trim())
+        // this.imgArr.shift()
+        this.changeDetection.detectChanges()
+        this.count++;
+        this.slide(this.count)
+      }
+    }, 7000)
     // const parallaxElement = this.el.nativeElement.querySelector('.parallaxsection');
     // const threshold = 1
     // this.observer = new IntersectionObserver(
@@ -167,6 +184,17 @@ export class InfluencerPageComponent implements AfterViewInit, OnDestroy {
     // );
     // this.observer.observe(parallaxElement)
   }
+
+  goBack() {
+    const multiForm = this.el.nativeElement.querySelector('.multipleForms')
+    this.nextSlide = this.nextSlide + this.width;
+    multiForm.style.transform = `translateX(${this.nextSlide}svw)`;
+  }
+  slide(i: number) {
+    const container = this.el.nativeElement.querySelector('.slide')
+    container.style.left = `-${i * 100}svw`;
+  }
+
 
   // @HostListener('document:mousewheel', ['$event'])
   // scroll(event: WheelEvent) {
@@ -569,8 +597,8 @@ export class InfluencerPageComponent implements AfterViewInit, OnDestroy {
   @HostListener("window:resize", ['$event'])
   changeValue(event: Event) {
     switch (true) {
-      case window.innerWidth <= 580:
-        this.width = 155;
+      case window.innerWidth <= 376:
+        this.width = 158;
         break;
       case window.innerWidth <= 425:
         this.width = 155;
@@ -579,8 +607,6 @@ export class InfluencerPageComponent implements AfterViewInit, OnDestroy {
         this.width = 52;
         break;
     }
-    console.log(this.width);
-
   }
 
   async nextForm(next?: string) {
@@ -588,6 +614,7 @@ export class InfluencerPageComponent implements AfterViewInit, OnDestroy {
     if (next) {
       this.sendMail(JSON.stringify(this.multipleForms.value))
       setTimeout(() => {
+        this.multipleForms.reset();
         multiForm.style.transform = `translateX(0svw)`;
       }, 3000);
     }

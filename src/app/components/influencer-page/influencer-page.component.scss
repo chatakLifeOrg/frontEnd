@@ -243,12 +243,11 @@
 }
 
 .new-content {
-  backface-visibility: hidden;
-  transform: rotateY(360deg);
+  transform: rotateY(180deg);
 }
 
 .rotated {
-  transform: rotateY(360deg);
+  transform: rotateY(180deg);
 }
 
 .A2,
@@ -550,6 +549,7 @@
 .carousalSection {
   height: 26svw;
   margin-top: 45px;
+  position: relative;
 }
 
 .slide {
@@ -700,7 +700,7 @@
   width: 8svw;
   font-family: var(--fontNavbar);
   line-height: 5svh;
-  border-radius: 10px;
+  border-radius: 5px;
   text-align: center;
   font-size: 26.62px;
   height: 5svh;
@@ -817,13 +817,22 @@
   display: none;
 }
 
-@container bigBox ( max-width: 580px ) {
+@media only screen and (max-width: 720px) {
+  .button > div {
+    font-size: 19.62px;
+  }
+  .lastSection > img:nth-child(4) {
+    display: block !important;
+    height: 235px;
+    right: 195px;
+    top: 40px;
+  }
   .influncerProductData {
     display: none;
   }
   .cardTwo,
   .cardOne {
-    height: 32svh;
+    height: 25svh;
   }
 
   .cardOne {
@@ -838,8 +847,8 @@
 
   .influncerProductDataMobile {
     display: flex;
-    margin-top: 135px;
-    height: 63svh;
+    height: 50svh;
+    margin-top: 145px;
     position: relative;
     > img {
       position: absolute;
@@ -849,8 +858,7 @@
   }
 
   .chooseUs {
-    margin-top: 100px;
-    height: 135svh;
+    height: 125svh;
   }
 
   .content {
@@ -858,12 +866,13 @@
     z-index: 1;
     color: white;
     padding: 10px;
-    font-size: 10px;
-    margin-top: 55px;
+    font-size: 0.7em;
+    margin-top: 145px;
+    gap: 11px;
     font-family: "Montserrat";
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: 50%;
     justify-content: center;
     width: 100%;
     h3 {
@@ -891,27 +900,29 @@
   #chakrasmall {
     position: absolute;
     height: 70px;
-    bottom: 26px;
+    bottom: 45px;
     left: 390px;
   }
   .join {
     width: 20svw;
+    height: 3svh;
+    margin-top: 25px;
+    line-height: 3svh;
     border-top: 1px solid;
     border-left: 1px solid;
     box-shadow: 1px 1px 0px 0.4px black;
-    margin-top: 45px;
   }
 
   .chooseUs > img:nth-child(1) {
-    top: -14svh;
+    top: -10svh;
     height: 179px;
     left: 8svw;
   }
   .chooseUs > span:nth-child(2) {
-    top: -6svh;
-    font-size: 21px;
+    top: -3.5svh;
+    font-size: 23px;
     left: 32svw;
-    line-height: 5svh;
+    line-height: 4svh;
     width: 39svw;
   }
 
@@ -963,17 +974,17 @@
   .E1 > img:nth-child(1) {
     position: absolute;
     height: 125px;
-    top: 55px;
+    top: 35px;
     left: -15px;
   }
   .E1 {
-    height: 28svh;
+    height: 25svh;
     width: 95svw;
   }
   .E1 > div {
     width: 82%;
-    font-size: 19px;
-    height: 20svh;
+    font-size: 1.2em;
+    height: 17svh;
     right: 20px;
     top: 26px;
   }
@@ -985,11 +996,12 @@
   }
   .E1 > div > div:nth-child(2) {
     margin-left: -35px;
-    gap: 2px;
+    gap: 5px;
   }
   .E1 > div > div:nth-child(2) > div:nth-child(2) {
     line-height: 7svh;
     width: 55svw;
+    text-align: start;
   }
   .E2,
   .E3,
@@ -1014,7 +1026,7 @@
     height: 8svh;
     width: 15svw;
     img {
-      height: 80%;
+      height: 65%;
     }
   }
   .E2 > span:nth-child(2),
@@ -1022,7 +1034,7 @@
   .E4 > span:nth-child(2),
   .E5 > span:nth-child(2) {
     line-height: 3svh;
-    font-size: 14px;
+    font-size: 12px;
   }
 
   .E2 > div:nth-child(3),
@@ -1052,7 +1064,10 @@
   }
 
   .lastSection {
-    margin-top: 32svh;
+    margin-top: 0;
+  }
+  .carousalSection {
+    margin: 20px 0px 210px 0px;
   }
 
   .lastSection > img:nth-child(6),
@@ -1066,7 +1081,7 @@
   .belowCard {
     height: 55svh;
     width: 50svh;
-    right: 5svh;
+    right: 3svh;
   }
 
   .firstForm .container {
@@ -1076,7 +1091,7 @@
       "b4 b4";
     grid-template-columns: 1fr 1fr;
     gap: 10px 10px;
-    width: 49svh;
+    width: 45svh;
   }
   .b1,
   .b2,
@@ -1170,8 +1185,10 @@
   .firstForm {
     gap: 10px;
     width: 100%;
+    padding-left: 15px;
     margin: 0;
     margin-top: 15px;
+    padding-right: 16px;
   }
   .firstForm > span:nth-child(1),
   .headers {
@@ -1180,7 +1197,7 @@
   }
 
   .button > div {
-    width: 18svw;
+    width: 25svw;
   }
   .fourthForm textarea {
     height: 135px;
@@ -1190,9 +1207,222 @@
   }
 }
 
-@container bigBox ( max-width: 430px ){
+@media only screen and (max-width: 376px) {
+  .right {
+    right: 0 !important;
+  }
+  .left {
+    left: 0 !important;
+  }
+  .right,
+  .left {
+    height: 20px !important;
+    top: 110px !important;
+  }
+  .firstForm {
+    margin-left: 5px;
+  }
+  .lastSection > img:nth-child(4) {
+    height: 180px;
+    top: 45px;
+  }
+  .firstForm > span:nth-child(1) {
+    font-size: 13px;
+    padding: 9px;
+    font-weight: 700;
+  }
 
+  .formCard,
+  .belowCard {
+    width: 47svh;
+    right: 3svh;
+  }
+
+  .secondForm,
+  .thirdForm,
+  .fourthForm,
+  .fifthForm {
+    gap: 5px;
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  .b1,
+  .b2,
+  .b3,
+  .b4,
+  .C1,
+  .C2,
+  .C3,
+  .C4,
+  .C5,
+  .D1,
+  .D2,
+  .D3,
+  .D4,
+  .D5,
+  .interestedMerchInput,
+  .expectationsInput,
+  .fifthFormInput {
+    font-size: 10px;
+  }
+
+  .b1 > input,
+  .b2 > input,
+  .b3 > input,
+  .b4 > input,
+  .C1 > input,
+  .C2 > input,
+  .C3 > input,
+  .C4 > input,
+  .C5 > input,
+  .D1 > input,
+  .D2 > input,
+  .D3 > input,
+  .D4 > input,
+  .D5 > input,
+  .interestedMerchInput > input,
+  .expectationsInput > input,
+  .fifthFormInput > input {
+    height: 25px;
+  }
+  .firstForm .container {
+    width: 42svh;
+  }
+  .belowCard {
+    width: 47svh;
+    right: 1svh;
+  }
+  #chakrasmall {
+    bottom: -60px;
+    left: 337px;
+  }
+  .content > div > div:nth-child(1) {
+    text-wrap: nowrap;
+    gap: 5px;
+  }
+  .content > div > div:nth-child(1) span {
+    width: 56px;
+  }
+
+  .join {
+    height: 3.5svh;
+    line-height: 3.5svh;
+  }
+
+  .chooseUs > img:nth-child(1) {
+    top: -8svh;
+    height: 135px;
+    left: 15svw;
+  }
+
+  .E6 > div:nth-child(1) img {
+    height: 70%;
+  }
 }
+@media only screen and (max-width: 426px) and (min-width: 377px) {
+  .right {
+    right: 0 !important;
+  }
+  .left {
+    left: 0 !important;
+  }
+  .right,
+  .left {
+    height: 25px !important;
+    top: 135px !important;
+  }
+  .firstForm > span:nth-child(1) {
+    font-size: 14px;
+    padding: 9px;
+    font-weight: 700;
+  }
+  .belowCard {
+    width: 50svh;
+    right: 1svh;
+    border-radius: 10px;
+  }
+
+  .secondForm,
+  .thirdForm,
+  .fourthForm,
+  .fifthForm {
+    gap: 5px;
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  .b1,
+  .b2,
+  .b3,
+  .b4,
+  .C1,
+  .C2,
+  .C3,
+  .C4,
+  .C5,
+  .D1,
+  .D2,
+  .D3,
+  .D4,
+  .D5,
+  .interestedMerchInput,
+  .expectationsInput,
+  .fifthFormInput {
+    font-size: 10px;
+    gap: 5px;
+  }
+
+  .b1 > input,
+  .b2 > input,
+  .b3 > input,
+  .b4 > input,
+  .C1 > input,
+  .C2 > input,
+  .C3 > input,
+  .C4 > input,
+  .C5 > input,
+  .D1 > input,
+  .D2 > input,
+  .D3 > input,
+  .D4 > input,
+  .D5 > input,
+  .interestedMerchInput > input,
+  .expectationsInput > input,
+  .fifthFormInput > input {
+    height: 25px;
+  }
+
+  #chakrasmall {
+    bottom: -60px;
+  }
+  .chooseUs > span:nth-child(2) {
+    top: -3.5svh;
+    font-size: 23px;
+    left: 30svw;
+    line-height: 4svh;
+    width: 35svw;
+  }
+  .content > div > div:nth-child(1) span {
+    width: 56px;
+  }
+
+  .join {
+    height: 3.5svh;
+    line-height: 3.5svh;
+  }
+
+  .chooseUs > img:nth-child(1) {
+    top: -8svh;
+    height: 135px;
+    left: 15svw;
+  }
+
+  .E6 > div:nth-child(1) img {
+    height: 70%;
+  }
+}
+
 .endSlide {
   height: 100%;
   width: 100%;
@@ -1207,4 +1437,18 @@
 
 .mobileGrid {
   display: none;
+}
+
+.right {
+  right: 25px;
+  transform: rotate(180deg);
+}
+.right,
+.left {
+  position: absolute;
+  height: 50px;
+  top: 400px;
+}
+.left {
+  left: 25px;
 }
