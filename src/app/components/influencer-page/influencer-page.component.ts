@@ -55,8 +55,8 @@ export class InfluencerPageComponent implements AfterViewInit, OnDestroy {
     const wholeDiv = this.el.nativeElement.querySelector(element);
     const header = this.el.nativeElement.querySelector(`${element} span`);
     const isRotated = wholeDiv.classList.contains('rotated');
-    // const line = this.el.nativeElement.querySelector(`${element} #line`)
-    
+    const line = this.el.nativeElement.querySelector(`${element} .dashLine`)
+    const icon = this.el.nativeElement.querySelector(`${element} .newLogo`)
     if (isRotated) {
       wholeDiv.classList.remove('rotated');
       header.classList.remove('rotated');
@@ -65,6 +65,8 @@ export class InfluencerPageComponent implements AfterViewInit, OnDestroy {
       wholeDiv.style.paddingLeft = '15px';
       wholeDiv.style.paddingRight = '0';
       header.style.display = 'block'
+      line.style.display = 'block'
+      icon.style.display = 'flex'
       this.renderer.removeChild(wholeDiv, existingDiv); // Remove the element with the class new-content
     } else {
       wholeDiv.classList.add('rotated');
@@ -72,6 +74,8 @@ export class InfluencerPageComponent implements AfterViewInit, OnDestroy {
       wholeDiv.style.paddingLeft = '0';
       wholeDiv.style.paddingRight = '15px';
       header.style.display = 'none'
+      line.style.display = 'none'
+      icon.style.display = 'none'
       const existingDiv = wholeDiv.querySelector('.new-content');
       if (!existingDiv) {
         // Create a new <div> element
@@ -84,6 +88,12 @@ export class InfluencerPageComponent implements AfterViewInit, OnDestroy {
         this.renderer.appendChild(wholeDiv, newElement);
       }
     }
+  }
+
+  scrollTo(){
+    const form = this.el.nativeElement.querySelector(`#formSection`)
+    const loco = form.getBoundingClientRect()
+    window.scrollTo(loco)
   }
 
   ngOnInit() {
