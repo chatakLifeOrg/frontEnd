@@ -3,6 +3,7 @@ import { NavbarComponent } from '../../utils/templates/navbar/navbar.component';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
+
 @Component({
   selector: 'app-influencer-page',
   standalone: true,
@@ -13,9 +14,11 @@ import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
 export class InfluencerPageComponent implements AfterViewInit, OnDestroy {
   private observer!: IntersectionObserver;
   private nextSlide: number = 0;
-  public imgArr: Array<string> = ['../../../assets/temp/Slide 1.png', '../../../assets/temp/Slide 2.png', '../../../assets/temp/Slide 3.png', '../../../assets/temp/Slide 4.png', '../../../assets/temp/Slide 5.png', '../../../assets/temp/Slide 6.png']
+  public DesktopimgArr: Array<string> = ['../../../assets/temp/Slide 1.png', '../../../assets/temp/Slide 2.png', '../../../assets/temp/Slide 3.png', '../../../assets/temp/Slide 4.png', '../../../assets/temp/Slide 5.png', '../../../assets/temp/Slide 6.png']
+  public mobileimgArr: Array<string> = ['../../../assets/temp/MobileSlide 1.png', '../../../assets/temp/MobileSlide 2.png', '../../../assets/temp/MobileSlide 3.png', '../../../assets/temp/MobileSlide 4.png', '../../../assets/temp/MobileSlide 5.png', '../../../assets/temp/MobileSlide 6.png']
   public multipleForms!: FormGroup;
   public currentFormIndex: number = 0;
+  public imgArr: Array<string> = []
   public formValidities = {
     firstForm: false,
     secondForm: false,
@@ -90,13 +93,27 @@ export class InfluencerPageComponent implements AfterViewInit, OnDestroy {
     }
   }
 
-  scrollTo(){
+  scrollTo() {
     const form = this.el.nativeElement.querySelector(`#formSection`)
     const loco = form.getBoundingClientRect()
     window.scrollTo(loco)
   }
 
   ngOnInit() {
+    switch (true) {
+      case window.innerWidth <= 376:
+        this.width = 158;
+        this.imgArr = this.mobileimgArr
+        break;
+      case window.innerWidth <= 426:
+        this.imgArr = this.mobileimgArr
+        this.width = 155;
+        break;
+      default:
+        this.width = 52;
+        this.imgArr = this.DesktopimgArr
+        break;
+    }
     this.multipleForms = this.formBuilder.group({
       personalInfo: this.formBuilder.group({
         firstName: ['', [Validators.required]],
@@ -158,17 +175,7 @@ export class InfluencerPageComponent implements AfterViewInit, OnDestroy {
   ngAfterViewInit(): void {
     const prevButton = this.el.nativeElement.querySelector('.left');
     prevButton.style.display = 'none'
-    switch (true) {
-      case window.innerWidth <= 376:
-        this.width = 158;
-        break;
-      case window.innerWidth <= 425:
-        this.width = 155;
-        break;
-      default:
-        this.width = 52;
-        break;
-    }
+   
     this.interval = setInterval(() => {
       if (this.count !== 0) {
         prevButton.style.display = 'block'
@@ -609,24 +616,24 @@ export class InfluencerPageComponent implements AfterViewInit, OnDestroy {
     switch (true) {
       case window.innerWidth <= 376:
         this.width = 158;
+        this.imgArr = this.mobileimgArr
         break;
-      case window.innerWidth <= 425:
+      case window.innerWidth <= 426:
+        this.imgArr = this.mobileimgArr
         this.width = 155;
         break;
       default:
         this.width = 52;
+        this.imgArr = this.DesktopimgArr
         break;
     }
+
   }
 
   async nextForm(next?: string) {
     const multiForm = this.el.nativeElement.querySelector('.multipleForms')
     if (next) {
-      this.sendMail(JSON.stringify(this.multipleForms.value))
-      setTimeout(() => {
-        this.multipleForms.reset();
-        multiForm.style.transform = `translateX(0svw)`;
-      }, 3000);
+      // this.sendMail(JSON.stringify(this.multipleForms.value))
     }
     this.nextSlide = this.nextSlide - this.width;
     multiForm.style.transform = `translateX(${this.nextSlide}svw)`;
