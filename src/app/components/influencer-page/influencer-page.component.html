@@ -410,7 +410,7 @@
               <input type="email" formControlName="emailAddress">
             </div>
           </div>
-          <button (click)="nextForm()" class="button" [disabled]="!multipleForms.controls['personalInfo'].valid">
+          <button [attr.tabindex]="multipleForms.controls['personalInfo'].valid ? null : -1" (click)="nextForm()" class="button" [disabled]="!multipleForms.controls['personalInfo'].valid">
             <div>Next</div>
           </button>
         </div>

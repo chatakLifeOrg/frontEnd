@@ -94,15 +94,22 @@ export class InfluencerPageComponent implements AfterViewInit, OnDestroy {
   }
 
   scrollTo() {
-    const form = this.el.nativeElement.querySelector(`#formSection`)
-    const loco = form.getBoundingClientRect()
-    window.scrollTo(loco)
+    const form = this.el.nativeElement.querySelector(`#formSection`);
+    if (form) {
+      const rect = form.getBoundingClientRect();
+      const scrollTop = document.documentElement.scrollTop;
+      const targetY = rect.top + scrollTop;
+      window.scrollTo({
+        top: targetY,
+        behavior: 'smooth' // optional: adds smooth scrolling effect
+      });
+    }
   }
 
   ngOnInit() {
     switch (true) {
       case window.innerWidth <= 376:
-        this.width = 158;
+        this.width = 153;
         this.imgArr = this.mobileimgArr
         break;
       case window.innerWidth <= 426:
@@ -175,7 +182,7 @@ export class InfluencerPageComponent implements AfterViewInit, OnDestroy {
   ngAfterViewInit(): void {
     const prevButton = this.el.nativeElement.querySelector('.left');
     prevButton.style.display = 'none'
-   
+
     this.interval = setInterval(() => {
       if (this.count !== 0) {
         prevButton.style.display = 'block'
@@ -611,8 +618,19 @@ export class InfluencerPageComponent implements AfterViewInit, OnDestroy {
     return Object.keys(this.multipleForms.controls)[this.currentFormIndex];
   }
 
+
+  @HostListener('keydown', ['$event'])
+  onKeyDown(event: KeyboardEvent) {
+    if (event.key === 'Tab' || event.key === 'Enter') {
+      event.preventDefault();
+    }
+  }
+
   @HostListener("window:resize", ['$event'])
   changeValue(event: Event) {
+    const multiForm = this.el.nativeElement.querySelector('.multipleForms')
+    multiForm.style.transform = `translateX(0svw)`;
+    this.nextSlide = 0
     switch (true) {
       case window.innerWidth <= 376:
         this.width = 158;
