@@ -3,7 +3,8 @@ import { HomePageComponent } from './components/home-page/home-page.component';
 import { ProductPageComponent } from './components/product-page/product-page.component';
 import { CategoryPageComponent } from './components/category/category.component';
 import { CartPageComponent } from './components/cart-page/cart-page.component';
-import {InfluencerPageComponent} from './components/influencer-page/influencer-page.component'
+import {InfluencerPageComponent} from './components/influencer-page/influencer-page.component';
+import {MyOrderPageComponent} from './components/my-order-page/my-order-page.component';
 export const routes: Routes = [{
   path: '',
   pathMatch: 'prefix',
@@ -41,6 +42,12 @@ export const routes: Routes = [{
       pathMatch: 'prefix',
       title: 'Cart',
       data: { breadcrumb: 'Cart' },
+    }, {
+      path: 'myOrder',
+      loadComponent: () => import('./components/my-order-page/my-order-page.component').then(mod => mod.MyOrderPageComponent),
+      pathMatch: 'prefix',
+      title: 'myOrder',
+      data: { breadcrumb: 'myOrder' },
     }
   ],
 },
