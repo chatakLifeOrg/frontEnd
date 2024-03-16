@@ -4,6 +4,7 @@
   overflow-x: hidden;
   overflow-y: scroll;
   scrollbar-width: none;
+  user-select: none;
 }
 
 @mixin boxShadow {
@@ -126,8 +127,8 @@
   background: linear-gradient(180deg, #ffff00, #ff6828);
   > img:nth-child(1) {
     position: absolute;
-    top: -30svh;
-    left: 25svw;
+    top: -28svh;
+    left: 27svw;
   }
   > span:nth-child(2) {
     position: absolute;
@@ -823,19 +824,115 @@
     stroke: black;
   }
 }
+@media only screen and (max-width: 320px) {
+  .containerSecond,
+  .containerThird {
+    width: 97% !important;
+    gap: 0px 10px !important;
+  }
+
+  .secondForm,
+  .thirdForm {
+    margin-right: 8px !important;
+  }
+  .formFlex {
+    gap: 5px !important;
+  }
+  .fifthForm {
+    margin-left: -11svw !important;
+    margin-right: 14px !important;
+  }
+
+  .fourthForm textarea {
+    height: 60px !important;
+  }
+
+  .b1 > input,
+  .b2 > input,
+  .b3 > input,
+  .b4 > input,
+  .C1 > input,
+  .C2 > input,
+  .C3 > input,
+  .C4 > input,
+  .C5 > input,
+  .D1 > input,
+  .D2 > input,
+  .D3 > input,
+  .D4 > input,
+  .D5 > input,
+  .interestedMerchInput > input,
+  .expectationsInput > input,
+  .fifthFormInput > input {
+    height: 25px !important;
+  }
+  .container .chooseUs > span:nth-child(2) {
+    width: 36svw !important;
+  }
+
+  .container .lastSection .formCard {
+    height: 44svh !important;
+    width: 40svh !important;
+  }
+
+  .container .lastSection .belowCard {
+    height: 44svh !important;
+    right: 1svh !important;
+  }
+
+  .E1 > img:nth-child(1) {
+    top: 45px;
+    left: -20px;
+    height: 125px;
+  }
+  .container .multipleForms {
+    gap: 88svw !important;
+  }
+  .container .mobileGrid .new-content {
+    font-size: 0.7em !important;
+  }
+  .container .chooseUs > img:nth-child(1) {
+    top: -11svh !important;
+    left: 6svw !important;
+  }
+  .container .chooseUs > span:nth-child(2) {
+    top: -6.5svh !important;
+    left: 32svw !important;
+  }
+  .container .chooseUs {
+    margin-top: 100px;
+  }
+}
 
 @media only screen and (max-width: 720px) {
   .carousalSection {
     height: 57svw;
   }
 
+  .carousalSection .right,
+  .carousalSection .left {
+    position: absolute;
+    height: 25px;
+    top: 200px;
+  }
+
+  .carousalSection .right {
+    right: -5px;
+    transform: rotate(180deg);
+  }
+
+  .carousalSection .left {
+    left: -5px;
+  }
+
+  .influncerProductDataMobile svg {
+    display: none;
+  }
+
   .slide img {
     height: 100svw;
   }
 
-  .button > div {
-    font-size: 19.62px;
-  }
   .lastSection > img:nth-child(4) {
     display: block !important;
     height: 235px;
@@ -874,6 +971,7 @@
 
   .chooseUs {
     height: 125svh;
+    margin-top: 100px;
   }
 
   .content {
@@ -917,6 +1015,10 @@
     height: 70px;
     bottom: 45px;
     left: 390px;
+  }
+  .new-content {
+    font-size: 13px;
+    line-height: 26px;
   }
   .join {
     width: 20svw;
@@ -1076,6 +1178,10 @@
 
   .lastSection {
     margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
   }
   .carousalSection {
     margin: 20px 0px 210px 0px;
@@ -1088,11 +1194,16 @@
     display: none;
   }
 
-  .formCard,
-  .belowCard {
-    height: 55svh;
-    width: 50svh;
-    right: 3svh;
+  .lastSection .formCard {
+    height: 37svh;
+    width: 40svh;
+    right: 0svh;
+    position: relative;
+  }
+  .lastSection .belowCard {
+    height: 37svh;
+    width: 40svh;
+    right: 0svh;
   }
 
   .firstForm .container {
@@ -1102,7 +1213,7 @@
       "b4 b4";
     grid-template-columns: 1fr 1fr;
     gap: 10px 10px;
-    width: 45svh;
+    width: 35svh;
   }
   .b1,
   .b2,
@@ -1194,11 +1305,11 @@
   }
 
   .firstForm {
-    gap: 10px;
+    gap: 0px;
     width: 100%;
     padding-left: 15px;
     margin: 0;
-    margin-top: 15px;
+    margin-top: 30px;
     padding-right: 16px;
   }
   .firstForm > span:nth-child(1),
@@ -1209,6 +1320,9 @@
 
   .button > div {
     width: 25svw;
+    line-height: 3.5svh;
+    height: 3.5svh;
+    font-size: 19.62px;
   }
   .fourthForm textarea {
     height: 135px;
@@ -1218,87 +1332,213 @@
   }
 }
 
-@media only screen and (max-width: 320px) {
-  .new-content {
-    font-size: 8px !important;
-  }
-  .content {
-    font-size: 0.55em;
-  }
-  .content > div > div:nth-child(1) span {
-    width: 46px !important;
-  }
-  .content > div > div:nth-child(1) {
-    gap: 0px !important;
-  }
-  .chooseUs > img:nth-child(1) {
-    top: -9svh !important;
-    height: 120px !important;
-    left: 15svw !important;
+@media only screen and (min-width: 320px) and (max-width: 376px) {
+  .mobileGrid .new-content {
+    font-size: 0.8em;
+    line-height: 14px;
   }
 
-  .chooseUs > span:nth-child(2) {
-    top: -2.5svh !important;
-    font-size: 18px !important;
+  .container .lastSection .formCard {
+    height: 50svh;
+    width: 44svh;
+    right: 0svh;
+    position: relative;
+  }
+
+  .container .lastSection .belowCard {
+    width: 85svw;
+    height: 50svh;
+  }
+  .content {
+    font-size: 0.6em;
+  }
+  .influncerProductDataMobile .content > div > div:nth-child(1) span {
+    width: 46px;
+  }
+  .influncerProductDataMobile .content > div > div:nth-child(1) {
+    gap: 0px;
+  }
+  .containerSecond,
+  .containerThird {
+    width: 97%;
+    gap: 0px 10px;
+  }
+
+  .firstForm > span:nth-child(1),
+  .headers {
+    font-size: 22px;
+    width: 77svw;
+  }
+  .container .chooseUs > span:nth-child(2) {
+    top: -5.5svh;
+    font-size: 18px;
+    left: 32svw;
   }
 
   .E1 > div {
     font-size: 0.9em;
     right: 10px;
   }
-  .secondForm,
-  .thirdForm,
-  .fourthForm,
-  .fifthForm {
-    margin-top: 10px !important;
+  .formSection .secondForm,
+  .formSection .thirdForm,
+  .formSection .fourthForm,
+  .formSection .fifthForm {
+    margin-top: 10px;
   }
 
   .button {
     margin-top: 15px;
   }
 
-  .thirdForm,
-  .fourthForm,
-  .fifthForm,
-  .endSlide {
-    margin-left: -12svw !important;
+  .formSection .formCard,
+  .formSection .belowCard {
+    width: 47svh;
   }
 
-  .formCard,
-  .belowCard {
-    width: 47svh !important;
+  .fourthForm .formFlex {
+    gap: 5px;
+  }
+  .fourthForm textarea {
+    height: 100px;
   }
 
-  .firstForm .container {
-    width: 42svh !important;
+  .E1 > img:nth-child(1) {
+    position: absolute;
+    height: 100px;
+    top: 25px;
+    left: -5px;
+  }
+  .container .chooseUs > img:nth-child(1) {
+    top: -12svh;
+    left: 10svw;
+  }
+
+  .E6 > div:nth-child(1) {
+    width: 20svw;
+    height: 10svh;
+  }
+  .E6 > span:nth-child(2) {
+    line-height: 1svh;
+    font-size: 20px;
+  }
+  .multipleForms .thirdForm,
+  .multipleForms .fourthForm,
+  .multipleForms .fifthForm,
+  .multipleForms .fifthForm,
+  .multipleForms .endSlide,
+  .multipleForms .secondForm {
+    margin-left: -15.7svw;
+    margin-right: 0px;
+    gap: 0px;
+    margin-top: 20px;
+  }
+  .container .multipleForms {
+    gap: 96svw;
+  }
+
+  .container .firstForm {
+    margin-top: 15px;
+    gap: 0px;
   }
 }
 
 @media only screen and (max-width: 376px) {
-  .secondForm,
-  .thirdForm,
-  .fourthForm,
-  .fifthForm {
+  .button {
+    margin-top: 10px;
+  }
+  .content > div > div:nth-child(1) span {
+    width: 55px;
+  }
+  .container .chooseUs > img:nth-child(1) {
+    left: 14svw;
+    top: -11svh;
+  }
+
+  .container .containerSecond,
+  .container .containerThird {
+    gap: 0px 10px;
+  }
+
+  .formFlex {
+    gap: 0px;
+  }
+
+  .container .secondForm {
     gap: 5px;
-    margin-right: 2px;
-    margin-top: 20px;
+    margin-left: 7px;
+    margin-top: 10px;
     width: 100%;
   }
+  .container .fifthForm {
+    margin-left: 25px;
+    margin-top: 5px;
+    width: 100%;
+  }
+
+  .container .fourthForm {
+    gap: 5px;
+    margin-left: 15px;
+    margin-top: 10px;
+    width: 100%;
+  }
+
+  .container .thirdForm {
+    gap: 5px;
+    margin-left: 30px;
+    margin-top: 10px;
+    width: 100%;
+  }
+
+  .fourthForm textarea {
+    height: 100px;
+  }
+
+  .container .b1 > input,
+  .container .b2 > input,
+  .container .b3 > input,
+  .container .b4 > input,
+  .container .C1 > input,
+  .container .C2 > input,
+  .container .C3 > input,
+  .container .C4 > input,
+  .container .C5 > input,
+  .container .D1 > input,
+  .container .D2 > input,
+  .container .D3 > input,
+  .container .D4 > input,
+  .container .D5 > input,
+  .container .interestedMerchInput > input,
+  .container .expectationsInput > input,
+  .container .fifthFormInput > input {
+    height: 25px;
+  }
+
+  .container .firstForm .button {
+    margin-top: 10px;
+  }
+
+  .E6 {
+    height: 26svh;
+  }
+
+  .container .firstForm {
+    margin-top: 25px;
+  }
+
   .firstForm > span:nth-child(1),
   .headers {
     font-size: 16px;
     width: 74svw;
   }
   .content {
-    font-size: 0.6em;
+    font-size: 0.7em;
   }
-  .multipleForms {
-    gap: 92svw;
+  .formCard .multipleForms {
+    gap: 77svw;
   }
   .formCard,
   .belowCard {
     width: 47svh;
-    height: 61svh;
   }
   .E1 > div > div:nth-child(1) {
     width: 57svw;
@@ -1307,20 +1547,20 @@
   .E1 {
     font-size: 13px;
   }
-  .new-content {
-    font-size: 8px;
-    line-height: 20px;
+  .rotated .new-content {
+    font-size: 10px;
+    line-height: 16px;
   }
-  .right {
-    right: 0 !important;
+  .carousalSection .right {
+    right: 0;
   }
-  .left {
-    left: 0 !important;
+  .carousalSection .left {
+    left: 0;
   }
-  .right,
-  .left {
-    height: 20px !important;
-    top: 170px !important;
+  .carousalSection .right,
+  .carousalSection .left {
+    height: 20px;
+    top: 170px;
   }
   .firstForm {
     margin-left: 5px;
@@ -1333,14 +1573,6 @@
     font-size: 13px;
     padding: 9px;
     font-weight: 700;
-  }
-  .secondForm,
-  .thirdForm,
-  .fourthForm,
-  .fifthForm {
-    gap: 5px;
-    margin-top: 20px;
-    width: 100%;
   }
 
   .b1,
@@ -1384,27 +1616,20 @@
   }
   .firstForm .container {
     width: 42svh;
+    gap: 5px 10px;
   }
   .belowCard {
     width: 47svh;
-    right: 1svh;
   }
   #chakrasmall {
-    bottom: -60px;
-    left: 337px;
-  }
-
-  .chooseUs > span:nth-child(2) {
-    top: -1.5svh;
-    font-size: 18px;
-    left: 36svw;
+    bottom: -90px;
+    left: 300px;
+    height: 38svw;
+    width: 20svw;
   }
 
   .content > div > div:nth-child(1) {
     text-wrap: nowrap;
-  }
-  .content > div > div:nth-child(1) span {
-    width: 56px;
   }
 
   .join {
@@ -1413,33 +1638,49 @@
   }
 
   .chooseUs > img:nth-child(1) {
-    top: -8svh;
-    height: 135px;
-    left: 15svw;
+    top: -1.5svh;
+    left: 35svw;
   }
 
   .E6 > div:nth-child(1) img {
     height: 70%;
   }
 }
-@media only screen and (max-width: 426px) and (min-width: 377px) {
-  .endSlide {
-    margin-top: 15px !important;
+@media only screen and (min-width: 390px) and (max-width: 390px) {
+ .container .chooseUs > span:nth-child(2) {
+    top: -7.5svh;
+    left: 32svw;
+  }
+}
+@media only screen and (max-width: 426px) {
+  .multipleForms {
+    gap: 105svw;
+  }
+  .containerSecond,
+  .containerThird {
+    gap: 5px 10px;
+  }
+  .firstForm {
+    margin-top: 0px;
+    gap: 10px;
+  }
+  .formCard .endSlide {
+    margin-top: 15px;
   }
   .new-content {
     font-size: 10px;
     line-height: 20px;
   }
-  .right {
-    right: 0 !important;
+  .carousalSection .right {
+    right: 0;
   }
-  .left {
-    left: 0 !important;
+  .carousalSection .left {
+    left: 0;
   }
-  .right,
-  .left {
-    height: 25px !important;
-    top: 200px !important;
+  .carousalSection .right,
+  .carousalSection .left {
+    height: 25px;
+    top: 200px;
   }
 
   .button {
@@ -1450,8 +1691,8 @@
     width: 77svw;
   }
 
-  .formCard,
-  .belowCard {
+  .lastSection .formCard,
+  .lastSection .belowCard {
     width: 85svw;
   }
   .firstForm > span:nth-child(1) {
@@ -1459,8 +1700,8 @@
     padding: 9px;
     font-weight: 700;
   }
-  .belowCard {
-    right: 1svh;
+  .lastSection .belowCard {
+    right: 2svh;
     border-radius: 10px;
   }
 
@@ -1469,8 +1710,17 @@
   .fourthForm,
   .fifthForm {
     gap: 5px;
-    margin-top: 20px;
+    margin-right: 10px;
+    margin-left: -16svw;
+    margin-top: 5px;
     width: 100%;
+  }
+  .content {
+    font-size: 0.6em;
+  }
+
+  .content > div > div:nth-child(1) span {
+    width: 50px;
   }
 
   .b1,
@@ -1514,19 +1764,18 @@
     height: 25px;
   }
 
-  #chakrasmall {
-    bottom: -60px;
+  .influncerProductDataMobile #chakrasmall {
+    bottom: -72px;
+    left: 360px;
+    height: 25svw;
+    width: 20svw;
   }
   .chooseUs > span:nth-child(2) {
-    top: -3.5svh;
+    top: -5.5svh;
     font-size: 17px;
     left: 30svw;
     line-height: 4svh;
     width: 35svw;
-  }
-
-  .content > div > div:nth-child(1) span {
-    width: 56px;
   }
 
   .join {
@@ -1535,51 +1784,136 @@
   }
 
   .chooseUs > img:nth-child(1) {
-    top: -8svh;
+    top: -12svh;
     height: 135px;
-    left: 15svw;
+    left: 14svw;
   }
-
+  .influncerProductDataMobile > img {
+    transform: scaleX(1.3);
+    left: 52px;
+    height: 390px;
+  }
   .E6 > div:nth-child(1) img {
     height: 70%;
   }
+
+  .E1 > img:nth-child(1) {
+    top: 5px;
+  }
+  .chooseUs {
+    height: 135svh;
+    margin-top: 115px;
+  }
+  .lastSection .formCard {
+    width: 85svw;
+    position: relative;
+    height: 48svh;
+  }
+  .lastSection .belowCard {
+    width: 85svw;
+    height: 48svh;
+  }
+  .button > div {
+    line-height: 5.5svh;
+    height: 5.5svh;
+  }
 }
 
-.endSlide {
-  height: 100%;
-  width: 100%;
-  color: #ff0000;
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: center;
-  font-size: 40px;
-  margin-top: 90px;
-  margin-left: -16svw;
+@media only screen and (max-width: 430px) and (min-width: 430px) {
+  .firstForm {
+    margin-top: 15px;
+  }
+
+  .firstForm > span:nth-child(1),
+  .headers {
+    font-size: 21px;
+    width: 79svw;
+  }
+
+  .containerSecond,
+  .containerThird {
+    gap: 0px 10px;
+  }
+
+  .formFlex {
+    gap: 0px;
+  }
+
+  .fourthForm .button {
+    margin-top: 20px;
+  }
+
+  .fifthFormInput textarea {
+    height: 9svh;
+  }
+
+  .fourthForm,
+  .fifthForm,
+  .endSlide {
+    margin-left: -13svw;
+  }
+
+  .b1,
+  .b2,
+  .b3,
+  .b4,
+  .C1,
+  .C2,
+  .C3,
+  .C4,
+  .C5,
+  .D1,
+  .D2,
+  .D3,
+  .D4,
+  .D5,
+  .interestedMerchInput,
+  .expectationsInput,
+  .fifthFormInput {
+    font-size: 12px;
+  }
 }
 
-.mobileGrid {
-  display: none;
+@media only screen and (max-width: 412px) and (min-width: 412px) {
+  .button > div {
+    width: 25svw;
+    line-height: 3.5svh !important;
+    height: 3.5svh !important;
+    font-size: 19.62px;
+  }
+  .formCard {
+    height: 37svh !important;
+    width: 40svh !important;
+    right: 0svh !important;
+    position: relative;
+  }
+  .belowCard {
+    height: 37svh !important;
+    width: 40svh !important;
+    right: 0svh !important;
+  }
 }
 
-.right {
-  right: 25px;
-  transform: rotate(180deg);
-}
-.right,
-.left {
-  position: absolute;
-  height: 50px;
-  top: 400px;
-}
-.left {
-  left: 25px;
-}
-
-@media screen and (max-width: 1366px) and (min-width: 1200px) {
+@media only screen and (min-width: 720px) and (max-width: 1366px) {
+  .A2 > span:nth-child(2),
+  .A3 > span:nth-child(2),
+  .A4 > span:nth-child(2),
+  .A5 > span:nth-child(2),
+  .A6 > span:nth-child(2),
+  .E2 > span:nth-child(2),
+  .E3 > span:nth-child(2),
+  .E4 > span:nth-child(2),
+  .E5 > span:nth-child(2),
+  .E6 > span:nth-child(2) {
+    font-size: 34px;
+  }
+  .lastSection > img:nth-child(3) {
+    bottom: 100px;
+  }
   .influncerProductData svg {
     right: -20px;
     height: 225px;
-    top: 335px;
+    top: 328px;
   }
 
   .chooseUs > img:nth-child(1) {
@@ -1613,8 +1947,9 @@
     gap: 0px;
   }
 
-  .new-content {
-    font-size: 14px;
+  .grid .new-content {
+    font-size: 18px;
+    line-height: 35px;
   }
 
   .chooseUs {
@@ -1692,10 +2027,18 @@
   }
 }
 
-@media screen and (max-width: 1920px) and (min-width: 1400px) {
+@media only screen and (min-width: 1367px) and (max-width: 1920px) {
+  .A1 > div > div:nth-child(2) > div:nth-child(2),
+  .E1 > div > div:nth-child(2) > div:nth-child(2) {
+    width: 35svw;
+  }
   .A1 > div,
   .E1 > div {
-    font-size: 47px;
+    font-size: 43px;
+  }
+
+  .chooseUs > span:nth-child(2) {
+    width: 23svw;
   }
 
   .new-content {
@@ -1764,4 +2107,34 @@
   .lastSection > img:nth-child(4) {
     right: 315px;
   }
+}
+
+.endSlide {
+  height: 100%;
+  width: 100%;
+  color: #ff0000;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  font-size: 40px;
+  margin-top: 90px;
+  margin-left: -16svw;
+}
+
+.mobileGrid {
+  display: none;
+}
+
+.right {
+  right: 25px;
+  transform: rotate(180deg);
+}
+.right,
+.left {
+  position: absolute;
+  height: 50px;
+  top: 400px;
+}
+.left {
+  left: 25px;
 }

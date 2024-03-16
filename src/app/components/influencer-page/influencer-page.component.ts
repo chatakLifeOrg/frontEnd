@@ -86,7 +86,6 @@ export class InfluencerPageComponent implements AfterViewInit, OnDestroy {
         this.renderer.addClass(newElement, 'new-content'); // Add a class to the new div
         const newText = this.renderer.createText(text);
         this.renderer.appendChild(newElement, newText);
-        newElement.style.marginTop = '15px'
         newElement.style.fontFamily = 'Montserrat'
         this.renderer.appendChild(wholeDiv, newElement);
       }
@@ -108,13 +107,21 @@ export class InfluencerPageComponent implements AfterViewInit, OnDestroy {
 
   ngOnInit() {
     switch (true) {
-      case window.innerWidth <= 376:
+      case window.innerWidth <= 320:
         this.width = 153;
         this.imgArr = this.mobileimgArr
         break;
-      case window.innerWidth <= 426:
+      case window.innerWidth <= 376:
+        this.width = 158;
         this.imgArr = this.mobileimgArr
-        this.width = 155;
+        break;
+      case window.innerWidth <= 425:
+        this.imgArr = this.mobileimgArr
+        this.width = 170;
+        break;
+      case window.innerWidth <= 430:
+        this.imgArr = this.mobileimgArr
+        this.width = 156;
         break;
       default:
         this.width = 52;
@@ -632,13 +639,21 @@ export class InfluencerPageComponent implements AfterViewInit, OnDestroy {
     multiForm.style.transform = `translateX(0svw)`;
     this.nextSlide = 0
     switch (true) {
+      case window.innerWidth <= 320:
+        this.width = 153;
+        this.imgArr = this.mobileimgArr
+        break;
       case window.innerWidth <= 376:
         this.width = 158;
         this.imgArr = this.mobileimgArr
         break;
-      case window.innerWidth <= 426:
+      case window.innerWidth <= 425:
         this.imgArr = this.mobileimgArr
-        this.width = 155;
+        this.width = 170;
+        break;
+      case window.innerWidth <= 430:
+        this.imgArr = this.mobileimgArr
+        this.width = 156;
         break;
       default:
         this.width = 52;
@@ -651,7 +666,7 @@ export class InfluencerPageComponent implements AfterViewInit, OnDestroy {
   async nextForm(next?: string) {
     const multiForm = this.el.nativeElement.querySelector('.multipleForms')
     if (next) {
-      // this.sendMail(JSON.stringify(this.multipleForms.value))
+      this.sendMail(JSON.stringify(this.multipleForms.value))
     }
     this.nextSlide = this.nextSlide - this.width;
     multiForm.style.transform = `translateX(${this.nextSlide}svw)`;
