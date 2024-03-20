@@ -89,9 +89,47 @@
             }
           </label>
         </div>
-        <div class="button-container">
-          <button type="submit"  [disabled]="!AddressForm.valid">Continue</button>
         </div>
+        <div class="button-container">
+          <button type="submit"(click)="nextInput('popup,orderSummary')"[disabled]="!AddressForm.valid">Save</button>
       </div>
     </form>
   </div>
+<div class="orderSummary">
+  <div class="cartDailbox">
+    <div class="popup-header" >
+      <h2>Order Summary</h2>
+      <div class="close-icon" (click)="close()">
+        <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"
+            fill="white" />
+        </svg>
+      </div>
+    </div>
+    <hr class="popupLine" style="margin-bottom: 30px;" />
+    <div class="Summary">
+      @for(item of CartBill; track CartBill;){
+      <div class="menu-item">
+        <div class="line" style=" border-bottom: 1px solid #A9A9A9; ">
+          <p>{{ item.type }}</p>
+          <p>{{ item.price }}</p>
+        </div>
+        <div class="line" style=" border-bottom: 1px solid #A9A9A9; ">
+          <p>{{ item.describe }}</p>
+          <p>{{ item.addGst }}</p>
+        </div>
+        <div class="line" style=" border-bottom: 1px solid #A9A9A9; ">
+          <p>{{ item.getShipping }}</p>
+          <p>{{ item.ShippingCharge }}</p>
+        </div>
+        <div class="line">
+          <p>{{ item.total }}</p>
+          <p>{{ item.price}}</p>
+        </div>
+      </div>
+      }
+      <button type="submit" (click)="openOrderConfirmationPage()">Continue To Payment</button>
+    </div>
+  </div>
+</div>

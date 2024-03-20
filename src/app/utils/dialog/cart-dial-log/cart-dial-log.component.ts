@@ -1,9 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, OnInit, Renderer2, } from '@angular/core';
-// import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { FormGroup,FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-cart-dial-log',
   standalone: true,
@@ -13,11 +12,15 @@ import { FormGroup,FormBuilder, FormControl, ReactiveFormsModule, Validators } f
 })
 export class CartDialLogComponent implements OnInit{
   public imputForm!:FormGroup;
+  public CartBill = [
+    { type: 'Subtotal:', price: '₹700', describe: 'GST:', addGst: '₹50', getShipping: 'Shipping:', ShippingCharge: '₹50', total: 'Total:', totalPrice: '₹800' },
+  ];
   constructor(
     private el: ElementRef,
     private fb:FormBuilder,
     private dialogRef: MatDialogRef<CartDialLogComponent>,
-    private renderer:Renderer2
+    private renderer:Renderer2,
+    private route: Router
     ) {
 
   }
@@ -31,14 +34,38 @@ export class CartDialLogComponent implements OnInit{
       nextElement.style.display = 'flex'
     }, 300)
   }
-  capitalizeFirstLetter(control: FormControl) {
+capitalizeFirstLetter(control: FormControl) {
     const value = control.value;
     if (value.length > 0) {
       control.setValue(value.charAt(0).toUpperCase() + value.slice(1));
     }
+  }  submitForm() {
+    if (this.AddressForm.valid) {
+      console.log('Form submitted successfully!');
+     
+    } else {
+      console.log('Form is not valid. Please check the fields.');
+    }
   }
-  
-  AddressForm = new FormGroup({
+  openFileExplorer(currentElement: string) {
+    const input = this.renderer.createElement('input');
+    this.renderer.setAttribute(input, 'type', 'file');
+    this.renderer.setStyle(input, 'display', 'none');
+    this.renderer.listen(input, 'change', (event) => {
+      const files = (event.target as HTMLInputElement).files;
+      this.nextInput(currentElement);
+    });
+    this.renderer.appendChild(document.body, input);
+    input.click();
+  }
+  openOrderConfirmationPage(){
+    this.close(); 
+    this.route.navigate(['order-confirmation'])
+  }
+  close(){
+    this.dialogRef.close()
+  }
+AddressForm = new FormGroup({
     firstName: new FormControl('', [
       Validators.required,
       Validators.minLength(2),
@@ -90,31 +117,6 @@ export class CartDialLogComponent implements OnInit{
     ]),
     agreeTerms: new FormControl('', [Validators.requiredTrue]),
   });
- 
-    submitForm() {
-    if (this.AddressForm.valid) {
-      console.log('Form submitted successfully!');
-     
-    } else {
-      console.log('Form is not valid. Please check the fields.');
-    }
-  }
-  openFileExplorer(currentElement: string) {
-    const input = this.renderer.createElement('input');
-    this.renderer.setAttribute(input, 'type', 'file');
-    this.renderer.setStyle(input, 'display', 'none');
-    this.renderer.listen(input, 'change', (event) => {
-      const files = (event.target as HTMLInputElement).files;
-      this.nextInput(currentElement);
-    });
-    this.renderer.appendChild(document.body, input);
-    input.click();
-  }
-
-  close(){
-    this.dialogRef.close()
-  }
-
   ngOnInit(): void {
     const firstNameControl = this.AddressForm.get('firstName') as FormControl;
     const lastNameControl = this.AddressForm.get('lastName') as FormControl;
@@ -134,7 +136,7 @@ export class CartDialLogComponent implements OnInit{
     this.imputForm = this.fb.group({
       text:['',[Validators.required,Validators.pattern('[a-zA-Z]+')]]
     })
-    const parentElement = this.el.nativeElement.querySelector(`.dialog`)
+    const parentElement = this.el.nativeElement.querySelector(`.popup`)
     parentElement.style.display = 'flex'
   }
 

@@ -5,6 +5,7 @@ import { CategoryPageComponent } from './components/category/category.component'
 import { CartPageComponent } from './components/cart-page/cart-page.component';
 import {InfluencerPageComponent} from './components/influencer-page/influencer-page.component';
 import {MyOrderPageComponent} from './components/my-order-page/my-order-page.component';
+import {OrderConfirmationComponent} from './components/order-confirmation/order-confirmation.component';
 export const routes: Routes = [{
   path: '',
   pathMatch: 'prefix',
@@ -48,6 +49,12 @@ export const routes: Routes = [{
       pathMatch: 'prefix',
       title: 'myOrder',
       data: { breadcrumb: 'myOrder' },
+    },{
+      path: 'order-confirmation',
+      loadComponent: () => import('./components/order-confirmation/order-confirmation.component').then(mod => mod.OrderConfirmationComponent),
+      pathMatch: 'prefix',
+      title: 'order-confirmation',
+      data: { breadcrumb: 'order-confirmation' },
     }
   ],
 },

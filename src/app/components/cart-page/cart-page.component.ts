@@ -18,7 +18,6 @@ import {
     MatGridListModule,
     CommonModule,
     MatIconModule,
-   
     NavbarComponent,
     MatDialogActions, MatDialogClose, MatDialogTitle, MatDialogContent
   ],
@@ -93,11 +92,11 @@ export class CartPageComponent implements OnInit {
   
   openDialogbox() {
     this.dialogService.open(CartDialLogComponent, {
-      height: '44vw',
-      width: '60vw',
+      height: '40vw',
+      width: '47vw',
       closeOnNavigation: true,
       hasBackdrop: true,
-      panelClass: 'modalPopup',
+      panelClass: 'cartPopup',
       enterAnimationDuration: '150ms'
     })
   }
@@ -114,6 +113,8 @@ export class CartPageComponent implements OnInit {
     return shippingCharge + addGst + totalPrice;
   }
 
+  
+ 
   
 
 }

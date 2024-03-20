@@ -1,6 +1,5 @@
 .container-fluid {
-    margin-left: 80px;
-    margin-right: 80px;
+   padding: 0 7vw;
     height: max-content;
     margin-top: 2.8%;
     overflow: hidden;
@@ -21,21 +20,12 @@
     .item-details {
         text-align: center;
         display: flex;
-        // gap: 20px;
 
     }
 
     h2 {
         margin: 0;
         font-size: 32px;
-    }
-
-    .item-line {
-
-        width: 100px;
-        margin-left: 50px;
-        border-top: 1px solid #A9A9A9;
-        margin-top: 17px;
     }
 }
 
@@ -282,7 +272,7 @@ hr {
         border-radius: 8px;
         position: relative;
         box-shadow: 5px 5px 0px 0px black;
-        ;
+       
         border-top: 2px solid black;
         border-left: 2px solid black;
     }
@@ -353,23 +343,6 @@ hr {
     }
 }
 
-
-.receivedItem-Popup {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    overflow-y: scroll;
-    background-color: white;
-    border-radius: 35px;
-    border: 2px solid black;
-    width: 600px;
-    height: 600px;
-    padding: 20px;
-    padding-top: 40px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    z-index: 9999;
-}
 
 .orderConfirmationOuter {
     width: 100%;

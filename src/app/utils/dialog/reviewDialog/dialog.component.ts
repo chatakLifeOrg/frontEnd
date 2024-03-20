@@ -25,7 +25,7 @@ export class DialogComponent implements OnInit {
   nextInput(elements: string) {
     const parentElement = this.el.nativeElement.querySelector(`.${elements.split(',')[0]}`)
     const nextElement = this.el.nativeElement.querySelector(`.${elements.split(',')[1]}`)
-    parentElement.setAttribute('check', 1)
+    parentElement.setAttribute()
     setTimeout(() => {
       parentElement.style.display = 'none'
       nextElement.style.display = 'flex'
